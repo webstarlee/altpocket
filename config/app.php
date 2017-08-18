@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', $_SERVER['HTTP_CF_CONNECTING_IP'] == '194.22.49.425' ? true : false),
+    'debug' => env('APP_DEBUG'),
 
     /*
     |--------------------------------------------------------------------------
