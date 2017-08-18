@@ -1,0 +1,321 @@
+/*=============== video-area css ================*/
+.video-area{
+    background: #f8fafc;
+    overflow: hidden;
+}
+.video-description{
+    padding-right: 105px;
+    padding-top: 152px;
+    max-width: 570px;
+    margin-left: auto;
+    margin-right: 0px;
+    .th-h2{
+        font-size: 36px;
+        line-height: 60px;
+        padding-bottom: 20px;
+        text-transform: uppercase;
+    }
+    .play-btn{
+        font: 700 14px/20px $open;
+        color: $blue;
+        letter-spacing: 1px;
+        background: none;
+        border: none;
+        box-shadow: none;
+        text-shadow: none;
+        text-transform: uppercase;
+        border-bottom: 1px solid $blue;
+        padding: 30px 0px 0px;
+    }
+}
+.videoWrapper{
+    position: relative;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    @media (min-width:1921px){
+        height: 595px;
+    }
+    &169 {
+        padding-top: 63.5%;
+        @media (min-width:1921px){
+           padding: 0px;
+        }
+    }
+    .videoIframe {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: 0px;
+    }
+    .videoPoster{
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        border: 0;
+        outline: none;
+        background-position: 0 50%;
+        background: url("../image/video-img.jpg") no-repeat scroll center 0;
+        background-size: cover;
+        overflow: hidden;
+        opacity: 1;
+        -webkit-transition: opacity 800ms, height 0s;
+        -moz-transition: opacity 800ms, height 0s;
+        transition: opacity 800ms, height 0s;
+        -webkit-transition-delay: 0s, 0s;
+        -moz-transition-delay: 0s, 0s;
+        transition-delay: 0s, 0s;
+        z-index: 1;
+        &:before{
+            content: "\e6ad";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            margin: -40px 0 0 -40px;
+            background: #fff;
+            border-radius: 50%;
+            font-size: 25px;
+            font-family: 'themify';
+            speak: none;
+            line-height: 80px;
+            color: $blue;
+            -webkit-font-smoothing: antialiased;
+            z-index: 0; 
+        }
+        &:after{
+            position: absolute;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            left: 0;
+            background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            opacity: 0.80;
+            z-index: -1;
+        }
+    }
+    &.videoWrapperActive{
+        .videoPoster{
+            opacity: 0;
+            transition-delay: 0s, 800ms;
+            height: 0;
+        }
+    } 
+}
+.ebook-video{
+    .video-description{
+        padding-bottom: 194px;
+        padding-top: 180px;
+        .th-h2{
+            font-weight: 600;
+        }
+        p{
+            font-size: 18px;
+            line-height: 32px;
+            color: $dk-gray;
+            padding-bottom: 40px;
+        }
+        .sub_btn-two{
+            max-width: 200px;
+            height:52px;
+            line-height: 38px;
+            background: #f88e40;
+            border-color: #f88e40;
+            &:hover{
+                background: #eb8337;
+                border-color: #eb8337;
+            }
+            & +.sub_btn-two{
+                margin-left: 20px;
+            }   
+        }
+    }
+    .video{
+        position: relative;
+        height: 674px;
+        iframe{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 0px;
+        }
+    }
+}
+
+/*============== video-area2 css ==============*/
+.video-area2{
+    background: url("../image/video/video-bg.jpg") no-repeat scroll center 0;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    .video-content{
+        color: #fff;
+        position: relative;
+        z-index: 1;
+        padding: 183px 0px 193px;
+        &:before{
+            content: "";
+            width: 25000px;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+            opacity: 0.851;
+            right: -133px;
+            transform: skew(31deg);
+            z-index: -1;
+            opacity: 0.65;
+        }
+        h2{
+            font: 400 35px/48px $mont;
+            padding-bottom: 27px;
+        }
+        p{
+            font: 400 15px/28px $open;
+        }
+        .play-btn{
+            color: #fff;
+            display: inline-block;
+            font: 700 14px/40px $open;
+            letter-spacing: 1px;
+            margin-top: 35px;
+            text-transform: uppercase;
+            position: relative;
+            &:before{
+                content: '';
+                width: 125px;
+                height: 2px;
+                position: absolute;
+                bottom: 0px;
+                left: 69px;
+                background: #fff;
+            }
+            i{
+                font-size: 48px;
+                line-height: 40px;
+                vertical-align: middle;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+/*============== Start video-features css ==============*/
+.video-features{
+    background: #f8fafc;
+    height: 902px;
+    .app-video{
+        text-align: center;
+        min-height: 600px;
+        position: relative;
+        box-shadow: 0px 13px 35px 0px rgba(0, 0, 0, 0.25);
+        z-index: 1;
+        color: #fff;
+        margin-top: 85px;
+        overflow: hidden;
+        &:before{
+            content: "";
+            background-size: cover;
+            background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            position: absolute;
+            opacity: 0.85;
+            background-position: center;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        &:after{
+            content: '';
+            background: url("../image/video/app-video-bg.jpg") no-repeat scroll center 0;
+            position: absolute;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        h5{
+            font: 400 30px/60px $mont;
+            padding-top: 15px;
+        }
+        .text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            display: block;
+        }
+    }
+}
+/*============== End video-features css ==============*/
+
+/*=========== Start promo-video css=============*/
+.promo-video{
+    background: url('../image/product/promo-bg.jpg') no-repeat scroll center 0;
+    background-size: cover;
+    text-align: center;
+    padding: 102px 0px 400px;
+    .section-title{
+        margin-bottom: 185px;
+        h2{
+            color: #fff;
+        }
+    }
+}
+/*=========== End promo-video css=============*/
+
+/*=========== Start pr-2-video css =========*/
+.pr-2-video{
+    background: url(../image/video/pr-2-video-bg.jpg) no-repeat scroll center 0;
+    background-size: cover;
+    padding:360px 0px 253px; 
+    .section-title {
+        margin-top: 35px;
+        margin-bottom: 0px
+    }
+}
+/*=========== End pr-2-video css =========*/
+
+/*======== video mfp popup css =========*/
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+	opacity: 0;
+    transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+    opacity: 1;
+}
+.mfp-with-zoom.mfp-ready.mfp-bg {
+    opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container, 
+.mfp-with-zoom.mfp-removing.mfp-bg {
+	opacity: 0;
+}

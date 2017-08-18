@@ -1,0 +1,105 @@
+.td-color-theme-demos{
+    color: #000;
+    font-family: $open;
+    position: fixed;
+    top: 0;
+    right: -307px;
+    width: 300px;
+    background-color: #fff;
+    z-index: 99999;
+    height: 100%;
+    box-shadow: -3px 0px 10px 0px rgba(26, 38, 74, 0.15);
+    visibility: visible;
+    .td-skin-body{
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        .td-skin-wrap{
+            height: 100%;
+            position: absolute;
+            overflow-y: scroll;
+            width: 317px;
+            z-index: 1;
+            padding: 36px 35px 60px;
+        }
+    }
+}
+a.settingBtn {
+    background: #fff none repeat scroll 0 0;
+    color: #fff;
+    font-size: 24px;
+    height: 45px;
+    right: 100%;
+    position: absolute;
+    text-align: center;
+    box-shadow: -3px 0px 10px 0px rgba(26, 38, 74, 0.15);
+    width: 50px;
+    line-height: 42px;
+    color: #1aabec;
+    top: 110px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    i{
+        animation: fa-spin 2s infinite linear;
+    }
+}
+.sw-logo{
+    padding:0px 0px 10px 4px;
+}
+.td-title{
+    font:400 18px/30px $mont;
+    color: #222;
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 25px;
+    padding: 22px 0px 12px 4px;
+}
+.td-sw-color{
+    overflow: hidden;
+    padding-bottom:12px; 
+    padding-top: 5px;
+    a{
+        width: 30px;
+        height: 30px;
+        display: block;
+        float: left;
+        color: #fff;
+        text-align: center;
+        margin: 0px 4px;
+        transition: .5s;
+        border-radius: 3px;
+        i{
+            display: none;
+        }
+        &.color1{
+            background: #1aabec;
+        }
+        &.color2{
+            background: #1574d4;
+        }
+        &.color3{
+            background: #eb1478;
+        }
+        &.color4{
+            background: #14e06e;
+        }
+        &.color5{
+            background: #f88e40;
+        }
+        &.color6{
+            background: #5b75e7;
+        }
+        &.active{
+            i{
+                display: block;
+                font-size: 15px;
+                line-height: 30px;
+            }
+        }
+    }
+}
+.td-sw-demo{
+    .td-set-theme-style{
+        float: left;
+        padding: 5px;
+    }
+}

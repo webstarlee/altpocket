@@ -1,0 +1,25 @@
+<form id="addTaskForm" class="form-horizontal">
+<ul class="card-actions icons right-top">
+    <li>
+     <a href="javascript:void(0)" data-task="delete">
+     <i class="zmdi zmdi-delete"></i>
+    </a>
+      </li>
+    <li>
+    <a href="javascript:void(0)" data-task="cancel">
+      <i class="zmdi zmdi-close"></i>
+    </a>
+  </li>
+</ul>
+<div class="form-group is-empty">
+  <div class="input-group">
+    <label for="editTaskInput" class="control-label sr-only">Edit Task</label>
+  <input type="text" class="form-control" id="editTaskInput" placeholder="Title">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-primary btn-fab animate-fab btn-fab-sm" data-task="save-task">
+      <i class="zmdi zmdi-plus"></i>
+    </button>
+  </span>
+ </div>
+</div>
+</form>

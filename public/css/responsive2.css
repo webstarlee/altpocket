@@ -1,0 +1,2267 @@
+@media (min-width:1921px){
+    /*--------slider banner responsive---------*/
+    .col-height {
+        height: 800px;
+    }
+    .general-item .wrapper .line-box{
+        display: none;
+    }
+    .seo-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+@media (max-width:1690px){
+    .general-features::before{
+        left: 195px;
+    }
+    .col-height {
+        height: 445px;
+    }
+    .two-row .right-inner-content.two-features {
+        padding-right: 80px;
+    }
+    .right-inner-content.two-features{
+        padding-left: 100px;
+    }
+    .right-inner-content .features-content h2{
+        padding-right: 0px;
+    }
+    /*----slider3 responsive-------*/
+    .slider3{
+        min-height: 100%;
+        padding: 200px 0px;
+        height: 100%;
+    }
+    .slider3-img{
+        bottom: -89px;
+    }
+    .slider3-img img{
+        max-width: 70%;
+    }
+    .slider3-subcribe{
+        height: auto;
+    }
+    .slider3-subcribe .slider3-content{
+        position: relative;
+        top: 0px;
+        left: 0px;
+        transform: translate(0px);
+    }
+    .slider-app {
+        padding: 200px 0px 112px;
+    }
+    /*----more-related-pr responsive-------*/
+    .more-related-pr .owl-prev{
+        left: 10px
+    }
+    .more-related-pr .owl-next{
+        right: 10px
+    }
+    /*----seo-banner  responsive-------*/
+    .seo-usability-3 {
+        padding: 240px 0px 116px;
+    }
+    .seo-img .single-img img{
+        max-width: 100%;
+    }
+    .seo-img .single-img.left {
+        left: 128px;
+    }
+    .seo-img .single-img.right {
+        right: 132px;
+    }
+    .seo-img .single-img.middle {
+        bottom: -100px;
+    }
+    .seo-features3::before{
+        right: -350px;
+    }
+}
+@media(max-height:700px){
+  .slide-banner .page-title-img{
+      width: 35%;
+  }
+}
+@media(max-height:900px){
+  .slide-banner .page-title-img{
+      width: 35%;
+  }
+}
+
+@media (max-width:1400px){
+    .col-height .right-inner-content{
+        padding-left: 80px;
+    }
+    .two-row .right-inner-content{
+        padding-left: 0px;
+        padding-right: 80px;
+    }
+    .features-content p {
+        padding-bottom: 30px;
+    }
+    /*--------slider banner responsive---------*/
+    .slide-banner{
+        height: 800px;
+    }
+    .slide-banner .page-title-img{
+        width: 56%;
+    }
+    .lrg-text{
+        top: 37%;
+    }
+    .lrg-text .input-group {
+        margin: 24px auto 0px;
+    }
+    .slider2{
+        padding-top: 170px;
+    }
+    .slider-subcribe .s-conten{
+        position: relative;
+        top: 0px;
+        left: 0px;
+        transform: translate(0px, 0px);
+    }
+    .slider-subcribe{
+        height: 100%;
+    }
+    .slider3{
+        height: 100%;
+    }
+    .seo-img{
+        width: 1190px;
+    }
+/*
+    .seo-text p {
+        padding: 0px 170px;
+    }
+*/
+    .seo-img .single-img.left,.seo-img .single-img.right{
+        max-width: 30%;
+        bottom: -6px;
+    }
+    .seo-usability-3 {
+        padding: 200px 0px 116px;
+    }
+    .startup-slider{
+        padding-top: 225px;
+    }
+    .seo-slider{
+        height: auto !important;
+        padding-bottom: 100px;
+    }
+    /*--------.usability3 responsive---------*/
+    .usability3 {
+        padding-top: 110px;
+    }
+    /*--------video-description responsive---------*/
+    .video-description{
+        padding-right: 60px;
+        padding-top: 80px;
+    }
+    /*--------get_touch-area responsive---------*/
+    .get_touch .right_inner_content{
+        padding-left: 50px;
+    }
+    /*------features-area2 responsive------*/
+    .right-inner-content.two-features .features-content {
+        max-width: 475px;
+    }
+    .two-row .right-inner-content.two-features {
+        padding-right: 40px;
+    }
+    .two-features .features-content h2{
+        font-size: 26px;
+        line-height: 38px;
+    }
+    /*--------call-action2-area responsive--------*/
+    .call-action2-area{
+        padding: 140px 0px 154px;
+    }
+    /*-------- general-features responsive--------*/
+    .general-features::before {
+        left: 325px;
+    }
+    .general-item .wrapper .line-box{
+        width: 346px;
+    }
+    .general-item .wrapper .line-box.line2 {
+        width: 250px;
+    }
+    .ebook-video .video-description{
+        padding: 89px 0px 80px;
+    }
+    .ebook-video .video{
+        height: 470px;
+    }
+    .sync1 {
+        padding: 85px 0px;
+    }
+    .product-single{
+        padding-top: 20px;
+    }
+
+    .lrg-text .mchimp-errmessage, .lrg-text .mchimp-sucmessage{
+        bottom: -35px;
+    }
+}
+@media (max-width:1199px){
+    .navbar.navbar-default .navbar-collapse .menu li {
+        margin-right: 18px;
+    }
+    .navbar.navbar-default .nav-right li .g-btn{
+        padding: 0px 18px;
+    }
+    /*-------- general-features responsive--------*/
+    .general-features::before {
+        left: 391px;
+        height: 109%;
+    }
+    /*-------slider two responsive--------*/
+    .subcribe-form {
+        padding: 50px 32px 60px;
+    }
+    .slider-text h2{
+        font-size: 53px;
+    }
+    .slider3-img{
+        bottom: -60px;
+    }
+    /*-------slider three responsive--------*/
+    .slider3-img img {
+        max-width: 50%;
+    }
+    .startup-content {
+        padding-top: 80px;
+    }
+    .slider-text.app-videos p {
+        padding: 40px 20px 70px;
+    }
+    /*-------seo-banner responsive--------*/
+    .seo-banner{
+        height: 750px;
+    }
+    .seo-img {
+        width: 992px;
+    }
+    .appslider .slide3-text .slider-text h2{
+        font-size: 53px;
+    }
+    .seoslider .slider-text{
+        max-width: 454px;
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+    /*-------usability-area responsive css--------*/
+    .usability-area .user .user-item {
+        text-align: center;
+        padding: 45px 0px 0px;
+    }
+    /*-------features-content f-pading responsive css--------*/
+    .features-content.f-pading{
+        padding-top: 10px;
+    }
+    .features-content.f-pading h2{
+        font-size: 30px;
+        line-height: 35px;
+        padding-bottom: 18px;
+    }
+    /*-------features-content responsive css--------*/
+    .col-height {
+        height: 360px;
+    }
+    .features-content h2,.two-features .features-content h2{
+        font-size: 25px;
+        line-height: 36px;
+        padding-bottom: 18px;
+    }
+    .features-content{
+        max-width: 400px;
+    }
+    .left-inner-content{
+        text-align: left;
+    }
+    .left-inner-content img{
+        width: 100%;
+        max-width: none;
+        height: 104%;
+    }
+    .col-height .right-inner-content {
+        padding-left: 50px;
+    }
+    .two-row .right-inner-content {
+        padding-right: 45px;
+    }
+    .two-row .right-inner-content .features-content .request-form .form-control{
+        width: 48%;
+    }
+    /*-------graphical-area responsive css--------*/
+    .graphical-area {
+        height: 625px;
+    }
+
+    /*-------features-area3 responsive css--------*/
+    .features-area3 .tab-content .tab-pane .tab-text{
+        padding-right: 0px;
+        padding-top: 20px;
+    }
+    .features-area3 .tab-content .tab2 .tab-text{
+        padding-left: 0px;
+        padding-top: 20px;
+    }
+    /*-------power-features responsive css--------*/
+    .power-features-item {
+        padding: 30px 0px 32px 0px;
+    }
+    /*--------video-description responsive---------*/
+    .videoWrapper169{
+        height: 400px;
+    }
+    .video-description {
+        padding-right: 0px;
+        padding-top: 75px;
+        max-width: 450px;
+    }
+    /*-------faq area responsive------*/
+    .faq .faq-content {
+        padding-right: 5px;
+    }
+    .faq .faq-content.right-fq{
+        padding-left: 5px;
+    }
+    /*-------blog-area responsive-------*/
+    .blogs .blog-item .texts {
+        padding: 20px 0px 40px 20px;
+    }
+    /*--------get_touch-area responsive---------*/
+    .get_touch .right_inner_content {
+        width: calc(50% + 133px);
+        padding-left: 80px;
+    }
+    /*--------footer-area responsive---------*/
+    .footer-top .footer_sidebar .widget.widget_twitter {
+        padding-right: 15px;
+    }
+    .footer-top .footer_sidebar .widget.widget_instagram .instagram-feed li:nth-child(3), .footer-top .footer_sidebar .widget.widget_instagram .instagram-feed li:nth-child(6){
+        margin-right: 6px;
+    }
+    /*--------power-full-features-area responsive---------*/
+    .pow-features .pow-feature-items .power-features-item{
+        margin-top: 0px
+    }
+    .pow-features .pow-feature-items.text-right{
+        padding-right: 15px;
+    }
+    .pow-features .pow-feature-items{
+        padding-left: 0px;
+    }
+    /*--------call-action3 responsive---------*/
+    .call-action3-area{
+        padding: 150px 0px 147px;
+    }
+    .call-action3 .call-text p{
+        padding-right: 0px;
+    }
+    /*--------faq-area2 responsive---------*/
+    .faq-inner-accordion .panel .panel-heading .panel-title a{
+        font-size: 14px;
+    }
+    .faq-inner-accordion .panel .panel-heading .panel-title a i{
+        margin-right: 18px;
+    }
+    .faq-inner-accordion .panel .panel-collapse .panel-body{
+        padding-left: 78px;
+    }
+    /*--------pr-features-area responsive---------*/
+    .pr-f-area{
+        padding-top: 80px;
+        max-width: 100%;
+        padding-bottom: 80px;
+    }
+    .single-pr-content .th-h2{
+        font-size: 29px;
+    }
+    /*------hot-features-area responsive------*/
+    .hots-features-items .item h2{
+        font-size: 17px;
+        line-height: 30px;
+    }
+    .hots-features-items .item .pulse-wrapper:before{
+        width: 104px;
+        left: -36%;
+    }
+    .hots-features-items .item .pulse-wrapper{
+        top: -13px;
+    }
+    .hots-features-items.right-hots-items .item .pulse-wrapper:before {
+        right: -33%;
+    }
+    /*-----hand product area responsive-----*/
+    .picked-content h2{
+        font-size: 27px;
+        line-height: 38px;
+        padding-bottom: 30px;
+    }
+    /*-----pr-more-features area responsive-----*/
+    .pr-more-features .more-features {
+        padding-top: 0px;
+    }
+    /*----more-related-pr responsive-------*/
+    .more-related-pr .owl-prev,.more-related-pr .owl-next{
+        opacity: 0;
+        visibility: hidden;
+    }
+    .more-related-pr:hover .owl-prev,.more-related-pr:hover .owl-next{
+        opacity: 1;
+        visibility: visible;
+    }
+    .related-slider2 .related-pr-img{
+        padding-right: 0px;
+        padding-bottom: 30px;
+    }
+    .more-related-pr {
+        padding: 62px 0px 80px;
+    }
+    .sngle-pr-2 .single-pr-content{
+        padding-top: 0px;
+    }
+
+    /*----blog-area responsive-------*/
+    .blog-sidebar {
+        padding-left: 0px;
+    }
+    .post-widget .media .media-left {
+        padding-right: 12px;
+        padding-top: 10px;
+    }
+    .post-widget .media .media-body ul li + li{
+        margin-left: 0px;
+    }
+    .flicker-widget .ri-grid ul li {
+        height: 93px !important;
+        width: 93px !important;
+    }
+    .seo-features3::before {
+        right: -495px;
+    }
+    .seo-pr-slider .user-item .th-h2 {
+        font-size: 20px;
+    }
+    .seo-subcribe::after{
+        left: 0;
+    }
+    .right-sidebar-blog .blog-sidebar{
+        padding-right: 0px;
+    }
+     /*========kickstarter-heroresponsive=========*/
+    .kickstarter-content h2{
+        padding-right: 0;
+    }
+    .pr-2-features-content .th-h2{
+        font-size: 35px;
+    }
+    /*=======hero ebook section responsive css======== */
+    .ebook-contain{
+        padding-right: 0px;
+    }
+    .ebook-contain .ebook-btn{
+        padding: 17px 35px;
+    }
+    .ebook-contain h2{
+        font-size: 41px;
+    }
+    .author-bio p{
+        font-size: 14px;
+    }
+    .author-bio {
+        padding-top: 25px;
+    }
+}
+
+@media (max-width:991px){
+    /*-------start header responsive--------*/
+    .navbar.navbar-default .navbar-collapse.navbar-right {
+        padding-right: 15px;
+        margin: 0px;
+    }
+    .navbar.navbar-default .navbar-collapse .menu li{
+        padding-left: 15px;
+        margin-right: 0px;
+    }
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a{
+        color: #fff;
+    }
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li.current a{
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar.navbar-default.pr-menu.pr2-menu .menu li.current a{
+        border-color: #fff;
+        color: #fff;
+    }
+    .navbar.navbar-default{
+        padding: 20px 0px 0px;
+        border-color: transparent;
+    }
+    .navbar.navbar-default .navbar-header .navbar-brand {
+        line-height: 40px;
+    }
+    .navbar-header{
+        padding-bottom: 20px;
+    }
+    .nav-right li{
+        display: inline-block;
+    }
+    .navbar-collapse{
+        border-top: 0px;
+        box-shadow: none;
+        background: rgb(58,123,213);
+    }
+
+    /*=========new header responsive===========*/
+    .navbar.navbar-default .nav-right li a{
+        top: 3px;
+    }
+    .navbar.navbar-default .nav-right li .g-btn{
+        top: 0px;
+    }
+    .navbar.navbar-default .nav-right{
+        position: absolute;
+        top: 8px;
+        right: 17%;
+    }
+    .navbar.navbar-default.pr-menu .navbar-collapse .pr2-menu li a,.navbar.navbar-default.startup-menu .navbar-collapse .menu2 li a,.navbar.navbar-default.ebook-menu .ebook2-menu li a,.navbar.navbar-default.ebook-menu .menu li a:hover{
+        color: #fff;
+    }
+    .navbar.navbar-default.pr-menu .navbar-collapse .pr2-menu li a:hover,.navbar.navbar-default.pr-menu .navbar-collapse .pr2-menu li.current a,.navbar.navbar-default.startup-menu .navbar-collapse .menu2 li a:hover,.navbar.navbar-default.startup-menu .navbar-collapse .menu2 li.current a,.navbar.navbar-default.ebook-menu .menu li a:hover{
+        border-color: #fff;
+    }
+    .navbar.navbar-default.ebook-menu li.search_dropdown a{
+        color: #f88e40;
+    }
+    .stricky-fixed .navbar.navbar-default.ebook-menu li.current a,.navbar.navbar-default.ebook-menu .menu li.current a{
+        color: #fff;
+        border-color: #fff;
+    }
+    .stricky-fixed .navbar.navbar-default.ebook-menu li a:hover{
+        color: #f88e40;
+        border-color: #f88e40;
+    }
+    /*--------slider banner responsive---------*/
+    .lrg-text {
+        top: 42%;
+    }
+    /*-------slider two responsive--------*/
+    .subcribe-form {
+        padding: 50px 20px 60px;
+    }
+    .slider-text h2,.slide3-text .slider-text h2{
+        font-size: 40px;
+        line-height: 42px;
+    }
+    .startup-content {
+        padding-top: 56px;
+    }
+    .startup-content h2{
+        line-height: 50px;
+    }
+    /*-------slider three responsive--------*/
+    .slider3-img{
+        display: none;
+    }
+    .st-slider-text p {
+        padding: 38px 0px 0px;
+    }
+    .startup-slider {
+        padding-top: 200px;
+    }
+    .st-slider-text .subcribe{
+        max-width: 500px;
+    }
+    .st-slider-text .subcribe label .sub_btn-two {
+        max-width: 200px;
+    }
+    .st-slider-text{
+        padding: 0px 15px;
+    }
+    .slide-banner.slider-app{
+        height: 100%;
+    }
+    .appslider .slide3-text {
+        padding-top: 70px;
+    }
+    .appslider .slide3-text .slider-text h2 {
+        font-size: 40px;
+        line-height: 55px;
+    }
+    .appslider .sub_btn-two{
+        max-width: 190px;
+    }
+    .seo-banner.seo-slider{
+        padding-top: 180px;
+    }
+    .seoslider .slider-text h2{
+        font-size: 33px;
+        line-height: 45px;
+    }
+    .seoslider .slider-text p{
+        font-size: 16px;
+        padding-bottom: 35px;
+    }
+    /*-------features-content f-pading responsive css--------*/
+    .features-content.f-pading {
+        padding-top: 0px;
+    }
+    .features-content.f-pading h2{
+        font-size: 25px;
+    }
+    /*-------features-area2 responsive--------*/
+    .col-height{
+        height: auto;
+        padding: 0px 15px 60px;
+    }
+    .left-inner-content{
+        width: 100%;
+        text-align: center;
+    }
+    .left-inner-content img{
+        max-width: 100%;
+        height: auto;
+    }
+    .col-height .right-inner-content{
+        display: block;
+        width: 100%;
+        padding-left: 0px;
+        padding-top: 30px;
+    }
+    .pr-2-image-features{
+        padding-top: 80px;
+    }
+    .features-content,.right-inner-content.two-features .features-content{
+        max-width: 100%;
+    }
+    .two-row .right-inner-content .features-content .request-form .form-control {
+        width: 49%;
+    }
+    .two-row .right-inner-content .features-content .request-form .form-control + .form-control {
+        margin-left: 2%;
+    }
+    .two-row .right-inner-content,.two-row .right-inner-content.two-features{
+        padding-right: 0px;
+    }
+    /*-------call-action-area responsive css--------*/
+    .call-action-area .call-action-text{
+        margin-right: 0px;
+        margin-bottom: 20px;
+        line-height: 35px;
+    }
+
+    /*-------graphical-area responsive css--------*/
+    .graphical-area {
+        height: 506px;
+    }
+    /*-------features-area3 responsive css--------*/
+    .features-area3 .features-tab{
+        border-bottom: 0px;
+    }
+    .features-area3 .features-tab li {
+        margin: 0px;
+        width: 50%;
+    }
+    .features-area3 .features-tab li a,.features-area3 .features-tab li.active a{
+        border-bottom: 1px solid #e0e0e0;
+    }
+    .tab-col{
+        width: 100%;
+    }
+    .features-area3 .tab-content .tab-pane .feat-img{
+        margin-top: 30px;
+    }
+    .features-area3 .tab-content .tab-pane .feat-img img{
+        width: 100%;
+    }
+    .features-area3 .tab-content {
+        padding-top: 35px;
+    }
+    .features-area3 .tab-content .tab2 .tab-text {
+        padding-top: 40px;
+    }
+    .hot-features-area .section-title p{
+        padding: 0px;
+    }
+    /*--------video-description responsive---------*/
+    .videoWrapper169{
+        height: auto;
+    }
+    .video-description {
+        padding: 75px 15px;
+        max-width: 100%;
+    }
+    /*--------priceing-area responsive---------*/
+    .priceing-tab {
+        padding: 50px 0px 0px;
+    }
+    .price {
+        margin-top: 30px;
+    }
+    /*----------compare-area responsive-------*/
+    .compare-table-are .table tbody tr td .purchase-btn{
+        padding: 4px 40px;
+    }
+    .compare-table-are .table tr th:first-child, .compare-table-are .table tr td:first-child{
+        padding-left: 30px;
+    }
+    /*-------faq area responsive------*/
+    .faq .faq-content .faq-item + .faq-item {
+        margin-top: 25px;
+    }
+    /*--------get_touch-area responsive---------*/
+    .get_touch-area {
+        padding-bottom: 65px;
+    }
+    .get_touch-area .map {
+        height: 450px;
+        position: relative;
+        width: 100%;
+    }
+    .get_touch .right_inner_content {
+        width: 100%;
+        padding-left: 15px;
+        padding-top: 30px;
+        padding-right: 15px;
+        min-height: auto;
+    }
+    .get_touch .right_inner_content .contact-form .thm-btn{
+        float: none;
+    }
+    .get_touch .right_inner_content .contact-form{
+        max-width: 100%;
+    }
+    /*-------awosome-feature responsive css--------*/
+    .power-features-item.awosome-f{
+        margin-top: 0px;
+    }
+    .awosome-feature {
+        padding: 100px 0px 80px;
+    }
+    /*--------footer area responsive---------*/
+    .footer-top .footer_sidebar .widget.widget_contact ul{
+        padding-bottom: 32px;
+    }
+    .footer-top .footer_sidebar .widget{
+        margin-bottom: 30px;
+    }
+    .footer-top {
+        padding: 78px 0px 46px;
+    }
+    .footer_bottom{
+        font-size: 14px;
+    }
+    /*-------video area2 responsive-------*/
+    .video-area2 .video-content:before{
+        right: -140px;
+            transform: skew(0deg);
+    }
+    /*-------screenshots-slider area responsive-------*/
+    .screenshots-slider .owl-dots{
+        margin-top: 20px;
+    }
+    /*-------pow-features area responsive-------*/
+    .pow-features .pow-feature-items{
+        text-align: center;
+        padding: 0px 15px;
+    }
+    .pow-features .pow-feature-items.text-right{
+        padding-left: 15px;
+    }
+    .pow-features .middle-img{
+        margin: 20px 0px;
+    }
+    .power-full-features-area {
+        padding: 63px 0px 52px;
+    }
+    /*-------awosome-feature video-features responsive-------*/
+    .video-features{
+        height: 100%;
+        padding-top: 80px;
+    }
+    .video-features .app-video{
+        min-height: 420px;
+        margin-top: 60px;
+    }
+    /*-------team-area-2 responsive-------*/
+    .team-area-2{
+        padding-top: 90px;
+    }
+    .call-action3 .call-mobile-img img{
+        max-width: 65%;
+    }
+    .app-btn{
+        width: 196px;
+    }
+    /*--------faq-area2 responsive---------*/
+    .faq-inner-accordion,.pr-2-faq .faq-inner-accordion {
+        margin-top: 50px;
+    }
+    .faq-area-2 .faq-img{
+        padding-left: 15px;
+    }
+    .pr-2-faq .pr-2-faq-inner {
+        padding-top: 10px;
+    }
+    /*--------pr-features-area responsive---------*/
+    .pr-f-area {
+        padding-top: 80px;
+        max-width: 100%;
+        padding-bottom: 80px;
+    }
+    .single-pr-content .price{
+        max-width: 100%;
+        margin-top: 0px;
+    }
+    /*------hot-features-area responsive------*/
+    .hot-features {
+        padding-top: 25px;
+    }
+    .hots-features-items{
+        padding-left: 15px;
+        padding-top: 0px;
+    }
+    .hots-features-items .item{
+        text-align: left;
+    }
+    .hots-features-items .item h2{
+        font-size: 20px;
+        line-height: 55px;
+    }
+    .hots-features-items .item + .item{
+        margin-top: 30px;
+    }
+    .hots-img {
+        margin: 40px 0px;
+    }
+    .hots-features-items .item .pulse-wrapper{
+        display: none;
+    }
+    /*-----hand product area responsive-----*/
+    .picked-content{
+        margin-top: 40px;
+    }
+    .picked-content h2 {
+        font-size: 25px;
+        line-height: 35px;
+        padding-bottom: 24px;
+    }
+    .picked-content p {
+        padding-bottom: 40px;
+    }
+    /*-----pr-more-features area responsive-----*/
+    .pr-more-features .more-features .power-features-item{
+        padding: 10px 0px 15px 0px;
+    }
+    /*----- magic-area responsive-----*/
+    .magic-content .th-h2{
+        margin-bottom: 20px;
+    }
+    .magic-area {
+        padding: 85px 0px 100px;
+    }
+    .magic-content .product-btn{
+        margin-top: 55px;
+    }
+    /*----- promo-video responsive-----*/
+    .promo-video {
+        padding: 102px 0px 160px;
+    }
+    .promo-video .section-title {
+        margin-bottom: 45px;
+    }
+    /*----- pr-2-power-features responsive-----*/
+    .pr-2-features-content {
+        padding-top: 10px;
+    }
+    .pr-2-features-content .th-h2 {
+        font-size: 27px;
+        line-height: 35px;
+    }
+    .power-features-pr-2 .pow-features .middle-img{
+        margin-bottom: 40px;
+    }
+    .pow-features {
+        margin-top: 45px;
+    }
+    /*-----general-features responsive-----*/
+    .general-item .wrapper{
+        display: none;
+    }
+    .general-features::before{
+        display: none;
+    }
+    .general-features{
+        padding-top: 80px;
+        padding-bottom: 78px;
+    }
+    .ex-pr .pull-right{
+        float: none !important;
+    }
+    .ex-pr-slider{
+        padding-top: 0px;
+        padding-bottom: 50px;
+        padding-right: 0px;
+    }
+    .regular-work-section{
+        padding: 90px 0px 95px;
+    }
+    /*----blog-area responsive-------*/
+    .blog-section{
+        padding-right: 0px;
+        padding-top: 0px;
+    }
+    .blog-sidebar {
+        margin-top: 50px;
+    }
+    .post-widget .media .media-left {
+        padding-right: 20px;
+        padding-top: 0px;
+    }
+    .post-widget .media .media-body ul li + li{
+        margin-left: 10px;
+    }
+    .flicker-widget .ri-grid {
+        width: 44%;
+    }
+    .flicker-widget .ri-grid ul li {
+        height: 112px !important;
+        width: 112px !important;
+    }
+    .blog-sidebar .widget + .widget{
+        margin-top: 45px;
+    }
+    .right-sidebar-blog .blog-section{
+        padding-left: 0px;
+    }
+    .flicker-widget .ri-grid ul {
+        width: 290px;
+    }
+    .slide-banner {
+        height: 740px;
+    }
+    .seo-banner {
+        padding-top: 250px;
+    }
+    .seo-video{
+        padding: 180px 0px 120px;
+        height: auto !important;
+    }
+    .seo-img {
+        width: 768px;
+    }
+    .seo-text p {
+        padding: 0px;
+    }
+    .seo-img .single-img.middle {
+        bottom: -40px;
+    }
+    .seo-img .single-img.left, .seo-img .single-img.right {
+        max-width: 30%;
+        bottom: -3px;
+    }
+    .seo-usability-3 {
+        padding: 120px 0px 116px;
+    }
+    .seo-usability3 .user .user-item .th-h2{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .usability-area .user .user-item h2 {
+        font-size: 22px;
+        line-height: 42px;
+    }
+    .usability-area .user .user-item {
+        padding: 30px 0px 0px;
+    }
+    .range-content .section-title p {
+        padding: 10px 0px 18px;
+    }
+    .seo-rang-area {
+        padding: 80px 0px;
+    }
+    .seo-features3::before{
+        display: none;
+    }
+    .seo-features3{
+        padding: 100px 0px 100px;
+    }
+    .seo-features3 .features-content{
+        max-width: 100%;
+        padding-top: 0px;
+        margin-top: 0px !important;
+    }
+    .seo-pr-slider .user-item{
+        padding: 52px 15px;
+    }
+    .seo-review-slider .review-content {
+        padding: 40px 15px;
+    }
+    .price .pricing-box .purchase-btn{
+        padding: 4px 30px;
+    }
+    .rev_slider ul li .pr-image img{
+        display: none;
+    }
+    .kickstarter-content h2{
+        font-size: 44px;
+        line-height: 50px;
+    }
+    .kickstarter-content {
+        padding-top: 0px;
+    }
+    .larg-btn + .larg-btn{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .kickstarter-hero {
+        padding: 218px 0px 180px;
+    }
+    /*=======hero ebook section responsive css======== */
+    .ebook-contain{
+        padding-top: 0px;
+    }
+    .ebook-contain h2{
+        font-size: 30px;
+        line-height: 45px;
+    }
+    .ebook-contain .ebook-btn + .ebook-btn{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .hero-section-ebook {
+        padding: 180px 0px 140px;
+    }
+    .ebook-video .video-description {
+        padding: 89px 20px 80px;
+    }
+    .general-feature2 .pr-2-features-content{
+        padding-top: 80px;
+    }
+    .ebook-faq .th-h2{
+        font-size: 28px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-collapse .panel-body{
+        padding-left: 50px;
+    }
+    .ebook-faq .faq-inner-accordion {
+        margin-top: 30px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a{
+        font-size: 17px;
+    }
+    .faq-area2{
+        padding-top: 87px;
+        padding-bottom: 70px;
+    }
+    .author-bio .author-name h2{
+        font-size: 25px;
+        line-height: 25px;
+    }
+    .author-bio p{
+        width: 100%;
+    }
+    .author-bio p + p{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .ebook-btn .sub_btn-two + .sub_btn-two{
+        margin-left: 0px;
+        margin-top: 15px;
+    }
+    .about-author-area{
+        padding-bottom: 120px;
+    }
+    .product-desc .price{
+        margin-top: 0px;
+    }
+    .product-desc{
+        width: calc(100% - 340px);
+    }
+    .product-box .product-img-gallery{
+        width: 340px;
+    }
+    .product-box{
+        max-width: 750px;
+    }
+    .product-desc .description{
+        margin-bottom: 0px;
+        padding: 13px 0px 16px;
+    }
+    .startup-video{
+        padding-bottom: 100px;
+        height: auto !important;
+    }
+}
+@media (max-width:800px){
+    .navbar.navbar-default .nav-right {
+        right: 10%;
+    }
+}
+@media (max-width:767px){
+    .g-btn-2 {
+        right: 65px;
+    }
+    .menu-nav .navbar-collapse{
+        border: 0px;
+        box-shadow: none;
+    }
+    .fullmenu-nav .navbar-header a {
+        padding: 0px 2px;
+    }
+    /*-------slider two responsive--------*/
+    .slider2 {
+        padding-top: 58px;
+        height: 850px;
+    }
+    .slider-text h2,.slide3-text .slider-text h2{
+        font-size: 35px;
+        line-height: 55px;
+    }
+    .slider-text {
+        text-align: center;
+        padding-top: 50px;
+    }
+    .slider-text p{
+        padding-top: 10px;
+    }
+    .subcribe-form{
+        margin: 30px auto 0px;
+    }
+    .slider3{
+        padding: 180px 0px 150px;
+    }
+    .slide3-text .slider-text{
+        max-width: 100%;
+    }
+    .slide3-text .slider-text .sub_btn-two:last-child {
+        margin-left: 10px;
+    }
+    .seo-img .single-img.middle {
+        bottom: 0;
+    }
+    .slide-banner {
+        height: 620px;
+        padding-top: 133px;
+    }
+    .startup-slider{
+        padding-top: 70px;
+    }
+    .slider-app{
+        padding-bottom: 100px;
+    }
+    .appslider .slide3-text {
+        padding-top: 20px;
+    }
+    .appslider .img{
+        text-align: center;
+        margin-top: 40px;
+    }
+    .appslider-video{
+        height: 100%;
+    }
+    .slider-text.app-videos p{
+        padding: 18px 0px 50px;
+    }
+    .larg-btn + .larg-btn {
+        margin-top: 50px;
+        margin-left: 15px;
+    }
+    .kickstarter-image{
+        margin-top: 50px;
+    }
+    .seoslider .slider-text{
+        max-width: 100%;
+        margin: 0px auto 40px;
+    }
+    .seoslider .slider-text h2{
+        padding-right: 0px;
+    }
+    /*-----hero section area responsive------*/
+    .hero-content h1{
+        font-size: 45px;
+    }
+    /*--------usability area responsive css---------*/
+    .usability-area .section-title{
+        margin-bottom: 0px;
+    }
+    .usability-area .user{
+        max-width: 290px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .usability-area {
+        padding: 62px 0px 76px;
+    }
+    .seo-usability-3{
+        padding-top: 72px;
+    }
+    /*-------features-content f-pading responsive css--------*/
+    .f-image{
+        float: none;
+        text-align: center;
+    }
+    .f-image img{
+        display: inline-block;
+    }
+    .features-content.f-pading{
+        margin-top: 50px;
+    }
+    /*-------features-content responsive css--------*/
+    .features-area {
+        padding: 80px 0px;
+    }
+    /*-------graphical-area responsive css--------*/
+    .graphical-area {
+        height: 450px;
+        padding-top: 62px;
+    }
+    /*--------slider banner responsive---------*/
+    .lrg-text {
+        top: 50%;
+        padding: 0px 15px;
+    }
+    .lrg-text h2 {
+        font-size: 34px;
+        line-height: 50px;
+    }
+    .lrg-text .input-group {
+        max-width: 475px;
+        margin: 40px auto 40px;
+    }
+    /*--------product-area responsive---------*/
+    .products-area {
+        padding: 62px 0px 70px;
+    }
+    /*--------fun-fact-area responsive---------*/
+    .fun-fact-area{
+        padding: 50px 0px 64px;
+    }
+    .fact-item{
+        margin-top: 40px;
+    }
+    /*-------power-features responsive css--------*/
+    .power-features {
+        padding: 63px 0px 44px;
+    }
+    .power-features-item {
+        padding: 20px 0px 25px 0px;
+    }
+    /*--------priceing-area responsive---------*/
+    .pricing-area {
+        padding: 64px 0px 80px;
+    }
+    .priceing-tab {
+        padding: 50px 0px 0px;
+    }
+    .price {
+        max-width: 400px;
+        margin: 30px auto 0px;
+    }
+    .price .pricing-box .purchase-btn {
+        padding: 4px 67px;
+    }
+    /*--------pricing-area2 responsive---------*/
+    .pricing-area2 .price-section {
+        padding-top: 20px;
+    }
+    /*----------compare-area responsive-------*/
+    .compare-area {
+        padding: 60px 0px 65px;
+    }
+    /*----------review-area responsive-------*/
+    .review-area{
+        padding: 61px 0px 70px;
+    }
+    .review-area i{
+        padding-top: 5px;
+    }
+    .review-slider .owl-dots{
+        margin-top: 50px;
+    }
+    /*-------faq area responsive------*/
+    .faq {
+        padding-top: 0px;
+    }
+    .faq .faq-content .faq-item + .faq-item {
+        margin-top: 16px;
+    }
+    .faq-area {
+        padding: 62px 0px 80px;
+    }
+    /*----------blog area responsive-------*/
+    .blogs{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .blogs .blog-item{
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .blogs .blog-item .img img{
+        width: 100%;
+    }
+    .blog-area {
+        padding: 65px 0px 80px;
+    }
+    .blogs .blog-item .texts{
+        padding-right: 15px;
+    }
+    /*----------clients-logo-area responsive-------*/
+    .clients-logo-area {
+        padding: 68px 0px 80px;
+    }
+    .clients-logo-area .section-title h2{
+        font-size: 30px;
+        line-height: 45px;
+    }
+    .clients-lg-slider {
+        padding-top: 30px;
+    }
+    /*----------support-item responsive-------*/
+    .support-item {
+        max-width: 400px;
+        margin: 0px auto 30px;
+    }
+    .support-area{
+        padding: 80px 0px 50px;
+    }
+    /*--------footer area responsive---------*/
+    .footer_bottom{
+        text-align: center;
+        padding: 20px 0px;
+    }
+    .footer_bottom .footer-menu{
+        text-align: center;
+        margin-top: 10px;
+    }
+    /*-------video-area2 responsive-------*/
+    .video-area2 .video-content {
+        padding: 82px 0px 100px;
+    }
+    /*-------call-action2-area responsive-----*/
+    .call-action2-area{
+        background-position: 0;
+    }
+    /*-----portfolio area responsive-----*/
+    .portfolio-area {
+        padding: 64px 0px 80px;
+    }
+    .portfolio-area .portfolio-filter{
+        margin-top: 40px;
+    }
+    /*------team area responsive-------*/
+    .team-member .team-item{
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .team-area {
+        padding: 62px 0px 80px;
+    }
+    /*------lt-blog-area responsive------*/
+    .lt-blog-area {
+        padding: 74px 0px 66px;
+    }
+    /*------screenshots-area responsive------*/
+    .screenshots-area {
+        padding: 60px 0px 72px;
+    }
+    .screenshots-slider .screenshot{
+        margin-bottom: 30px;
+    }
+    /*-------pow-features area responsive-------*/
+    .power-full-features-area {
+        padding: 63px 0px 52px;
+    }
+    /*-------awosome-feature video-features responsive-------*/
+    .video-features{
+        text-align: center;
+    }
+    .call-action3 .call-mobile-img{
+        display: none;
+    }
+    .call-action3-area {
+        padding: 90px 0px 100px;
+    }
+    /*-------faq-area-2 area responsive-------*/
+    .faq-area-2 {
+        padding: 62px 0px 80px;
+    }
+    .faq-area-2 .faq-img{
+        float: none !important;
+        padding-left: 0px;
+    }
+    /*------hot-features-area responsive------*/
+    .hot-features-area {
+        padding: 62px 0px 77px;
+    }
+    /*-----hand-product-area responsive------*/
+    .hand-product-area{
+        padding: 87px 0px;
+    }
+    /*-----products-gallery responsive------*/
+    .products-gallery{
+        padding: 62px 0px 75px;
+    }
+    /*-----pr-more-features area responsive-----*/
+    .power-feat .p-img{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .power-feat .p-img img{
+        display: inline-block
+    }
+    .pr-more-features .more-features .power-features-item{
+        padding: 30px 0px 32px 0px;
+    }
+    .pr-more-features {
+        padding: 65px 0px 46px;
+    }
+    /*-----product-gallery2 responsive------*/
+    .product-gallery2 .item .content{
+        padding: 50px 0px 0px;
+    }
+    .pr-dot .owl-dots {
+        margin-top: 60px;
+    }
+    .related-slider .rel-item .product-btn{
+        width: 190px;
+    }
+    /*-----tech-space-area responsive------*/
+    .tech-space-area {
+        padding: 74px 0px 60px;
+    }
+    .tech-space {
+        padding-top: 0px;
+    }
+    .product-info-area {
+        padding: 80px 0px 50px;
+    }
+    .pr-info-item{
+        margin-bottom: 30px;
+    }
+    /*----- pr-2-power-features responsive-----*/
+    .pr-2-features {
+        padding-top: 20px;
+    }
+    .pr-2-features-content{
+        padding-bottom: 50px;
+    }
+    .pr-2-power-features {
+        padding: 62px 0px 75px;
+    }
+    /*----- sngle-pr-2-area responsive-----*/
+    .sngle-pr-2-area {
+        padding: 80px 0px;
+    }
+    .sngle-pr-2 .single-pr-content{
+        padding-top: 50px;
+    }
+    .ex-pr-details {
+        padding-top: 80px;
+    }
+    /*----- hand-product-area2 responsive-----*/
+    .hand-product-area2 {
+        padding: 63px 0px 80px;
+    }
+    .hand-product-area2 .hand-pr-img{
+        padding-top: 40px;
+    }
+    /*----- shop-product-pr-2  responsive-----*/
+    .shop-product-pr-2 {
+        padding: 62px 0px 80px;
+    }
+    .shop-pr-slider {
+        padding-top: 10px;
+    }
+    /*----- reviews-area-pr-2  responsive-----*/
+    .reviews-area-pr-2 {
+        padding: 62px 0px 75px;
+    }
+    .reviews-slider2 .review-content{
+        padding: 40px 20px;
+    }
+    .reviews-slider2 {
+        padding-top: 0px;
+    }
+    .seo-img {
+        width: 100%;
+    }
+    .seo-img .single-img.left, .seo-img .single-img.right{
+        display: none;
+    }
+    .seo-features .features-content{
+        margin-top: 50px;
+    }
+    .seo-features2{
+        padding: 80px 0px;
+    }
+    .seo-features2 .features-content{
+        margin-top: 0px;
+    }
+    .seo-features2 img{
+        float: left;
+        margin-top: 50px;
+    }
+    .seo-review-slider .review-content{
+        margin: 50px 0px 30px;
+        padding: 40px 15px;
+        box-shadow: 0px 0px 13px 0px rgba(105, 152, 192, 0.15);
+    }
+    .seo-review-slider .review-content .media .media-left{
+        padding-right: 10px;
+    }
+    .seo-review-slider .review-content .media .media-body h2{
+        font-size: 15px;
+    }
+    .seo-review-slider .review-content .media .media-body h4{
+        font-size: 12px;
+    }
+    .seo-review-slider .review-content p{
+        font-size: 16px;
+        padding-bottom: 0px;
+    }
+    .seo-review .row{
+        margin: 0px;
+    }
+    .larg-btn + .larg-btn {
+        margin-left: 0px;
+        padding: 9px 34px;
+    }
+    .larg-btn{
+        padding: 9px 27px;
+    }
+    .kickstarter-project{
+        padding-top: 0px;
+    }
+    .kickstarter-project .pull-right{
+        float: none !important;
+    }
+    .kickstarter-project .kickstart-project-img{
+        text-align: left;
+        margin-bottom: 25px;
+        padding-top: 25px;
+    }
+    .kickstarter-project .pr-2-features-content{
+        padding-bottom: 0px;
+    }
+    .ebook-img{
+        margin-top: 30px;
+    }
+    .ebook-contain .ebook-btn + .ebook-btn{
+        margin-left: 10px;
+    }
+    .hero-section-ebook {
+        padding: 150px 0px 120px;
+    }
+    .general-feature2 .pr-2-features-content{
+        padding-top: 0px;
+    }
+    .general-feature2 {
+        padding: 80px 0px;
+    }
+    .ebook-chapter-area {
+        padding: 65px 0px 70px;
+    }
+    /*
+    .ebook-slider{
+        padding-top: 35px;
+    }
+    */
+    .rev_slider .ebook-contain .ebook-btn{
+        display: block;
+    }
+    .rev_slider .ebook-contain .ebook-btn + .ebook-btn{
+        margin-left: 0px !important;
+    }
+    .ipad-img{
+        position: relative;
+        margin-top: 50px;
+        max-width: 100%;
+    }
+    .faq-area2 {
+        padding-bottom: 0px;
+    }
+    .about-author-area{
+        padding: 80px 0px;
+    }
+    .author-bio{
+        padding-top: 35px;
+    }
+    .ebook-btn .sub_btn-two + .sub_btn-two{
+        margin-top: 0px;
+        margin-left: 10px;
+    }
+    .lrg-text .mchimp-errmessage, .lrg-text .mchimp-sucmessage{
+        bottom: 0px;
+    }
+    .product-box .product-img-gallery,.product-desc{
+        max-width: 100%;
+        width: 100%;
+    }
+    #product-imgs{
+        padding: 60px 0px 95px;
+    }
+    #product-imgs .carousel-indicators{
+        bottom: 60px;
+    }
+    .personal-info .form-group{
+        margin-bottom: 10px;
+    }
+    .blog-video iframe{
+        min-height: 350px;
+    }
+}
+@media (max-width:680px){
+    .footer-top .footer_sidebar .widget{
+        width: 100%;
+    }
+    .footer-top .footer_sidebar .widget.widget_contact ul {
+        padding-bottom: 0px;
+    }
+    .footer_bottom .footer-menu li + li {
+        padding-left: 10px;
+    }
+}
+@media (max-width:650px){
+    .subcribe-form {
+        padding: 20px 20px 30px;
+    }
+    /*-------graphical-area responsive css--------*/
+    .graphical-area {
+        height: auto;
+        padding-bottom: 80px;
+    }
+    .graphical-area .section-title {
+        margin-bottom: 50px;
+    }
+    /*-------features-area3 responsive css--------*/
+    .features-area3{
+        padding-top: 63px;
+        padding-bottom: 70px;
+    }
+    .features-area3 .section-title {
+        margin-bottom: 55px;
+    }
+    .features-area3 .features-tab li{
+        width: 100%;
+    }
+    /*--------priceing-area responsive---------*/
+    .price-tab li{
+        width: 100%;
+        margin: 10px 0px 10px;
+    }
+    .price-tab li.active a,.price-tab li:last-child a{
+        border-radius: 40px;
+    }
+    /*-------call-action2-area responsive-----*/
+    .call-action2-area{
+        background-position: -200px;
+    }
+    .slider-btn{
+        width: 180px;
+    }
+    /*----- magic-area responsive-----*/
+    .magic-content .product-btn{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .magic-content .product-btn + .product-btn{
+        margin-top: 15px;
+        margin-left: auto;
+    }
+    .more-related-pr .owl-prev, .more-related-pr .owl-next {
+        top: 25%;
+    }
+    .more-related-pr .owl-prev i, .more-related-pr .owl-next i {
+        font-size: 30px;
+    }
+    .pr-info-item{
+        width: 100%;
+    }
+    /*-----hero section area responsive------*/
+    .hero-content h1 {
+        font-size: 33px;
+    }
+    .pr-2-call-action .pr-2-btn {
+        width: 196px;
+    }
+    /*----blog-area responsive-------*/
+    .blog-items .blog-content{
+        padding: 20px 15px;
+    }
+    .post-info li{
+        font-size: 14px;
+        line-height: 30px;
+    }
+    .comments .comment .media-left {
+        padding-right: 12px;
+    }
+    .seo-text h2{
+        font-size: 28px;
+        line-height: 40px;
+        padding-bottom: 20px;
+    }
+    /*------seo-banner respnsive------*/
+    .seo-banner{
+        height: 500px;
+    }
+    .seo-subcribe::after{
+        display: none;
+    }
+    .uranus.tparrows{
+        display: none;
+    }
+}
+@media (max-width:550px){
+    .larg-btn + .larg-btn{
+        margin-top: 10px;
+    }
+    .pro-main-hero .hero-content h1{
+        letter-spacing: 0px;
+    }
+    .ebook-contain .ebook-btn + .ebook-btn {
+        margin-left: 0px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a{
+        padding-left: 51px;
+        line-height: 30px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a i{
+        position: absolute;
+        left: 0px;
+    }
+    .ebook-faq .faq-inner-accordion .panel + .panel {
+        margin-top: 15px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-collapse .panel-body{
+        padding-right: 0px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a{
+        font-size: 16px;
+        line-height: 25px;
+    }
+    .ebook-btn .sub_btn-two{
+        display: block;
+    }
+    .ebook-btn .sub_btn-two + .sub_btn-two{
+        margin-top: 15px;
+        margin-left: 0px;
+    }
+    .author-bio .author-name h2 {
+        font-size: 20px;
+    }
+}
+@media (max-width:480px){
+    .navbar.navbar-default .nav-right {
+        right: 14%;
+    }
+    .navbar.navbar-default .nav-right li .g-btn{
+        margin-left: 10px;
+        padding: 0px 22px;
+    }
+    /*-------slider two responsive--------*/
+    .slide-banner.slider2 {
+        padding-top: 58px;
+        height: 850px;
+    }
+    .slider-text p {
+        font-size: 16px;
+        line-height: 30px;
+        padding-top: 13px;
+    }
+    .subcribe-form {
+        max-width: 320px;
+        padding: 20px 20px 30px;
+    }
+    .subcribe-form .sub_btn{
+        width: 205px;
+    }
+    .slide3-text .slider-text .sub_btn-two{
+        display: block;
+        margin: 0 auto;
+    }
+    .slide-banner.slider3 {
+        padding: 150px 0px 100px;
+        height: 100%;
+    }
+    .slide3-text .slider-text .sub_btn-two:last-child{
+        margin-left: auto;
+        margin-top: 10px;
+    }
+    .slide-banner.slider2.startup-img{
+        height: 520px;
+    }
+    .startup-content{
+        padding-top: 80px;
+    }
+    .startup-content h2{
+        line-height: 40px;
+    }
+    .slide-banner.slider2.startup-slider {
+        padding-top: 70px;
+        height: auto;
+        padding-bottom: 70px;
+    }
+    .st-slider-text .subcribe label{
+        position: relative;
+        top: 0;
+        margin-top: 15px;
+    }
+    .st-slider-text .subcribe {
+        max-width: 100%;
+        margin-top: 24px;
+    }
+    .st-slider-text h2{
+        line-height: 50px
+    }
+    .slide-banner.slider3.slider-app {
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+    .appslider .slide3-text .slider-text h2 {
+        font-size: 28px;
+        line-height: 45px;
+    }
+    .appslider .img{
+        padding-left: 0px
+    }
+    .kickstarter-content h2 {
+        font-size: 33px;
+        line-height: 50px;
+    }
+    .seoslider .img{
+        display: none;
+    }
+    .seoslider .slider-text{
+        margin-bottom: 0px;
+    }
+    .seoslider .owl-dots{
+        margin-top: 40px;
+    }
+    .seo-banner.seo-slider {
+        padding-top: 150px;
+        padding-bottom: 100px;
+    }
+    /*--------section title responsive ---------*/
+    .section-title h2{
+        font-size: 28px;
+        line-height: 35px;
+    }
+    /*-------features-content f-pading responsive css--------*/
+    .features-content.f-pading h2{
+        font-size: 23px;
+        padding-bottom: 28px;
+    }
+
+    .features-area3 .tab-content .tab-pane .tab-text h2{
+        font-size: 21px;
+        line-height: 30px;
+    }
+    .features-area3 .tab-content .tab-pane .tab-text ul li a{
+        font-size: 15px;
+        line-height: 30px;
+    }
+    /*--------slider banner responsive---------*/
+    .slide-banner .page-title-img{
+        display: none;
+    }
+    .slide-banner{
+        height: 545px;
+        padding-top: 0px;
+    }
+    .lrg-text{
+        padding-top: 15px;
+    }
+    .lrg-text h2 {
+        font-size: 26px;
+        line-height: 40px;
+    }
+    .lrg-text .input-group{
+        margin-bottom: 0px;
+        max-width: 100%;
+    }
+    .lrg-text .input-group .form-control{
+        border-radius: 5px;
+        margin-bottom: 15px;
+    }
+    .lrg-text .input-group .input-group-btn,.lrg-text .input-group .input-group-btn .btn-submit{
+        display: inline-block;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .lrg-text .mchimp-errmessage, .lrg-text .mchimp-sucmessage {
+        bottom: -32px;
+    }
+    /*------seo-banner respnsive------*/
+    .seo-banner{
+        padding: 143px 0px 125px;
+        height: auto;
+    }
+    .seo-img {
+        display: none;
+    }
+    /*-------features-area2 responsive--------*/
+    .two-row .right-inner-content .features-content .request-form .form-control {
+        width: 100%;
+    }
+    .two-row .right-inner-content .features-content .request-form .form-control + .form-control {
+        margin-left: 0px;
+    }
+    /*-------mockup area responsive--------*/
+    .mockup-area {
+        padding: 80px 0px 40px;
+    }
+    /*-------power-features responsive css--------*/
+    .power-features-item .media-left{
+        padding-right: 25px;
+    }
+    /*--------video-description responsive---------*/
+    .video-description .th-h2 {
+        font-size: 29px;
+    }
+    .videoWrapper .videoPoster::before{
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        margin: -30px 0px 0px -30px;
+    }
+    /*-------faq area responsive------*/
+    .faq .faq-content .faq-item h2{
+        line-height: 30px;
+        padding-bottom: 15px;
+    }
+    .faq .faq-content{
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+    .faq .faq-content.right-fq {
+        padding-left: 0px;
+        padding-bottom: 0px;
+    }
+    /*----------footer responsive css----------*/
+    .footer-top .footer_sidebar .widget.widget_instagram .instagram-feed{
+        max-width: 300px;
+    }
+    .video-area2 .video-content h2{
+        font-size: 27px;
+        line-height: 35px;
+    }
+    /*----------portfolio-area responsive css----------*/
+    .portfolio-area .portfolio-gallery .portfolio-item{
+        width: 100%;
+    }
+    .portfolio-area .portfolio-filter li + li {
+        margin-left: 15px;
+    }
+    /*----------subcribes-area responsive css----------*/
+    .subcribes.input-group{
+        display: block;
+    }
+    .subcribes.input-group .form-control{
+        border-radius: 5px;
+    }
+    .subcribes.input-group .input-group-btn .btn-submit{
+        width: 100%;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .support-area {
+        padding: 45px 0px 60px;
+    }
+    /*----------video-features responsive css----------*/
+    .video-features .app-video {
+        min-height: 330px;
+        margin-top: 50px;
+    }
+    .video-features .app-video h5{
+        font-size: 23px;
+        line-height: 50px;
+    }
+    /*----------team-area-2 responsive css----------*/
+    .team-member .tem-col{
+        width: 100%;
+    }
+    .app-btn{
+        display: block;
+    }
+    .app-btn + .app-btn{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    /*--------faq-area2 responsive---------*/
+    .faq-inner-accordion .panel .panel-heading .panel-title a i {
+        margin-right: 0px;
+        position: absolute;
+        left: 0;
+        line-height: 30px;
+    }
+    .faq-inner-accordion .panel .panel-heading .panel-title a{
+        padding: 10px 5px 10px 77px;
+        line-height: 30px;
+    }
+    /*--------pr-features-area responsive---------*/
+    .single-pr-content .th-h2 {
+        font-size: 24px;
+    }
+    /*------hot-features-area responsive------*/
+    .hots-features-items .item{
+        text-align: center;
+    }
+    .slider-btn{
+        display: block;
+    }
+    .rev_slider ul li .first_text{
+        letter-spacing: 1px !important;
+    }
+    .slider-btn + .slider-btn,.pr-2-call-action .pr-2-btn + .pr-2-btn{
+        margin-left: auto;
+        margin-top: 10px;
+    }
+    /*-----hand product area responsive-----*/
+    .product-btn{
+        width: 260px;
+    }
+     /*-----products-gallery-2 responsive-----*/
+    .product-gallery2 {
+        padding-top: 20px;
+    }
+    .product-gallery2 .item .content {
+        padding: 35px 0px 0px;
+    }
+    .related-slider .rel-item .product-btn{
+        width: 220px;
+    }
+    .tech-item{
+        width: 100%;
+        text-align: center;
+    }
+    /*-----hero section area responsive------*/
+    .hero-section-area{
+        padding-top: 140px;
+        min-height: auto;
+        padding-bottom: 100px;
+    }
+    .hero-content .slider-btn{
+        margin: 0 auto;
+    }
+    .hero-content .slider-btn + .slider-btn{
+        margin-top: 15px;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+        letter-spacing: 0px;
+    }
+    .pro-main-hero .hero-content h1 {
+        letter-spacing: 0px;
+        font-size: 28px;
+    }
+    .ex-pr-slider .th-h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .ex-pr-details .ex-pr {
+        padding-top: 25px;
+    }
+    .pr-2-call-action .pr-2-btn{
+        display: block;
+        margin: 0 auto;
+    }
+    .pr-2-call-action{
+        padding: 89px 0px 80px;
+    }
+    /*----blog-area responsive-------*/
+    .blog-items .blog-content h2 {
+        font-size: 20px;
+        line-height: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+    .comments .comment .media-left{
+        display: block;
+        padding-right: 0px;
+        padding-bottom: 25px;
+    }
+    .comments{
+        padding: 36px 15px 26px 15px;
+    }
+    .single-post blockquote{
+        font-size: 14px;
+        margin-left: 0px;
+        line-height: 24px;
+    }
+    .banner-area{
+        padding-top: 175px;
+    }
+    .contact-form input{
+        width: 100%;
+    }
+    .contact-form input + input{
+        margin-left: 0px;
+    }
+    .ebook-contain h2 {
+        font-size: 27px;
+        line-height: 35px;
+    }
+    .ebook-video .video-description .sub_btn-two{
+        display: block;
+    }
+    .ebook-video .video-description .sub_btn-two + .sub_btn-two{
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+    .ebook-call-action .sub_btn-two{
+        position: relative;
+        margin-top: 15px;
+    }
+    .rev_slider .ebook-contain .ebook-btn,.rev_slider .ebook-contain .price-box{
+        display: none;
+    }
+    .search_row .input-group .form-control{
+        font-size: 30px;
+    }
+    .search_row p{
+        font-size: 13px;
+    }
+    .cross-btn{
+        padding-top: 24px;
+        padding-right: 25px;
+    }
+    .st-slider-text .mailchimp .mchimp-errmessage, .st-slider-text .mailchimp .mchimp-sucmessage{
+        bottom: -22px;
+    }
+    .product-desc{
+        padding: 42px 15px 61px 15px;
+    }
+    .pay-btn{
+        width: 100%;
+    }
+    .blog-video iframe {
+        min-height: 250px;
+    }
+}
+@media (max-width:375px){
+    .navbar.navbar-default .nav-right {
+        right: 18%;
+    }
+    /*-------slider two responsive--------*/
+    .slider-text h2 {
+        font-size: 30px;
+        line-height: 42px;
+    }
+    .slide3-text .slider-text h2{
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .slide3-text .slider-text p {
+        padding: 26px 0px 40px;
+        font-size: 21px;
+        line-height: 36px;
+    }
+    /*--------section title responsive ---------*/
+    .section-title h2{
+        font-size: 23px;
+    }
+    /*--------slider banner responsive---------*/
+    .lrg-text h2 {
+        font-size: 24px;
+        line-height: 40px;
+    }
+    .lrg-text p {
+        font-size:18px;
+        line-height: 33px;
+    }
+    /*--------review-slider responsive---------*/
+    .review-slider .item p{
+        font-size: 16px;
+    }
+    /*-------power-features responsive css--------*/
+    .power-features-item,.pr-more-features .more-features .power-features-item{
+        text-align: center;
+        padding: 20px 0px 10px 0px;
+    }
+    .power-features-item .media-left{
+        display: block;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+    .features-content h2, .two-features .features-content h2{
+        font-size: 22px;
+    }
+    /*----------subcribes-area responsive css----------*/
+    .subcribes-area .section-title {
+        margin-bottom: 40px;
+    }
+    /*----------video-features responsive css----------*/
+    .video-features .app-video {
+        min-height: 300px;
+        margin-top: 50px;
+    }
+    /*-----magic area responsive------*/
+    .magic-content .th-h2{
+        font-size: 32px;
+    }
+    .magic-content p {
+        font-size: 18px;
+    }
+    .promo-video .section-title h2 {
+        font-size: 21px;
+    }
+    /*-----hero section area responsive------*/
+    .hero-content h1 {
+        font-size: 24px;
+        letter-spacing: 0px;
+    }
+    .banner-content h2{
+        font-size: 53px;
+        padding-bottom: 10px;
+    }
+    /*------blog area respnsive------*/
+    .post-info li{
+        display: block;
+    }
+    .post-info li + li{
+        margin-left: 0px;
+    }
+    .post-info li + li::before{
+        display: none;
+    }
+    .post-widget .media .media-left{
+        display: block;
+        padding-right: 0px;
+        padding-bottom: 20px;
+    }
+    .flicker-widget .ri-grid ul li{
+        height: 90px !important;
+        width: 90px !important;
+    }
+    .clients-logo-area .section-title h2 {
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .kickstarter-hero {
+        padding: 170px 0px 130px;
+    }
+    .kickstarter-content h2{
+        padding-bottom: 20px;
+        font-size: 26px;
+        line-height: 38px;
+    }
+    .ebook-contain h2 {
+        font-size: 21px;
+    }
+}

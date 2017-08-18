@@ -1,0 +1,50 @@
+<div class="card card-task-item transparent" data-drawer="open-right-lg">
+  <div data-task-id="0" class="bg-white">
+    <header class="card-heading">
+      <h2 class="card-title" data-task="title"></h2>
+    </header>
+    <div class="card-body">
+      <form id="addTaskForm" class="form-horizontal">
+        <div class="form-group is-empty">
+          <div class="input-group">
+            <label for="newTaskInput" class="control-label sr-only">New Task</label>
+            <input type="text" class="form-control" id="newTaskInput" placeholder="Title">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-primary btn-fab btn-fab-xs" data-task="save-task">
+                <i class="zmdi zmdi-check"></i>
+              </button>
+            </span>
+              <span class="input-group-btn">
+              <button type="button" class="btn btn-default btn-fab btn-fab-xs" data-task="cancel"><i class="mdi mdi-close"></i></button>
+            </span>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group user-group p-l-10" data-task="users">
+        <li class="list-group-item"></li>
+      </ul>
+      <p data-task="notes"></p>
+    </div>
+    <div class="card-footer border-top">
+      <ul class="card-actions icons left-bottom" data-task="metadata">
+        <li>
+          <i class="zmdi zmdi-attachment-alt"></i>
+          <span data-task-attchment="0">0</span>
+        </li>
+        <li>
+          <i class="zmdi zmdi-comment"></i>
+          <span data-task-comment="0">0</span>
+        </li>
+        <li>
+          <i class="mdi mdi-note-text"></i>
+          <span data-task-note="0">0</span>
+        </li>
+      </ul>
+      <ul class="card-actions right-bottom">
+        <li class="">
+          <span class="task-number"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

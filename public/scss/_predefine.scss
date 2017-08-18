@@ -1,0 +1,169 @@
+.p0{
+    padding: 0px;
+}
+ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+a{
+    text-decoration:none;
+    &:hover, &:focus{
+       text-decoration:none;
+    }
+}
+.row.m0{
+    margin: 0px;
+}
+
+body, p, h1, h2, h3, h4, h5, h6{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font: 400 15px/28px $open;
+    letter-spacing: 0px;
+    color: $p-color;
+    padding: 0px !important;
+    overflow-x: hidden !important;
+}
+
+a,.btn,button{
+    text-decoration: none;
+    outline: none;
+    &:hover,&:focus{
+        text-decoration: none;
+        outline: none;
+    }
+}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus{
+    outline: none;
+    box-shadow: none;
+}
+section, header, footer{
+    &.row{
+        margin: 0;
+    }
+}
+
+.section-title{
+    max-width: 650px;
+    margin: 0 auto 30px;
+    text-align: center;
+    h2{
+        font: 600 35px/60px $mont;
+        color: $dk-blue;
+        padding-bottom: 12px;
+        text-transform: uppercase;
+    }
+    &.sec-two{
+        h2{
+            text-transform: capitalize;
+        }
+    }
+}
+.th-h2{
+    font: 400 30px/60px $mont;
+    color: $dk-blue;
+}
+
+.overlay{
+    background: url('../image/features/fun-fact-bg1.png') no-repeat scroll center 0;
+    background-size: cover;
+    z-index: 1;
+    position: relative; 
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        background-image: -webkit-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        background-image: -ms-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        opacity: 0.979;
+        z-index: -1;
+    }
+}
+
+.overlay2{
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+        background-image: -ms-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+        background-image: -webkit-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+        opacity: 0.98;
+        z-index: -1; 
+    }
+}
+
+.bg-color{
+    background: #f8fafc;
+}
+
+/*============search form css =============*/
+.searchForm{
+    background: rgba(254,255,255, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9999;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    animation: fade-zoom-in .3s forwards;
+    opacity: 0;
+    visibility: hidden;
+    &.show{
+        z-index: 999999;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.cross-btn{
+    background-color: transparent;
+    border: 0;
+    font-size: 40px;
+    padding-top: 50px;
+    padding-right: 50px;
+    color: $dk-gray;
+    text-align: right;
+    cursor: pointer; 
+}
+.search_row {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    top: 46%;
+    animation: fade-zoom-in .3s forwards;
+    text-align: center;
+    color: $dk-gray;
+    .input-group{
+        width: 100%;
+        .form-control{
+            display: block;
+            width: 100%;
+            text-align: center;
+            border: 0;
+            box-shadow: none;
+            font: 400 70px $mont;
+            height: auto;
+            background: transparent;
+            color: #000;
+            @include placeholder{
+                color: $dk-gray;
+            }
+        }
+    }
+}

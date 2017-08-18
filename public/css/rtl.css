@@ -1,0 +1,381 @@
+.navbar-header{
+    float: right;
+}
+.navbar-header .navbar-brand{
+    float: right;
+}
+.navbar.navbar-default .navbar-collapse .menu li{
+    float: right;
+    margin-right: 0px;
+    margin-left: 40px;
+}
+.navbar.navbar-default .navbar-collapse.navbar-right,.navbar.navbar-default .nav-right{
+    float: left !important;
+}
+.navbar.navbar-default .nav-right li{
+    float: right;
+}
+.navbar.navbar-default .nav-right li .g-btn{
+    margin-left: 0px;
+    margin-right: 22px;
+}
+.call-action-area .call-action-text{
+    margin-right: 0px;
+    margin-left: 40px;
+}
+.features-content {
+    margin: 0px auto 0px 0px;
+}
+.features-content h2{
+    padding-right: 0px;
+}
+.two-row .right-inner-content .features-content .request-form .form-control{
+    padding-left: 0px;
+    padding-right: 30px;
+}
+
+.features-area3 .tab-content .tab-pane .tab-text ul li a{
+    padding-left: 0px;
+    padding-right: 33px;
+}
+.features-area3 .tab-content .tab-pane .tab-text ul li a i{
+    left: auto;
+    right: 0;
+}
+.power-features-item .media-left{
+    padding-right: 0px;
+    padding-left: 40px;
+}
+.price-tab li{
+    float: left;
+}
+.compare-table-are .table tr th:first-child, .compare-table-are .table tr td:first-child{
+    padding-left: 0px;
+    padding-right: 40px;
+}
+.review-slider .item .media .media-left{
+    padding-right: 0px;
+}
+.blogs .blog-item .texts {
+    padding: 20px 30px 40px 15px;
+}
+.slider-btn + .slider-btn{
+    margin-left: 0px;
+    margin-right: 30px;
+}
+.blogs .blog-item .texts p{
+    padding-right: 0px;
+    padding-left: 29px;
+}
+.product4 .slider-btn + .slider-btn{
+    margin-left: 30px;
+    margin-right: 0px;
+}
+.get_touch .right_inner_content .th-h2{
+    max-width: 520px;
+    margin-left: 0;
+    margin-right: auto;
+}
+.footer-top .footer_sidebar .widget.about_us_widget .social_icon li:first-child a{
+    padding-left: 18px;
+}
+.footer-top .footer_sidebar .widget.widget_contact ul li i,.footer-top .footer_sidebar .widget.widget_twitter .tweets li i{
+    float: right;
+}
+.seo-features3 .features-content ul li{
+    padding-left: 0px;
+    padding-right: 30px;
+}
+.seo-features3 .features-content ul li i{
+    left: auto;
+    right: 0;
+}
+.subcribes.input-group .form-control{
+    padding-left: 0px;
+    padding-right: 30px;
+}
+.portfolio-area .portfolio-filter li + li {
+    margin-right: 34px;
+    margin-left: 0px;
+}
+.related-slider2 .related-content ul li i{
+    right: 0;
+    left: auto;
+}
+.related-slider2 .related-content ul li{
+    padding-left: 0px;
+    padding-right: 30px;
+}
+.pr-2-features-content ul li i{
+    left: auto;
+    right: 0;
+}
+.pr-2-features-content ul li{
+    padding-left: 0px;
+    padding-right: 27px;
+}
+.general-item .wrapper .line-box{
+    float: left;
+}
+.ex-pr-slider .owl-nav .owl-next{
+    margin-right: 10px;
+    margin-left: 0px
+}
+.pr-2-call-action .pr-2-btn + .pr-2-btn{
+    margin-left: 0px;
+    margin-right: 22px;
+}
+.faq-inner-accordion .panel .panel-collapse .panel-body{
+    padding: 0px 88px 26px 40px;
+}
+.faq-inner-accordion .panel .panel-heading .panel-title a i{
+    margin-right: 0px;
+    margin-left: 30px;
+}
+.faq-inner-accordion .panel:before{
+    right: 60px;
+    left: auto;
+}
+.kickstarter-content{
+    padding-right: 170px;
+}
+.kickstarter-content h2{
+    padding-right: 0px;
+}
+.larg-btn + .larg-btn{
+    margin-left: 0px;
+    margin-right: 15px;
+}
+.slider-subcribe .col-md-offset-1{
+    margin-left: 8.33333333%;
+    margin-right: 0;
+}
+.slide3-text .slider-text .sub_btn-two:last-child{
+    margin-left: 0;
+    margin-right: 20px;
+}
+.slide3-text .slider-text{
+    float: left;
+}
+.call-action3 .call-text p{
+    padding-right: 0px;
+}
+.app-btn + .app-btn{
+    margin-right: 8px;
+    margin-left: 0px;
+}
+.ebook-contain .ebook-btn + .ebook-btn{
+    margin-right: 15px;
+    margin-left: 0px;
+}
+.ebook-video .video-description .sub_btn-two + .sub_btn-two{
+    margin-left: 0px;
+    margin-right: 20px;
+}
+.ipad-img{
+    right: -184px;
+}
+.ebook-btn .sub_btn-two + .sub_btn-two{
+    margin-right: 15px;
+    margin-left: 0px;
+}
+.ebook-call-action .sub_btn-two{
+    left: 0;
+    right: auto;
+}
+.ebook-call-action input{
+    padding-left: 0px;
+    padding-right: 40px;
+}
+.post-info li + li:before{
+    margin-right: 0px;
+    margin-left: 10px;
+}
+.seoslider .slider-text{
+    padding-right: 70px;
+}
+.seoslider .slider-text h2{
+    padding-right: 0px;
+}
+.seoslider img{
+    float: left;
+}
+.st-slider-text .subcribe label{
+    right: auto;
+    left: 5px;
+}
+.st-slider-text .subcribe .form-control{
+    padding-left: 0px;
+    padding-right: 50px;
+}
+.widget-search .search-form .form-control{
+    padding-left: 10px;
+    padding-right: 30px;
+}
+.widget-search .search-form .input-group-addon button{
+    padding-right: 0px;
+    padding-left: 30px;
+}
+.post-widget .media .media-left{
+    padding-right: 0px;
+    padding-left: 20px;
+}
+.post-widget .media .media-body ul li a i{
+    padding-right: 0px;
+    padding-left: 7px;
+}
+.categories-widget .c-list li{
+    position: relative;
+    padding-right: 20px;
+}
+.categories-widget .c-list li a i {
+    padding-right: 0px; 
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.tweets-widget .tweets li span i{
+    padding-right: 0px;
+    padding-left: 10px;
+}
+.right-sidebar-blog.pull-right{
+    float: right !important;
+}
+.right-sidebar-blog.pull-left{
+    float: left !important;
+}
+.single-post blockquote{
+    padding: 5px 20px 7px 0px;
+    margin-right: 28px;
+}
+.comments .comment .media-left{
+    padding-right: 0px;
+    padding-left: 20px;
+}
+
+
+/*============== responsive css ================*/
+@media(max-width:1199px){
+    .navbar.navbar-default .navbar-collapse .menu li{
+        margin-left: 18px;
+        margin-right: 0px;
+    }
+    .ipad-img {
+        margin-top: 44px;
+    }
+    .blogs .blog-item .texts {
+        padding: 20px 20px 40px 0px;
+    }
+    .flicker-widget .ri-grid ul li{
+        float: right;
+    }
+}
+@media (max-width:991px){
+    .navbar.navbar-default .navbar-collapse .menu li{
+        float: none;
+        padding-left: 0px;
+        padding-right: 15px;
+        margin-left: 0px;
+    }
+    .navbar.navbar-default .navbar-collapse.navbar-right, .navbar.navbar-default .nav-right {
+        float: none !important;
+    }
+    .navbar.navbar-default .nav-right{
+        right: auto;
+        left: 20%;
+        top: 10px;
+    }
+    .navbar-header{
+        float: none;
+        margin-right: auto !important;
+    }
+    .navbar-nav{
+        float: none;
+    }
+    .seoslider .slider-text{
+        padding-right: 0px;
+    }
+    .ebook-contain .ebook-btn + .ebook-btn{
+        margin-right: 0;
+    }
+    .ipad-img {
+        right: -284px;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a {
+        font-size: 16px;
+    }
+    .larg-btn + .larg-btn{
+        margin-right: 0px;
+    }
+    .kickstarter-content{
+        padding-right: 0px;
+    }
+    .slider-subcribe .col-md-offset-1{
+        margin-left: 0px;
+    }
+    .call-action-area .call-action-text{
+        margin-left: 0px;
+    }
+}
+@media (max-width:767px){
+    .navbar.navbar-default .nav-right{
+        left: 18%;
+    }
+    .navbar-header{
+        margin-right: -15px !important;
+    }
+    .slide3-text .slider-text .sub_btn-two:last-child{
+        margin-left: auto;
+        margin-right: 10px;
+    }
+    .ipad-img{
+        right: 0;
+    }
+}
+@media (max-width:550px){
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a i{
+        left: auto;
+        right: 0;
+    }
+    .ebook-faq .faq-inner-accordion .panel .panel-heading .panel-title a,.ebook-faq .faq-inner-accordion .panel .panel-collapse .panel-body{
+        padding-left: 0px;
+        padding-right: 50px;
+    }
+    .ebook-btn .sub_btn-two + .sub_btn-two{
+        margin-right: 0;
+    }
+}
+@media (max-width:480px){
+    .slide3-text .slider-text .sub_btn-two:last-child{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .app-btn + .app-btn{
+        margin-right: 0px;
+    }
+    .faq-inner-accordion .panel .panel-heading .panel-title a {
+        padding: 10px 87px 10px 0px;
+    }
+    .faq-inner-accordion .panel .panel-heading .panel-title a i {
+        margin-right: 0px;
+        right: 0;
+        left: auto;
+    }
+    .ebook-video .video-description .sub_btn-two + .sub_btn-two{
+        margin-right: 0px;
+    }
+    .pr-2-call-action .pr-2-btn + .pr-2-btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .single-post blockquote {
+        margin-right: 10px;
+    }
+
+}
+@media (max-width:375px){
+    .navbar.navbar-default .nav-right {
+        left: 22%;
+    }
+}

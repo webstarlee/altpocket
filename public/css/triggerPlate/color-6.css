@@ -1,0 +1,372 @@
+/*==========header color css========*/
+.stricky-fixed .navbar.navbar-default .navbar-header .navbar-brand img + img,.navbar.navbar-default.ebook-menu .navbar-header .navbar-brand img,.navbar.navbar-default.pr-menu.pr2-menu .navbar-header .navbar-brand img{
+    visibility: hidden;
+}
+.stricky-fixed .navbar.navbar-default .navbar-header .navbar-brand,.navbar.navbar-default.ebook-menu .navbar-header .navbar-brand,.navbar.navbar-default.pr-menu.pr2-menu .navbar-header .navbar-brand{
+    background-image: url(../../image/logo1-green.png)!important;
+    background-repeat: no-repeat;
+    background-position: 15px 9px;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li.current a,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a:hover,.navbar.navbar-default.ebook-menu .nav-right li a{
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li.current a,.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a.g-btn,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a.g-btn,.navbar.navbar-default.ebook-menu .menu li.current a,.navbar.navbar-default.ebook-menu .menu li a:hover,.navbar.navbar-default.ebook-menu .nav-right li a.g-btn{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a.g-btn:hover{
+    border-color: #5b75e7;
+    background:  #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default .navbar-toggle .icon-bar,.navbar.navbar-default.ebook-menu .nav-right li a.g-btn:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a.g-btn:hover,.products-area .products-slider .item .product-img:before{
+    background: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a,.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a{
+    color: #555;
+}
+
+/*======btn color css ======*/
+.thm-btn{
+   background: #5b75e7;
+}
+.thm-btn:hover,.thm-btn:focus,.price .pricing-box:hover .purchase-btn,.seo-pricing .price .pricing-box:hover .purchase-btn,.price .pricing-box.active:hover .purchase-btn{
+    background: #4f68d5;
+}
+.purchase-btn,.seo-pricing .price .pricing-box .purchase-btn{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.sub_btn{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.sub_btn:hover{
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+.rev_slider .seo-btn{
+    background: #5b75e7;
+}
+.rev_slider .seo-btn:hover{
+    background:  #4f68d5;
+}
+.owl-dots .owl-dot.active{
+    background: #5b75e7;
+}
+
+/*slider color css*/
+.slider-image:before,.call-action-area:before,.fun-fact-area:after,.videoWrapper .videoPoster:after,.review-area:before,.support-area:before,.slider3:before,.video-features .app-video:before,.team-member .team-item .hover:before,.call-action3-area:before,.overlay2:before,.seo-video .video-background:before,.video-background:before,.banner-area:before{
+    background: #5b75e7;
+}
+/*=====usability-area color css=====*/
+.user .user-item i,.seo-usability3 .user .user-item i,.seo-pr-slider .user-item i,.related-slider .rel-item h2:hover{
+    color: #5b75e7;
+}
+
+/*=======features-area3 color css=======*/
+.features-area3 .features-tab li.active a{
+    background: #5b75e7;
+    border-left-color: #5b75e7;
+}
+.features-area3 .features-tab li a:hover, .features-area3 .features-tab li a:focus{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+
+.power-features-item i,.power-features-item .media-left i{
+    color: #5b75e7;
+}
+.power-fea-text h2:hover{
+    color: #5b75e7;
+}
+
+.video-description .play-btn{
+    color: #5b75e7;
+    border-color: #5b75e7;
+}
+
+.price .pricing-box .pricing-header .packeg_typ,.price .pricing-box .pricing-header .packeg_typ small,.compare-table-are .table tbody tr td.price,.seo-pricing .price .pricing-box .pricing-header .packeg_typ,.seo-pricing .price .pricing-box .pricing-header .packeg_typ small{
+    color: #5b75e7;
+}
+.try:hover,.seo-pricing .price .pricing-box .try:hover{
+    color: #5b75e7;
+}
+.compare-table-are .table tbody tr td .purchase-btn:hover,.seo-dot .owl-dots .owl-dot.active{
+    background: #5b75e7;
+}
+/*======== blog area color css =========*/
+.blogs .blog-item .texts .th-h2 a:hover,.support-item a,.support-item i{
+    color: #5b75e7;
+}
+.blog2-btn{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.blog2-btn:hover{
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+
+.get_touch .right_inner_content .contact-form .form-control:focus,.two-row .right-inner-content .features-content .request-form .form-control:focus{
+    border-color: #5b75e7;
+}
+
+/*=======footer color css======*/
+.footer-top .footer_sidebar .widget.about_us_widget .social_icon li a:hover,.footer-top .footer_sidebar .widget.widget_contact ul li .fleft a:hover,
+.footer-top .footer_sidebar .widget.widget_twitter .tweets li .tweets-text a:hover,.footer-top .footer_sidebar .widget.widget_instagram span a:hover,.footer_bottom a:hover,.ebook-f.footer-top .footer_sidebar .widget.widget_contact ul li .fleft a:hover, .ebook-f.footer-top .footer_sidebar .widget.about_us_widget .social_icon li a:hover, .ebook-f.footer-top .footer_sidebar .widget.widget_twitter .tweets li .tweets-text a:hover, .ebook-f.footer-top .footer_sidebar .widget.widget_instagram span a:hover, .ebook-f.footer_bottom a:hover{
+    color: #5b75e7;
+}
+
+/*app page color css */
+.team-member .team-item:hover h2,.team-member .team-item .social li a:hover,.slide3-text .slider-text .sub_btn-two.active,.slide3-text .slider-text .sub_btn-two:hover{
+    color: #5b75e7;
+}
+.review-area2 .review-slider .owl-dots .owl-dot.active,.screenshots-slider .screenshot::before{
+    background: #5b75e7;
+}
+.faq-inner-accordion .panel .panel-heading .panel-title a i,.subcribes.input-group .input-group-btn .btn-submit{
+    color: #5b75e7;
+}
+.subcribes.input-group .input-group-btn .btn-submit:hover{
+    background: #4f68d5;
+}
+
+
+/*====kickstarter page color css====*/
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a{
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a.g-btn{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a.g-btn:hover {
+    background: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .navbar-toggle .icon-bar,.navbar.navbar-default.pr-menu.pr2-menu .icon-bar{
+    background: #5b75e7;
+}
+
+.pr-2-features-content ul li i,.general-item .power-features-item .media .media-right i,.pr-2-faq .faq-inner-accordion .panel .panel-heading .panel-title a i,.related-slider2 .related-content ul li i,.related-slider2 .related-content span{
+    color: #5b75e7;
+}
+.single-pr-content .product-btn,.general-item .wrapper .line-box:before{
+    background: #5b75e7;
+}
+.single-pr-content .product-btn{
+    border-color: #5b75e7;
+}
+.single-pr-content .product-btn:hover{
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+.general-item .wrapper .line-box .pulse-wrapper .pulse-1, .general-item .wrapper .line-box .pulse-wrapper .pulse-2{
+    border-color: rgba(91, 117, 231, 0.302); 
+}
+.pulse-1:before, .pulse-2:before{
+    background: rgba(91, 117, 231, 0.502);
+}
+.pulse-1:after, .pulse-2:after{
+    background: #5b75e7;
+}
+.ex-pr-slider .owl-nav .owl-prev:hover, .ex-pr-slider .owl-nav .owl-next:hover{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.pr-2-btn,.pr-2-btn.active {
+    background: transparent;
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.pr-2-btn:hover,.product-btn:hover {
+    background: #5b75e7;
+    color: #fff;
+    border-color: #5b75e7;
+}
+.pr-2-btn.active{
+    background: #5b75e7;
+    color: #fff;
+}
+.power-features-item.pr-f .media-left i,.pr-info-item .round{
+    color: #5b75e7;
+}
+.pr-info-item:hover .round{
+    background: #5b75e7;
+    color: #fff;
+    border-color: #5b75e7;
+}
+.power-features-item.pr-f .media-body h2:hover,.pr-2-btn.active:hover,.blog-area.form-blog .blogs .blog-item .texts .th-h2 a:hover{
+    color: #5b75e7;
+}
+.shop-pr-slider .owl-dots .owl-dot.active{
+    background: #5b75e7;
+}
+.blog-btn{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.blog-btn:hover,.related-slider .rel-item:hover .product-btn,.related-slider2 .related-content .product-btn:hover{
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+
+/*product-1 css*/
+.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a{
+    color: #5b75e7;
+}
+.navbar.navbar-default.pr-menu.pr2-menu .menu li.current a,.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a.g-btn{
+    color: #5b75e7;
+    border-color: #5b75e7;
+}
+.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a.g-btn:hover{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.slider-btn:hover,.related-slider .rel-item .product-btn:hover{
+    background: #5b75e7;
+}
+.hero-content .slider-btn.active{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.hero-content .slider-btn {
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.hero-content .slider-btn.active:hover{
+    color: #5b75e7;
+    border-color: #5b75e7;
+}
+.hero-content .slider-btn:hover,.pro-main-hero .hero-content .slider-btn.active,.related-slider .rel-item .product-btn:hover,.pro-main-hero .hero-content .slider-btn:hover{
+    border-color: #5b75e7;
+}
+.hots-features-items .item .pulse-wrapper:before,.products-gallery-2 .owl-dots .owl-dot.active{
+    background: #5b75e7;
+}
+.pulse-1, .pulse-2{
+    background: rgba(91, 117, 231, 0.4);
+}
+.magic-content .product-btn,.magic-content .product-btn.active:hover,.related-slider .rel-item .product-btn{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.magic-content .product-btn.active {
+    background: #5b75e7;
+    color: #fff;
+}
+.related-slider2 .related-content .product-btn{
+    border-color: #5b75e7;
+    background: #5b75e7;
+}
+.shop-pr-slider .shop-pr-content h2:hover{
+    color: #f88e40;
+}
+
+/*seo color css*/
+.seo-features3 .features-content ul li i,.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a,.portfolio-area .portfolio-gallery .portfolio-item .portfolio-image .popup i{
+    color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a.g-btn,.stricky-fixed .navbar.navbar-default.startup-menu .menu2 li a.g-btn,.stricky-fixed .navbar.navbar-default.startup-menu .menu2 li a.g-btn:hover,.single-post blockquote{
+    border-color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a.g-btn:hover {
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .navbar-toggle .icon-bar{
+    background: #5b75e7;
+}
+
+.sc-arrow a{
+    background-color: rgba(91, 117, 231, 0.502);
+}
+.sc-arrow a::before,.video-area2 .video-content::before,.portfolio-area .portfolio-gallery .portfolio-item .portfolio-image .popup{
+    background: #5b75e7;
+}
+.sc-arrow a::after{
+    background-color: rgba(91, 117, 231, 0.502);
+}
+
+/*ebook color css*/
+.ebook-contain .price-box,.usability-area .ebook-user .user-item i,.general-feature2 .pr-2-features-content ul li i{
+    color: #5b75e7;
+}
+.ebook-contain .ebook-btn,.ebook-call-action .sub_btn-two{
+    background: #5b75e7;
+}
+.ebook .owl-dots .owl-dot.active{
+    background: #5b75e7 !important;
+}
+.ebook-video .video-description .sub_btn-two{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+.ebook-video .video-description .sub_btn-two:hover,.ebook-call-action .sub_btn-two:hover{
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+.ebook-contain .ebook-btn:hover{
+    background: #4f68d5;
+}
+.ebook-btn .sub_btn-two{
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+.ebook-btn .sub_btn-two:hover{
+    background: #5b75e7;
+}
+.ebook-btn .sub_btn-two.active{
+    background: #5b75e7;
+    color: #fff;
+}
+.ebook-btn .sub_btn-two.active:hover{
+    background: transparent;
+    border-color: #5b75e7;
+    color: #5b75e7;
+}
+
+.blog-items .blog-content h2:hover,.post-info li a:hover,.post-info li span:hover,.post-widget .media .media-body .tn_tittle:hover,.post-widget .media .media-body ul li a:hover,.categories-widget .c-list li a:hover,.tweets-widget .tweets li a:hover,.post-widget .media .media-body ul li a:hover i,.single-post .pagination a:hover,.comments .comment .media-body .reply-btn:hover{
+    color: #5b75e7;
+}
+.tag-widget .tag li a:hover{
+    background: #5b75e7;
+}
+
+.pay-btn{
+    background: #5b75e7;
+    border-color:#5b75e7;
+}
+.pay-btn:hover,.pay-btn:focus {
+    background: #4f68d5;
+    border-color: #4f68d5;
+}
+#product-imgs .carousel-indicators li.active{
+    background: #5b75e7;
+}
+.go-btn:hover{
+    background: #5b75e7;
+    border-color: #5b75e7;
+}
+@media (max-width:991px){
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a, .stricky-fixed .navbar.navbar-default .nav-right li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.pr-menu .menu li a{
+        color: #fff;
+    }
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li.current a, .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover{
+        border-color: #fff;
+        color: #fff;
+    }
+    .navbar.navbar-default.ebook-menu .menu li.current a,.navbar.navbar-default.ebook-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li.current a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .menu li.current a{
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar.navbar-default.ebook-menu li.search_dropdown a{
+        color: #5b75e7;
+    }
+    .navbar.navbar-default.ebook-menu .navbar-toggle .icon-bar,.stricky-fixed .navbar.navbar-default.ebook-menu .navbar-toggle .icon-bar,.navbar-collapse{
+        background: #5b75e7;
+    }
+}

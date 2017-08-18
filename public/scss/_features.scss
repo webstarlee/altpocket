@@ -1,0 +1,1174 @@
+/*================= Start call-action-area css================== */
+.call-action-area{
+    text-align: center;
+    padding: 120px 0px;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        z-index: -1;
+        opacity: 0.98;
+    }
+    &:after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background: url('../image/slider/call-action-bg.jpg') no-repeat scroll;
+        background-size: cover;
+        background-position: 50% 50%;
+        z-index: -1;
+        opacity: 0.15;
+        background-attachment: fixed;
+    }
+    .call-action-text{
+        display: inline-block;
+        font: 400 24px/60px $mont;
+        color: #fff;
+        vertical-align: middle;
+        margin-right: 40px;
+    }
+}
+/*================= End call-action-area css================== */
+
+/*================= Start call-action2-area css================== */
+.call-action2-area{
+    background: url("../image/call-action-bg2.jpg") no-repeat scroll center 0;
+    background-size: cover;
+    text-align: center;
+    padding: 222px 0px 240px;
+    .section-title{
+        h2{
+            padding-bottom: 18px;
+        }
+    }
+    .sub_btn{
+        margin-top: 15px;
+    }
+}
+/*================= End call-action2-area css================== */
+
+/*================= Start call-action3-area css================== */
+.call-action3-area{
+    position: relative;
+    background: url(../image/features/call-to-action-bg.jpg) no-repeat scroll;
+    background-attachment: fixed;
+    background-position: 50%, 50%;
+    background-size: cover;
+    padding: 158px 0px 175px;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: block;
+        position: absolute;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        z-index: -1;
+        opacity: 0.85;
+    }
+}
+.call-action3{
+    .call-text{
+        color: #fff;
+        h2{
+            font: 400 35px/60px $mont;
+            padding-bottom: 17px;
+            text-transform: uppercase;
+        }
+        p{
+            font: 400 16px/28px $open;
+            padding-bottom: 42px;
+            padding-right: 110px;
+        }
+    }
+    .call-mobile-img{
+        position: relative;
+        img{
+            position: absolute;
+            bottom: -410px;
+            z-index: -1;
+            & + img{
+                right: 0px;
+                z-index: -1;
+            }
+        }
+    }
+}
+/*================= End call-action3-area css================== */
+
+/*============= start features-area css =============*/
+.features-area{
+    padding: 120px 0px;
+    img{
+        box-shadow: 0px 30px 70px 0px rgba(26, 38, 74, 0.25);
+    }
+}
+.features-content{
+    padding-top: 40px;
+    h2{
+        font: 600 35px/48px $mont;
+        color: #1a264a;
+        padding-bottom: 28px;
+        padding-right: 13px;
+        text-transform: uppercase;
+    }
+    p{
+        color: #585e68;
+        padding-bottom: 44px;
+    }
+}
+.features-content.f-pading{
+    padding-top: 38px;
+    max-width: 100%;
+    float: left;
+}
+.f-image{
+    float: right;
+}
+/*============= End features-area css =============*/
+
+/*============= start fulid-features-area css =============*/
+.fulid-features-area{
+    overflow: hidden;
+    background: #f8fafc;
+    .features-area-left{
+        width: calc(50% - 130px);
+        float: left;
+    }
+    .features-area-right{
+        width: calc(50% + 130px);
+        float: right;
+        .features-content{
+            max-width: 700px;
+            padding-left: 130px;
+            padding-top: 90px;
+            h2{
+                font-family: $open;
+                font-size: 30px;
+                padding-right: 70px;
+            }
+            .thm-btn{
+                border: 1px solid #d2cece;
+                background: $green;
+                border-radius: 0px;
+                &:before{
+                    background: none;
+                }
+                &:hover{
+                    background:#37a27c;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.fluid-f-right{
+    background: #fff;
+    .features-area-right{
+        float: left;
+        .features-content{
+            float: right;
+            padding-left: 0px;
+            padding-right: 130px;
+        }
+    }
+}
+/*============= End fulid-features-area css =============*/
+
+/*============= Start usability area css =============*/
+.usability-area{
+    padding: 103px 0px 116px;
+}
+.user{
+    .user-item{
+        text-align: center;
+        padding: 45px 30px 0px;
+        i{
+            font-size: 60px;
+            line-height: 60px;
+            color: #1aabec;
+            padding-bottom: 20px;
+            display: block;
+        }
+        h2{
+            font-size: 24px;
+        }
+        p{
+            padding-top: 7px;
+            font-size: 16px;
+            font-family: $lato;
+        }
+    }
+}
+.box-shadow{
+    position:relative;
+    z-index: 2;
+    &:before{
+        content: '';
+        box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.07);
+        width: 100%;
+        height:100%;
+        position: absolute;
+        bottom: 0;
+        transform: rotate(180deg);
+        z-index: -1;
+    }
+}
+/*============= End usability area css =============*/
+
+
+
+/* ===========Start usability2 css ===========*/
+.usability2{
+    .user{
+        .user-item{
+            padding-top: 30px;
+        }
+        & +.user{
+            &:before{
+                display: none;
+            }
+        }
+    }
+}
+/* ===========End usability2 css ===========*/
+
+.usability3{
+    padding-top: 180px;
+}
+
+/*========= Start seo-usability-3 css  ==========*/
+.seo-usability-3{
+    padding: 340px 0px 116px;
+}
+.seo-usability3{
+    .user{
+        .user-item{
+            i{
+                font-size: 50px;
+                color: #5b75e7;
+            }
+        }
+    }
+}
+.seo-video-usa{
+    padding-top: 102px;
+}
+/*========= End seo-usability-3 css  ==========*/
+/*============= Start features-area2 css =============*/
+.features-area2{
+    overflow: hidden;
+    background: #fff;
+}
+.col-height{
+    height: 592px;
+    overflow: hidden;
+}
+.left-inner-content{
+    text-align: right;
+    height: 100%;
+    img{
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+    }
+}
+.right-inner-content{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 100px;
+    background: #fff;
+}
+.features-content{
+    padding-top: 0px;
+    align-items: center;
+    max-width: 470px;
+    margin: 0px;  
+}
+.two-row{
+    .left-inner-content{
+        float: right;
+    }
+    .right-inner-content{
+        padding-left: 0px;
+        padding-right: 100px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        float: left;
+        .features-content{
+            margin-left: auto;
+            margin-right: 0;
+            h2{
+                padding-bottom: 20px;
+            }
+            .request-form{
+                .form-control{
+                    width: 48.4%;
+                    float: left;
+                    border-radius: 3px;
+                    border: 1px solid #e0e0e0;
+                    box-shadow: none;
+                    text-shadow: none;
+                    height: 60px;
+                    font:400 14px/40px $lato;
+                    padding: 0px 0px 0px 30px;
+                    color: $dk-gray;
+                    margin-bottom: 20px;
+                    @include placeholder{
+                        color: #a4a4a4;
+                    }
+                    & + .form-control{
+                        margin-left: 15px;
+                    }
+                    &:focus{
+                        border-color: $blue;
+                    }
+                }
+                .thm-btn{
+                    display: block;
+                    width: 100%;
+                }
+                .contact-submit-progress,.contact-submit-message{
+                    font: 400 14px/24px $open;
+                }
+            }
+        }
+    } 
+}
+/*============= End features-area2 css =============*/
+.home-two-features{
+    background: #f8fafc;
+}
+.right-inner-content.two-features{
+    padding-left: 180px;
+    background: transparent;
+    .features-content{
+        max-width: 610px;
+        h2{
+            text-transform: capitalize;
+        }
+    }
+} 
+.two-row{
+    .right-inner-content.two-features{
+        padding-right: 180px;
+    }
+}
+
+/*============= Start features-area3 css =============*/
+.features-area3{
+    padding-bottom: 120px;
+    padding-top: 296px;
+    .section-title{
+        margin-bottom: 74px;
+    }
+    .features-tab{
+        border: 1px solid #e0e0e0;
+        border-radius: 3px;
+        li{
+            margin: 0px;
+            width: 25%;
+            a{
+                font: 400 16px/28px $lato;
+                color: #585e68;
+                margin: 0px;
+                border-radius: 0px;
+                border:0px;
+                padding: 20px 0px;
+                text-align: center;
+                transition: all 0.2s linear;
+                &:hover,&:focus{
+                    background: $blue;
+                    color: #fff;
+                    border-color: $blue;
+                }
+            }
+            & + li{
+                a{
+                    border-left: 1px solid #e0e0e0;
+                }
+            }
+            &.active{
+                a{
+                    border-top: 0px;
+                    border-bottom: 0px;
+                    border-right: 0px;
+                    background: $blue;
+                    border-left:1px solid $blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .tab-content{
+        padding-top: 80px;
+        .tab-pane{
+            .tab-text{
+                padding-right: 120px;
+                padding-top: 65px;
+                h2{
+                    font: 400 24px/48px $open;
+                    color: $dk-blue;
+                }
+                p{
+                    font: 400 16px/28px $lato;
+                    color: $p-color;
+                    padding: 18px 0px 17px;
+                }
+                ul{
+                    li{
+                        a{
+                            font: 400 16px/40px $lato;
+                            color: $p-color;
+                            padding-left: 33px;
+                            position: relative;
+                            display: block;
+                            i{
+                                color: $l-green;
+                                font-size: 14px;
+                                line-height: 40px;
+                                position: absolute;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .feat-img{
+                box-shadow: 0px 30px 70px 0px rgba(26, 38, 74, 0.25);
+            }
+        }
+        .tab2{
+            .tab-text{
+                padding-right: 0px;
+                padding-left: 120px;
+            }
+        }
+    }
+}
+/*============= End features-area3 css =============*/
+
+.graphical-area{
+    background: #f8fafc;
+    height: 773px;
+    padding-top: 105px;
+    .section-title{
+        margin-bottom: 76px;
+    }
+    img{
+         box-shadow: 0px 30px 70px 0px rgba(26, 38, 74, 0.25);
+    }
+}
+/*============= start fun fact css ===============*/
+.fun-fact-area{
+    background: url('../image/features/fun-fact-bg1.png') no-repeat scroll;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 173px 0px 154px;
+    &:after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        z-index: -1;
+        opacity: 0.98;
+    }
+}
+.fact-item{
+    text-align: center;
+    color: #fff;
+    span{
+        font-size: 70px;
+        line-height: 60px;
+        position: relative;
+        padding-bottom: 32px;
+        display: block;
+        &:before{
+            content: "";
+            width: 50px;
+            height: 3px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+        }
+    }
+    h4{
+        font-size: 18px;
+        line-height: 60px;
+        text-transform: uppercase;
+        padding-top: 7px;
+    }
+}
+/*============= End fun fact css ===============*/
+
+/*============= start fun fact 2 css ===============*/
+.fact-area2{
+    background: url(../image/testimonial/counting-bg.jpg) no-repeat scroll;
+    background-attachment: fixed;
+    padding: 198px 0px 176px;
+    background-position: 0 center;
+    background-size: cover;
+    &:after{
+        opacity: 0.85;
+    }
+}
+.fact-item2{
+    i{
+        font-size: 80px;
+        display: block;
+        margin-bottom: 38px;
+    }
+    span{
+        font-size: 50px;
+        padding-bottom: 23px;
+    }
+}
+/*============= End fun fact 2 css ===============*/
+
+/*==============Start ebook-fact css ===============*/
+.ebook-fact{
+    background: url("../image/ebook/fact-bg.jpg") no-repeat scroll;
+    background-size: cover;
+    background-position: 0 100%;
+    background-attachment: fixed;
+    &:after{
+        background: #f88e40;
+    }
+}
+
+/*============End ebook fact css ===============*/
+
+.ebook-call-action{
+    .section-title{
+        margin-bottom: 50px;
+        h2{    
+            text-transform: uppercase;
+        }
+        p{
+            font-size: 18px;
+            color: $dk-blue;
+        } 
+    }
+    
+    .ebook-subscribe{
+        position: relative;
+        max-width: 600px;
+        margin: 0px auto;
+    }
+    input{
+        font: 400 16px/28px $open;
+        width: 100%;
+        color: $dk-gray;
+        border: 1px solid #e0e0e0;
+        border-radius: 40px;
+        outline: none;
+        min-height: 60px;
+        padding-left: 40px;
+        position: relative;
+        box-shadow: none;
+        @include placeholder{
+            color: #858585;
+        } 
+        &:focus{
+            border-color: $blue;
+        }
+    }
+    .sub_btn-two{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0px;
+        border: 0px;
+        background: #f88e40;
+        text-shadow: none;
+        &:hover{
+            background: #eb8337;
+        }
+    }
+}
+/*=============== Start power-features css =================*/
+.power-features{
+    padding: 101px 0px 82px;
+}
+.power-feat{
+    padding-top: 11px;
+}
+.power-features-item{
+    padding: 30px 70px 32px 45px;
+    cursor: pointer;
+    .media-left{
+        padding-right: 40px;
+        padding-top: 3px;
+        i{
+            font-size: 48px;
+            color: $blue;
+        }
+    }
+}
+.power-fea-text{
+    h2{
+        font: 400 18px/25px $mont;
+        color: $dk-blue;
+        text-transform: capitalize;
+        padding-bottom: 16px;
+        transition: all 0.2s linear;
+        display: inline-block;
+        &:hover{
+            color: $blue;
+        }
+    }
+}
+/*=============== End power-features css =================*/
+
+/*============== Start awosome-feature css ==============*/
+.awosome-feature{
+    padding: 145px 0px 112px;
+}
+.power-features-item.awosome-f{
+    margin-top: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+} 
+.power-features-item{
+    i{
+        font-size: 48px;
+        color: $blue;
+    }
+    .power-fea-text{
+        margin-top: 30px;
+    }
+} 
+.awosome-feature.seo-video-usa{
+    padding-top: 102px;
+}
+/*============== End awosome-feature css ==============*/
+
+/*============== Start power full feature css ==============*/
+.power-full-features-area{
+    padding: 105px 0px 105px;
+}
+.pow-features{
+    margin-top: 70px;
+    .middle-img{
+        text-align: center;
+        img{
+            display: inline-block;
+        }
+    }
+    .pow-feature-items{
+        padding-left: 36px;
+        .power-features-item{
+            margin-top: 47px;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-top: 0px;
+            .power-fea-text{
+                margin-top: 19px;
+            }
+            & + .power-features-item{
+                margin-top: 20px;
+            }
+        }
+        &.text-right{
+            padding-right: 55px;
+            padding-left: 0px;
+        }
+    }
+}
+/*============== End power full features css ==============*/ 
+
+/*============== Start pr-fetures css ==============*/
+.pr-fetures{
+    .power-feat{
+        padding-top: 30px;
+    }
+    .f-product-img{
+        text-align: center;
+        margin-top: 60px;
+        position: relative;
+        padding-bottom: 65px;
+        &:before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            background: url('../image/product/featured-pro-shadow.png') no-repeat;
+            background-position: center bottom;
+            display: block;
+        }
+        img{
+            display: inline-block;
+        }
+    }
+}
+.power-features-item.pr-f{
+    padding-left: 0px;
+    padding-right: 0px;
+    .media-left{
+        i{
+            color: #1574d4;
+        }
+    }
+    .media-body{
+        h2{
+            &:hover{
+                color: #1574d4;
+            }
+        }
+    }
+}
+/*============== End pr-fetures css ==============*/
+
+/*===========Start pr-more-features  ============*/
+.pr-more-features{
+    padding: 103px 0px 103px;
+    .power-feat{
+        padding-top: 60px;
+    }
+    .more-features{
+        padding-top: 55px;
+    }
+}
+/*=========== pr-more-features  ============*/
+
+/*=========== Start mockup area ===============*/
+.mockup-area{
+    padding: 120px 0px 37px
+}
+/*=========== End mockup area ===============*/
+
+/*===========Start hot-features-area ================*/
+.hot-features-area{
+    overflow: hidden;
+    padding: 102px 0px 120px;
+    .section-title{
+        max-width: 700px;
+        p{
+            padding: 0px 50px;
+        }
+    }
+}
+.hot-features{
+    padding-top: 65px;
+}
+.hots-features-items{
+    padding-left: 7px;
+    padding-top: 45px;
+    .item{
+        position: relative;
+        h2{
+            font: 400 19px/55px $mont;
+            color: $dk-blue;
+        }
+        p{
+            color: $dk-gray;
+        }
+        .pulse-wrapper{
+            position: absolute;
+            right: -67%;
+            top: 0;
+            z-index: 1;
+            &:before{
+                content: '';
+                width: 144px;
+                height: 2px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: #047ffc;
+                left: -100%;
+                margin-left: -60px;
+                z-index: -1;
+            }
+        }
+        & + .item{
+            margin-top: 88px;
+        }
+    }
+    &.right-hots-items{
+       .item{
+            .pulse-wrapper{
+                right: auto;
+                left: -67%;
+                &:before{
+                    content: '';
+                    right: -100%;
+                    left: auto;
+                    margin-right: -60px;
+                }
+            }
+        } 
+    }
+}
+.hots-img{
+    text-align: center;
+    img{
+        display: inline-block;
+        z-index: 0;
+    }
+}
+.pulse-1,.pulse-2{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-indent: 9999px;
+    background: rgba(21, 116, 212, 0.4);
+    position: relative;
+    &:before{
+        content: '';
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        background: rgba(21, 116, 212, 0.502);
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        margin-left: -17px;
+        margin-top: -17px;
+    }
+    &:after{
+        content: '';
+        width: 14px;
+        height: 14px;
+        background: rgb(4, 127, 252);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -7px;
+        margin-top: -7px;
+        border-radius: 50%;
+    }
+}
+.pulse-1{
+    -webkit-animation: runpulse 3s infinite linear;
+    -moz-animation: runpulse 3s infinite linear;
+    -ms-animation: runpulse 3s infinite linear;
+    -o-animation: runpulse 3s infinite linear;    
+    animation: runpulse 3s infinite linear;
+}
+.pulse-2{
+    -webkit-animation: runpulse 3s infinite linear;
+    -moz-animation: runpulse 3s infinite linear;
+    -ms-animation: runpulse 3s infinite linear;
+    -o-animation: runpulse 3s infinite linear;
+    animation: runpulse 3s infinite linear;
+    animation-delay: 1.5s; 
+}
+
+@keyframes runpulse {
+    0% {
+        opacity: 1;
+        -moz-transform: scale(0);
+        -webkit-transform: scale(0);
+        -o-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+    }
+   50% {
+        opacity: 1;
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);   
+    }
+    100% {
+        opacity: 0;
+    }    
+}
+
+/*===========End hot-features-area ================*/
+
+/*============ Start power-features-pr-2 =============*/
+.power-features-pr-2{
+    color: #fff;
+    padding-bottom: 120px;
+    .section-title{
+        h2{
+            color: #fff;
+        }
+    }
+    .pow-feature-items{
+        padding-left: 15px;
+        &.text-right{
+            padding-right: 15px;
+        }
+        .power-features-item{
+            i{
+                color: #fff;
+                font-size: 36px;
+            }
+            .power-fea-text{
+                h2{
+                    color: #fff;
+                }
+            }
+            & + .power-features-item{
+                margin-top: 47px;
+            }
+        }
+    }
+}
+/*============ End power-features-pr-2 =============*/
+
+
+/*=========Start pr-2-call-action css ========*/
+.pr-2-call-action{
+    background: url(../image/product-2/pr-2-call-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center 0;
+    padding: 163px 0px 180px;
+    .section-title{
+        h2{
+            padding-bottom: 2px;
+        }
+    }
+    .pr-2-btn{
+        width: 220px;
+        & + .pr-2-btn{
+            margin-left: 22px;
+        }
+    }
+}
+/*=========End pr-2-call-action css ========*/
+
+/*============Strat pr-2-image-features css ==============*/
+.pr-2-image-features{
+    .pr-2-btn{
+        width: 220px;
+    }
+}
+/*============End pr-2-image-features css ==============*/
+
+/*========== Start general-features css ============*/
+.general-features{
+    background: #fafafa;
+    overflow: hidden;
+    padding-top: 200px;
+    padding-bottom: 203px;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url(../image/product-2/watch-f-pr.png) no-repeat;
+        background-position: right;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+}
+.general-item{
+    .power-features-item{
+        text-align: right;
+        padding: 0px;
+        .media {
+            .media-right{
+                padding-left: 30px;
+                i{
+                    color: #1574d4;
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+    .wrapper{
+        .line-box{
+            width: 472px;
+            position: relative;
+            height: 50px;
+            &:before{
+                content: '';
+                width:100%;
+                height: 2px;
+                background: #1574d4;
+                position: absolute;
+                left: 0;
+                transform: translateY(-50%);
+                top: 50%;
+            }
+            .pulse-wrapper{
+                position: absolute;
+                right: -28px;
+                .pulse-1,.pulse-2{
+                    width: 50px;
+                    height: 50px;
+                    background: transparent;
+                    border: 1px solid rgba(21, 116, 212, 0.302);;
+                }
+            }
+            &.line2{
+                width: 560px;
+            }
+            &.line3{
+                width: 188px;
+            }
+        }
+    }
+    & + .general-item{
+        margin-top: 70px;
+    }
+} 
+/*========== End general-features css ============*/
+
+
+/*============ start regular-work-section css =============*/
+.regular-work-section{
+    background: url(../image/product-2/regular-banner-img.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50%, 50%;
+    padding: 162px 0px 170px;
+}
+.regular-work{
+    max-width: 770px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    .section-title{
+        max-width: 100%;
+        margin-bottom: 44px;
+        h2{
+            color: #fff;
+        }
+    }
+}
+.regular-item{
+    margin-top: 75px;
+    i{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h2{
+        font: 400 15px/40px $open;
+    }
+}
+/*============ End regular-work-section css =============*/
+
+/*=========== Start seo features area css ============*/
+.seo-features{
+    background: #fff;
+    img{
+        box-shadow: none;
+    }
+    .features-content{
+        h2{
+            text-transform: capitalize;
+        }
+    }
+}
+/*=========== End seo features area css ============*/
+
+/*=========Start seo-features2 area css ===========*/
+.seo-features2{
+    background: #f9faff;
+    img{
+        float: right;
+    }
+}
+/*=========End seo-features2 area css ===========*/
+
+/*========= Start seo-features3 area css ===========*/
+.seo-features3{
+    position: relative;
+    padding-bottom: 214px;
+    overflow: hidden;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: url('../image/seo/seo-feature03.png') no-repeat scroll right 0;
+        position: absolute;
+        right: 0;
+    }
+    .features-content{
+        max-width: 570px;
+        padding-top: 100px;
+        p{
+            padding-bottom: 22px;
+        }
+        ul{
+            margin-bottom: 38px;
+            li{
+                font: 400 15px/26px $lato;
+                color: $dk-gray;
+                position: relative;
+                margin-top: 15px;
+                padding-left: 30px;
+                i{
+                    color: #5b75e7;
+                    position: absolute;
+                    top: 0px;
+                    left: 0;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}
+/*========= End seo-features3 area css ===========*/
+
+/*========== start seo-call-action-area css===========*/
+.seo-call-action-area{
+    padding: 140px 0px 150px;
+    .section-title{
+        color: #fff;
+        max-width: 100%;
+        margin-bottom: 48px;
+        h2{
+            color: #fff;
+        }
+        p{
+            font-size: 18px;
+        }
+    }
+    .seo-btn{
+        box-shadow: 0px 10px 20px 0px rgba(0, 57, 110, 0.1);
+        background: #8ec549;
+        &:hover{
+            background: #82ba3d;
+        }
+    }
+}
+/*========== End seo-call-action-area css===========*/
+
+.usability-area{
+    .ebook-user{
+        .user-item{
+            i{
+                color: #f88e40;
+            }
+        }
+    }
+}

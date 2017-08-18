@@ -1,0 +1,75 @@
+/*----------------------------------------------------
+@File: Default Styles
+@Author: Md. Shahadat Hussain
+@URL: https://themeforest.net/user/droitthemes
+
+This file contains the styling for the actual theme, this
+is the file you need to edit to change the look of the
+theme.
+---------------------------------------------------- */
+/*=====================================================================
+@Template Name: Inova
+@Author: Md. Shahadat Hussain
+@Developed By: Rony
+@Developer URL: https://themeforest.net/user/droitthemes
+
+@Default Styles
+
+Table of Content:
+01/ variables
+02/ predefine
+03/ button
+04/ header
+05/ slider
+06/ banner
+07/ team
+08/ portfolio
+09/ blog
+10/ products
+11/ testimonial
+12/ features
+13/ video
+14/ pricing
+15/ contact 
+16/ footer 
+=====================================================================*/
+
+/*=== fonts ====*/
+$open: 'Open Sans', sans-serif;
+$lato: 'Lato', sans-serif;
+$mont:'Montserrat', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Open+Sans:300,300i,400,600,600i,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,500i,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+@font-face {
+    font-family: 'socialicoregular';
+    src: url('../fonts/socialico-webfont.woff2') format('woff2'),
+         url('../fonts/socialico-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*===== color =====*/
+$l-green:#7ed321;
+$dk-blue:#1a264a;
+$p-color:#585e68;
+$blue:#1aabec;
+$dk-gray:#555555;
+$green: #4ec198;
+$seo-g:#8ec549;
+// Mixins
+@mixin transition($property: all, $duration: 400ms, $animate: linear, $delay:0s){
+    transition: $property $duration $animate $delay; 
+}
+
+// Placeholder Mixins
+
+@mixin placeholder {
+    &.placeholder { @content; }
+    &:-moz-placeholder { @content; }
+    &::-moz-placeholder { @content; }
+    &::-webkit-input-placeholder { @content; }
+}

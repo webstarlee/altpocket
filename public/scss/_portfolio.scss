@@ -1,0 +1,94 @@
+/*=============Start portfolio css ==============*/
+.portfolio-area{
+    padding: 105px 0px 120px;
+    .portfolio-filter{
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 63px 0px 50px;
+        li{
+            display: inline-block;
+            font: 600 14px/28px $open;
+            color: $dk-gray;
+            text-transform: uppercase;
+            transition: all 0.5s linear;
+            cursor: pointer;
+            border-bottom: 1px solid transparent;
+            &:hover{
+                color: $dk-blue;
+                border-bottom: 1px solid $dk-blue;
+            }
+            &.active{
+                color: $dk-blue;
+                border-bottom: 1px solid $dk-blue;
+            }
+            & + li{
+                margin-left: 34px;
+            }
+        }
+    }
+    .portfolio-gallery{
+        .portfolio-item{
+            .portfolio-image{
+                img{
+                    max-width: 100%;
+                    width: 100%;
+                }
+                .popup{
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background:#1aabec;
+                    opacity: 0;
+                    transition-delay: 0.25s;
+                    transition: all 0.25s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+                    span{
+                        width: 60px;
+                        height: 60px; 
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        margin-top: -30px;
+                        margin-left: -30px;
+                        overflow: hidden;
+                    }
+                    i{
+                        width: 60px;
+                        height: 60px; 
+                        position: absolute;
+                        background: #fff;
+                        border-radius: 50%;
+                        text-align: center;
+                        font-size: 18px;
+                        color: $blue;
+                        opacity: 1;
+                        line-height: 60px;
+                        transform: translateY(100%);
+                        transition: all 0.8s cubic-bezier(0.37, 0.31, 0.2, 0.85);
+                        overflow: hidden;
+                    }
+                }
+            }
+            &:hover{
+                .portfolio-image{
+                    .popup{
+                        opacity: 1;
+                        i{
+                            transform: translateY(0);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .view-all-btn{
+        text-align: center;
+        margin-top: 80px;
+    }
+}
+.mfp-title {
+    display: none;
+}
+/*=============End portfolio css ==============*/

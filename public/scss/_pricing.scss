@@ -1,0 +1,323 @@
+/*=============== start pricing-area css ===================*/
+.pricing-area{
+    padding: 104px 0px 120px;
+}
+.price-tab{
+    max-width:570px;
+    margin: 40px auto 0px;
+    border: 0px;
+    li{
+        padding: 0px;
+        margin: 0px;
+        width: 50%;
+        a{
+            padding: 0px 50px;
+            font: 700 16px/60px  $open;
+            color: $dk-blue;
+            text-transform: uppercase;
+            margin: 0px;
+            letter-spacing: 1.6px;
+            border: 1px solid #e2e5e7;
+            border-radius: 40px 0px 0px 40px;
+            text-align: center;
+            &:hover,&:focus{
+                background: #f8fafc;
+            }
+        }
+        &.active{
+            a{
+                background: #f8fafc;
+                border:1px solid #e2e5e7;
+                border-bottom-right-radius: 0px;
+                border-top-right-radius: 0px;
+                &:hover,&:focus{
+                    background:#f8fafc;
+                    border-color:#e2e5e7; 
+                }
+            }
+        }
+        &:last-child{
+            a{
+                border-radius: 0px 40px 40px 0px;
+            }
+        }
+    }
+}
+.priceing-tab{
+    padding: 80px 0px 0px;
+}
+.price{
+    .pricing-box{
+        border-radius: 3px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 2px 17px 0px rgba(26, 38, 74, 0.09);
+        text-align: center;
+        padding: 18px 0px 60px;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer;
+        .pricing-header{
+            position: relative;
+            .tag{
+                font: 600 12px/23px "Open Sans", sans-serif;
+                color: #fff;
+                text-transform: uppercase;
+                background: #f88e40;
+                width: 75px;
+                transform: rotate(90deg);
+                position: absolute;
+                top: 4px;
+                right: 0;
+                padding: 4px 0px;
+                border: 0px;
+                &:before{
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-left: 0px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-bottom: 13px solid #f88e40;
+                    position: absolute;
+                    top: 1px;
+                    transform: rotate(90deg);
+                    right: -14px;
+                }
+                &:after{
+                    content: "";
+                    width: 0;
+                    height: 0;
+                    border-left: 15px solid transparent;
+                    border-right: 0px solid transparent;
+                    border-bottom: 13px solid #f88e40;
+                    position: absolute;
+                    transform: rotate(90deg);
+                    right: -14px;
+                    bottom: 1px;
+                }
+                
+            }
+            h2{
+                font: 400 18px/60px $mont;
+                color: $dk-blue;
+                text-transform: uppercase;
+                padding-bottom: 15px;
+            }
+            .packeg_typ{
+                font: 400 72px/60px $mont;
+                color: $blue;
+                background: #f8fafc;
+                padding: 30px 0px;
+                span{
+                    font: 400 24px/35px $open;
+                    letter-spacing: 1px;
+                    vertical-align: top;
+                }
+                small{
+                    font-family: $lato;
+                    font-size: 16px;
+                    line-height: 30px;
+                    vertical-align: bottom;
+                    color: $blue;
+                }
+            }
+        }
+        .plan-lists{
+            padding: 47px 0px 30px;
+            li{
+                font: 400 18px/40px $open;
+                color: $dk-blue;
+            }
+        }
+        &:hover{
+            box-shadow: 0px 17px 37px 0px rgba(26, 38, 74, 0.25);
+            .purchase-btn{
+                background: $blue;
+                color: #fff;
+            }
+        }
+        &.active{
+            box-shadow: 0px 17px 37px 0px rgba(26, 38, 74, 0.25);
+            &:hover{
+                .purchase-btn{
+                    background: $blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.try{
+    display: block;
+    font: 400 12px/50px $open;
+    color: #b8b8b8;
+    text-transform: uppercase;
+    @include transition;
+    &:hover{
+        color: $blue;
+    }
+}
+.purchase-btn{
+    font-size: 14px;
+    color: $blue;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    border: 1px solid $blue;
+    display: inline-block;
+    padding: 4px 67px;
+    border-radius: 3px;
+    transition: all 0.4s linear;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+/*=============== End pricing-area css ===================*/
+
+.pricing-area2{
+    .price-section{
+        padding-top: 45px;
+    }
+    .price-tab{
+        li{
+            &.active{
+                a{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
+
+/*=============Start compare-area css ==============*/
+.compare-area{
+    padding: 104px 0px 110px;
+}
+.compare-table-are{
+    margin-top: 75px;
+    background: #fff;
+    padding-bottom: 30px;
+    .table{
+        margin-bottom: 0px;
+        thead{
+            background: #fff;
+            tr{
+                th{
+                    border: 0px;
+                    font: 400 20px/64px $mont;
+                    color: $dk-blue;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    color: $dk-gray;
+                    line-height: 58px;
+                    border-color: #dfe1e2;
+                    &.price{
+                        color: $blue;
+                        font-size: 30px;
+                        font-family: $mont;
+                    }
+                    .try{
+                        font-weight: 700;
+                    }
+                    .purchase-btn{
+                        &:hover{
+                            background: $blue;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+        tr{
+            th,td{
+                &:first-child{
+                    padding-left: 40px;
+                }
+            }
+        }
+    }
+}
+/*=============End compare-area css ==============*/
+
+/*=============Start tech-space-area css ==============*/
+.tech-space-area{
+    padding: 102px 0px;
+}
+.tech-space{
+    padding-top: 27px;
+}
+.tech-item{
+    padding: 17px 15px;
+    h2{
+        font: 400 18px/55px $mont;
+        color: $dk-blue;
+    }
+    ul{
+        li{
+            color: $dk-gray;
+        }
+    }
+}
+/*=============End tech-space-area css ==============*/
+
+/*========== find-store css =========*/
+.find-store{
+    background: #f8fafc;
+}
+
+/*==============Start seo-rang-area css =================*/
+.seo-rang-area{
+    background: #f9faff;
+    padding: 120px 0px;
+}
+.range-content{
+    text-align: center;
+    img{
+        max-width: 100%;
+    }
+    .section-title{
+        max-width: 100%;
+        margin-top: 67px;
+        p{
+            padding: 10px 155px 18px;
+        }
+    }
+    .seo-btn{
+        box-shadow: none;
+    }
+}
+/*==============End seo-rang-area css =================*/
+
+/*=========Start seo-pricing css =========*/
+.seo-pricing{
+    .price{
+        .pricing-box {
+            .pricing-header{
+                .packeg_typ{
+                    color: #5b75e7;
+                    small{
+                        color: #5b75e7;
+                    }
+                }
+            }
+            .try{
+                &:hover{
+                    color: #5b75e7;
+                }
+            }
+            .purchase-btn{
+                border-color: #5b75e7;
+                color: #5b75e7;
+            }
+            &:hover{
+                .purchase-btn{
+                    background: #5b75e7;
+                    color: #fff;
+                }
+            }
+        }
+    } 
+}
+/*=========End seo-pricing css =========*/
+

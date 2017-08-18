@@ -1,0 +1,160 @@
+/*============= Start support area css =================*/
+.footer-top{
+    background: #2a2a2a;
+    padding: 118px 0px;
+    .footer_sidebar{
+        .widget{
+            font: 400 15px/28px $open;
+            color: rgba(255, 255, 255, 0.50);
+            .logo{
+                padding-bottom: 30px;
+                display: block;
+            }
+            .widget_title{
+                font: 700 16px/21px $open;
+                color: #fff;
+                letter-spacing: 0.8px;
+                text-transform: uppercase;
+                padding-bottom: 33px;
+            }
+            &.about_us_widget{
+                .social_icon{
+                    padding-top: 37px;
+                    li{
+                        display: inline-block;
+                        a{
+                            font-size: 14px;
+                            color: #fff;
+                            padding: 0px 0px 0px 18px;
+                            opacity: 0.50;
+                            transition: all 0.1s linear;
+                            &:hover{
+                                background: none;
+                                color: $blue;
+                            }
+                        }
+                        &:first-child{
+                            a{
+                                padding-left: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+            &.widget_contact{
+                ul{
+                    li{
+                        display: table;
+                        width: 100%;
+                        i{
+                            float: left;
+                            font-size: 14px;
+                            color: #fff;
+                            opacity: 0.30;
+                            line-height: 30px;
+                            width: 30px;
+                        }
+                        .fleft{
+                            float: left;
+                            width: calc(100% - 30px);
+                            a{
+                                color: #fff; 
+                                opacity: 0.50;
+                                &:hover{
+                                  color: $blue;  
+                                }
+                            }
+                        }
+                        & + li{
+                            padding-top: 18px;
+                        }
+                    }
+                }
+            }
+            &.widget_twitter{
+                padding-right: 50px;
+                .tweets{
+                    li{
+                        width: 100%;
+                        display: table;
+                        i{
+                            float: left;
+                            width: 35px;
+                            font-size: 16px;
+                            line-height: 30px;
+                            color: #fff;
+                            opacity: 0.20;
+                        }
+                        .tweets-text{
+                            float: left;
+                            width: calc(100% - 35px);
+                            a{
+                                opacity: 1;
+                                color: #fff;
+                                transition: all 0.1s linear;
+                                &:hover{
+                                  color: $blue;  
+                                }
+                            }
+                        }
+                        & + li{
+                            padding-top: 25px;
+                        }
+                    }
+                }
+            }
+            &.widget_instagram{
+                .instagram-feed{
+                    li{
+                        display: inline-block;
+                        margin: 5px 6px 5px 0px;
+                        &:nth-child(3),&:nth-child(6){
+                            margin-right: 0px;
+                        }
+                    }
+                }
+                span{
+                    font-size: 14px;
+                    letter-spacing: 0.20px;
+                    padding-top: 17px;
+                    display: block;
+                    a{
+                        color: #fff;
+                        &:hover{
+                          color: $blue;  
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.footer_bottom{
+    background: #242424;
+    font: 400 15px/20px $open;
+    color: rgba(255, 255, 255, 0.30);
+    padding: 30px 0px;
+    a{
+        color: #fff;
+        opacity: 0.3;
+        &:hover{
+            color: $blue;
+            opacity: 1;
+        }
+    }
+    .footer-menu{
+        width: 100%;
+        text-align: right;
+        li{
+            display: inline-block;
+            & + li{
+                padding-left: 38px;
+            }
+        }
+    }
+}
+/*============= End support area css =================*/
+
+.ebook-f.footer-top .footer_sidebar .widget.widget_contact ul li .fleft a:hover,.ebook-f.footer-top .footer_sidebar .widget.about_us_widget .social_icon li a:hover,.ebook-f.footer-top .footer_sidebar .widget.widget_twitter .tweets li .tweets-text a:hover,.ebook-f.footer-top .footer_sidebar .widget.widget_instagram span a:hover,.ebook-f.footer_bottom a:hover{
+    color: #f88e40;
+}

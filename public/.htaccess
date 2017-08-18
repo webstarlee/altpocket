@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType text/x-javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+      ExpiresByType application/x-javascript "access plus 2 month"
+      ExpiresByType text/javascript "access plus 2 month"
+      ExpiresByType application/javascript "access plus 2 month"    
+</IfModule>    
+</IfModule>
+
+<IfModule mod_expires.c>
+        ExpiresActive on
+        ExpiresByType image/jpg "access plus 1 month"
+        ExpiresByType image/jpeg "access plus 1 month"
+        ExpiresByType image/gif "access plus 1 month"
+        ExpiresByType image/png "access plus 1 month"
+        ExpiresByType text/x-javascript "access plus 1 month"
+        ExpiresByType text/javascript "access plus 1 month"
+      ExpiresByType application/x-javascript "access plus 2 month"
+      ExpiresByType text/javascript "access plus 2 month"
+      ExpiresByType application/javascript "access plus 2 month"
+    ExpiresByType text/css "access 1 month"
+</IfModule>

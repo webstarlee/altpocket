@@ -1,0 +1,653 @@
+/*=============Start support area css =================*/
+.support-area{
+    background: url(../image/support-icon/support-bg.jpg);
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 120px 0px;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        opacity: 0.90;
+        z-index: -1;
+    }
+}
+.support-item{
+    background: #f5f9fd;
+    text-align: center;
+    padding: 78px 0px 75px;
+    i{
+        font-size: 55px;
+        color: $blue;
+    }
+    h2{
+        font: 400 24px/40px $mont;
+        color: $dk-blue;
+        padding-top: 22px;
+    }
+    a{
+        font: 400 18px/28px $open;
+        color: $blue;
+    }
+}
+
+/*=============End support area css =================*/
+
+/*=============Start subcribes-area css =================*/
+.subcribes-area{
+    padding-top: 105px;
+    .section-title{
+        color: #fff;
+        margin-bottom: 53px;
+        h2{
+            color: #fff;
+        }
+    }
+    .mailchimp{
+        .mchimp-errmessage,.mchimp-sucmessage{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font:400 14px/24px $open;
+        }
+    }
+}
+.subcribes{
+    &.input-group{
+        max-width: 630px;
+        margin: 0px auto;
+        .form-control{
+            font: 400 15px/42px $open;
+            color: #fff;
+            background: transparent;
+            box-shadow: none;
+            height: 60px;
+            border-color: #fff;
+            padding-left: 30px;
+            @include placeholder{
+                color: #dddddd;
+            }
+        }
+        .input-group-btn{
+            .btn-submit{
+                font: 700 14px/60px $open;
+                color: $blue;
+                padding: 0px 62px;
+                text-shadow: none;
+                box-shadow: none;
+                border: 0px;
+                background: #fff;
+                text-transform: uppercase;
+                @include transition;
+                &:hover{
+                    background: $blue;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+/*=============End  subcribes-area css =================*/
+/*=========== Start get_touch-area css ===========*/
+.get_touch-area{
+    position: relative;
+    overflow: hidden;
+    .map{
+        height: 650px;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        iframe{
+            pointer-events: none;
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            border: 0px;
+            &.clicked{
+                pointer-events: auto;
+            }
+        }
+    }
+}
+.get_touch{
+    position: relative;
+    top: 0px;
+    width: 100%;
+    left: 0px;
+    .left_inner_content{
+        width: calc(50% - 14px);
+        left: 0px;
+        float: left;
+        bottom: 0;
+    }
+    .right_inner_content{
+        width: calc(50% + 14px);
+        float: right;
+        bottom: 0;
+        min-height: 650px;
+        background: rgba(255, 255, 255, 0.85);
+        padding-left: 80px;
+        padding-top: 82px;
+        .th-h2{
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .contact-form{
+            max-width: 520px;
+            float: left;
+            width: 100%;
+            padding-top: 30px;
+            .row{
+                margin-left: -7px;
+                margin-right: -7px;
+                .form-group{
+                    padding:0px 7px;
+                }
+            } 
+            .form-control{
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                width: 100%;
+                height: 60px;
+                font: 400 15px/28px $open;
+                color: $dk-gray;
+                box-shadow: none;
+                outline: none;
+                padding-left: 30px;
+                @include placeholder{
+                    color: #9c9c9c;
+                }
+                &:focus{
+                    border-color: $blue;
+                }
+            }
+            textarea{
+                &.form-control{
+                    height: 150px;
+                    resize: none;
+                    padding-top: 15px;
+                }
+            }
+            .thm-btn{
+                width: 100%;
+            }
+        }
+    }
+}
+.contact-submit-progress,.contact-submit-message{
+    text-align: center;
+    display: block;
+    font: 400 14px/20px $open;
+    color: $blue;
+    text-transform: uppercase;
+}
+/*=========== End get_touch-area css ===========*/
+
+/*========= start seo-subcribe css=========*/
+.seo-subcribe{
+    background: #6fbbfc;
+    padding: 135px 0px 150px;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('../image/seo/seo-sucribe-bg-p.png') no-repeat scroll center bottom;
+        bottom: 0px;
+        z-index: -1;
+        background-size: contain;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        width: calc(100% - 150px);
+        height: 110%;
+        background: url('../image/seo/seo-sucribe-bg-plan.png') no-repeat scroll center left;
+        top: -45px;
+        z-index: -1;
+        left: 150px;
+    }
+    .section-title{
+        p{
+            font-size: 18px;
+        }
+    }
+    .input-group{
+        .form-control{
+            background: #fff;
+            color: $dk-gray;
+            @include placeholder{
+                color: #9fa2a8;
+            }
+        } 
+        .input-group-btn{
+            .btn-submit{
+                background: $seo-g !important;
+                color: #fff !important;
+                &:hover{
+                    background: #82ba3d !important;
+                }
+            }
+        } 
+    } 
+}
+/*========= End seo-subcribe css=========*/
+
+/*=====mfp product css =====*/
+.product-box {
+    max-width: 970px;
+    margin: 0 auto;
+    box-shadow: 0 0 62px rgba(0, 0, 0, 0.3);
+    position: relative;
+    background: #fff;
+    .product-img-gallery{
+        float: left;
+        width: 430px;
+    }
+}
+#product-imgs{
+    height: 100%;
+    padding: 116px 0px 192px;
+    background: #fafafa;
+    .item{
+        text-align: center;
+        img{
+            display: inline-block;
+        }
+    }
+    .carousel-indicators{
+        bottom: 114px;
+        display: table;
+        margin-left: 0;
+        width: auto;
+        transform: translateX(-50%);
+        margin: 0;
+        li{
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 0px 5px;
+            background: #b7b9bd;
+            @include transition;
+            &.active{
+                background: #1574d4;
+            }
+        }
+    }
+}
+.product-desc{
+    float: left;
+    width: calc(100% - 430px);
+    padding: 50px 37px 59px 35px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    .name{
+        font: 400 24px/40px $mont;
+        color: $dk-blue;
+    }
+    .model{
+        font: 400 16px/28px $open;
+        color: $dk-gray;
+    }
+    .price{
+        font: 700 24px/60px $mont;
+        color: #ff6622;
+        del{
+            font-weight: 200;
+            color: #808890;
+            padding-right: 10px;
+        }
+    }
+    .description{
+        font: 400 15px/28px $open;
+        color: $dk-gray;
+        border-top: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+        padding: 22px 0px 25px;
+        margin-bottom: 10px;
+    }
+    .choose-options{
+        margin-bottom: 30px;
+        .option{
+            padding-top: 23px;
+            .form-label{
+                font: 400 18px/36px $mont;
+                color: $dk-blue;
+                display: inline-block;
+                vertical-align: top;
+                padding-right: 34px;
+            }
+            .colors{
+                display: inline-block;
+                input[name="color"]{
+                    display: none;
+                    & + label{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 100%;
+                        position: relative;
+                        margin-right: 6px;
+                        margin-bottom: 0;
+                        &:before{
+                            content: '';
+                            width: 40px;
+                            height: 40px;
+                            display: block;
+                            position: absolute;
+                            top: -5px;
+                            left: -5px;
+                            border: 0px solid;
+                            border-radius: 100%;
+                        }
+                        &[for="colors-1"]{
+                            background: #c3a7a7;
+                            &:before{
+                                border-color: #c3a7a7;
+                            }
+                        }
+                        &[for="colors-2"]{
+                            background: #515366;
+                            &:before{
+                                border-color: #515366;
+                            }
+                        }
+                        &[for="colors-3"]{
+                            background: #b2d155;
+                            &:before{
+                                content: '';
+                                border-color: #b2d155;
+                            }
+                        }
+                    }
+                    &:checked+label:before{
+                        border-width: 1px;
+                    } 
+                }
+            }
+        }
+    }
+    .submit-area{
+        border-top: 1px solid #e0e0e0; 
+    }
+    .submit-message,.submit-progress{
+        position: absolute;
+        bottom: 0;
+        font: 500 15px/25px $open;
+        color: $dk-gray;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        text-transform: capitalize;
+    }
+}
+.pay-btn{
+    display: block;
+    background: #1574d4;
+    width: 100%;
+    border-color: #1574d4;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    height: 60px;
+    line-height: 60px;
+    text-shadow: none;
+    &:hover,&:focus{
+        background: #1169c3;
+        border-color: #1169c3;
+    } 
+}
+.choose-form{
+    position: relative;
+}
+.product-desc .bootstrap-touchspin {
+    width: 70px;
+    display: inline-block;
+    .bootstrap-touchspin-down{
+        margin-top: -1px;
+    }
+}
+.product-desc .bootstrap-touchspin input {
+    width: 42px;
+    box-shadow: none;
+    height: 36px;
+    padding: 0;
+    text-align: center;
+    border-right: 0;
+    border-color: #e0e0e0;
+    background: none;
+    color: #555555;
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button {
+    border-radius: 0;
+    width: 28px;
+    text-align: center;
+    padding: 0;
+    margin-left: 0;
+    background: none;
+    box-shadow: none;
+    border-color: #e0e0e0;
+    
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button:hover,
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button:focus {
+    background: none;
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button i {
+    display: none;
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button:before {
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: block;
+    font: 500 16px/17px "open", sans-serif;
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button:first-child:before {
+    content: '+';
+}
+.product-desc .bootstrap-touchspin .input-group-btn-vertical button:last-child:before {
+    content: '-';
+    margin-top: -1px;
+}
+.product-desc .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 82px;
+}
+.product-desc .bootstrap-select .dropdown-toggle {
+    border-radius: 0;
+    height: 42px;
+    padding: 4px 35px 0 0;
+    position: relative;
+    box-shadow: none;
+    background: transparent;
+    border-color: #e0e0e0;
+}
+.product-desc .bootstrap-select .dropdown-toggle .filter-option {
+    text-align: center;
+    font: 400 16px/1 "open", sans-serif;
+    text-transform: uppercase;
+    color: #555555;
+}
+.product-desc .bootstrap-select .dropdown-menu{
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 0px;
+}
+.product-desc .bootstrap-select .dropdown-toggle .bs-caret {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    height: 40px;
+    top: 0;
+    line-height: 40px;
+    right: 0;
+    width: 35px;
+    color: #555555;
+    border-left: 1px solid #e0e0e0;
+}
+.product-desc .bootstrap-select .dropdown-toggle .bs-caret:before {
+    content: "\f107";
+}
+.product-desc .bootstrap-select .dropdown-toggle .bs-caret .caret {
+    display: none;
+}
+.product-desc .bootstrap-select .dropdown-toggle:hover,
+.product-desc .bootstrap-select .dropdown-toggle:focus {
+    background: none;
+    border-color: #e0e0e0;
+    outline: 0px !important;
+}
+
+
+.personal-info {
+    transition: all 0.8s ease-in-out;
+    opacity: 0;
+    -webkit-transform: translateX(110%);
+    -ms-transform: translateX(110%);
+    transform: translateX(110%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.m-r{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.p-info{
+    padding: 0px 10px;
+}
+@media (max-width: 992px) {
+    .personal-info {
+        width: 100%;
+    }
+}
+.product-info {
+    transition: all 0.8s ease-in-out;
+    opacity: 1;
+}
+.slide-out-left {
+    -webkit-transform: translateX(-110%);
+    -ms-transform: translateX(-110%);
+    transform: translateX(-110%);
+    opacity: 0;
+}
+.slide-in-right {
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+    opacity: 1;
+}
+.js-preorder-btn {
+    position: relative;
+}
+.btn.is-success {
+    background: #34BF4D;
+}
+.btn.is-failed {
+    background: #E0401A;
+}
+.checkmark {
+    display: inline-block;
+}
+.checkmark:after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 25px;
+    border: solid #FFF;
+    border-width: 0 5px 5px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.crossmark {
+    position: relative;
+    display: inline-block;
+}
+.crossmark:before,
+.crossmark:after {
+    position: absolute;
+    left: 0;
+    top: -20px;
+    content: ' ';
+    height: 25px;
+    width: 4px;
+    background-color: #FFF;
+}
+.crossmark:before {
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.crossmark:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.go-btn{
+    font: 600 14px/24px $mont;
+    border-color: #ededed;
+    color: #aeaeae;
+    text-align: center;
+    padding: 12px 56px;
+    border-radius: 40px;
+    text-transform: uppercase;
+    margin-bottom: 17px;
+    @include transition;
+    &:hover{
+        background: #1574d4;
+        color: #fff;
+    }
+}
+.personal-info{
+    padding-top: 10px;
+    .form-group{
+        margin-bottom: 20px;
+        .form-control{
+            font: 400 15px/28px $open;
+            color: #555;
+            border: 1px solid #ededed;
+            border-radius: 0px;
+            box-shadow: none;
+            height: 50px;
+            padding-left: 20px;
+            @include placeholder{
+                color: #aeaeae;
+            }
+        }
+    }
+    .bootstrap-select .dropdown-toggle {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        .filter-option{
+            text-align: left;
+            text-transform: capitalize;
+        }
+        .bs-caret{
+            border: 0px;
+            height: 50px;
+            line-height: 48px;
+        }
+    }
+    .pay-btn{
+        margin-top: 10px;
+    }
+}

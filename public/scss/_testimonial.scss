@@ -1,0 +1,492 @@
+/*=========== Start review-area css =============*/
+.review-area{
+    background: url(../image/testimonial/review-bg.jpg) no-repeat scroll center 0;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    padding: 103px 0px 108px;
+    text-align: center;
+    color: #fff;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        opacity: 0.90;
+    }
+    .section-title{
+        h2{
+            color: #fff;
+        }
+        p{
+            color: #fff;
+        }
+    }
+    i{
+        text-align: center;
+        display: block;
+        font-size: 60px;
+        color: rgba(255, 255, 255, 0.30);
+        line-height: 45px;
+        padding-top: 16px;
+    }
+}
+.review-slider{
+    max-width: 750px;
+    margin: 0px auto;
+    padding-top: 30px;
+    .item{
+        font-family: $open;
+        p{
+            font: 400 18px/32px $open;
+            font-style: italic;
+        }
+        .media{
+            max-width: 276px;
+            margin: 41px auto 0px;
+            .media-left{
+                padding-right: 30px;
+                img{
+                    width: auto;
+                    margin-top: 0px;
+                }
+            }
+            .media-body{
+                text-align: left;
+                vertical-align: middle;
+                h2{
+                    font-weight: 700;
+                    font-size: 18px;
+                    line-height: 20px;
+                }
+                p{
+                    font-size: 15px;
+                    line-height: 30px;
+                    font-weight: 400;
+                    font-style: normal;
+                }
+            }
+        }
+    }
+    .owl-dots{
+        text-align: center;
+        margin-top: 75px;
+        .owl-dot{
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #b7b9bd;
+            display: inline-block;
+            margin: 5px;
+            transition: all 0.4s linear;
+            &.active{
+                background: #fff;
+            }
+        }
+    }
+}
+
+/*=========== End review-area css =============*/
+
+.review-area2{
+    background: #fff;
+    color: $dk-gray;
+    &:before{
+        display: none;
+    }
+    .section-title{
+        h2{
+            color: $dk-blue;
+        }
+    }
+    img{
+        margin-top: 20px;
+    }
+    .review-slider{
+        .item{
+            .media{
+                .media-body{
+                    h2{
+                        font-family: $lato;
+                        color: $dk-blue;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+        .owl-dots{
+            .owl-dot{
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #b2b2b2;
+                display: inline-block;
+                margin: 5px;
+                transition: all 0.4s linear;
+                &.active{
+                    background: $blue;
+                }
+            }
+        }
+    }
+}
+
+
+/*=========== Start faq-area ==============*/
+.faq-area{
+    padding: 102px 0px 117px;
+}
+.faq{
+    padding-top: 20px;
+    .faq-content{
+        padding-right: 62px;
+        .faq-item{
+            h2{
+                font: 400 18px/60px $mont;
+                color: $dk-blue;
+            }
+            p{
+                font: 400 15px/28px $open;
+                & + p{
+                    padding-top: 28px;
+                }
+            }
+            & + .faq-item{
+                margin-top: 43px;
+            }
+        }
+        &.right-fq{
+            padding-right: 0px;
+            padding-left: 62px;
+        }
+    }
+}
+/*=========== End faq-area ==============*/
+
+/*============ start faq area 2 css ============*/
+.faq-area-2{
+    background: #f8fafc;
+    padding: 102px 0px 118px;
+    .faq-img{
+        text-align: center;
+        padding-top: 40px;
+        padding-left: 73px;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+.faq-inner-accordion{
+    margin-bottom: 0px;
+    margin-top: 115px;
+    .panel{
+        border-radius: 0px;
+        border: 0px;
+        box-shadow: none;
+        position: relative;
+        &:before{
+            content: '';
+            width: 1px;
+            height: 92%;
+            position: absolute;
+            top: 5px;
+            left: 60px;
+            background: #f1f1f1;
+        }
+        .panel-heading{
+            padding: 0px;
+            background: transparent;
+            .panel-title{
+                a{
+                    display: block;
+                    font: 400 18px/60px $mont;
+                    color: $dk-blue;
+                    i{
+                        font-size: 19px;
+                        color: $blue;
+                        width: 60px;
+                        text-align: center;
+                        display: inline-block;
+                        line-height: 60px;
+                        margin-right: 30px;
+                        transition: all 0.6s linear;
+                        &.minus{
+                           display: inline-block; 
+                        }
+                        &.plus{
+                            display: none;
+                        }
+                    }
+                    &.collapsed{
+                        .plus{
+                            display: inline-block;
+                        }
+                        .minus{
+                           display: none; 
+                        }
+                    }
+                }
+            }
+        }
+        .panel-collapse{
+            .panel-body{
+                border-top: 0px;
+                font: 400 15px/28px $open;
+                color: $dk-gray;
+                padding: 0px 40px 26px 88px;
+            }
+        }
+        & + .panel{
+            margin-top: 20px;
+        }
+    }
+}
+/*============ End faq area 2 css ============*/
+
+/*======== Start pr-2-faq css =========*/
+.pr-2-faq{
+    .pr-2-faq-inner{
+        padding-top: 64px;
+    }
+    .faq-inner-accordion{
+        margin-top:0px;
+        .panel .panel-heading .panel-title a i{
+            color: #1574d4;
+        }
+    }
+    .faq-img{
+        padding-top: 17px;
+    }
+}
+/*======== End pr-2-faq css =========*/
+
+
+
+/*=========== Start clients-logo-area ==============*/
+.clients-logo-area{
+    padding: 105px 0px 120px;
+}
+.clients-lg-slider{
+    padding-top: 45px;
+    .item{
+        img{
+            margin: 0 auto;
+            max-width: 100%;
+            width: auto;
+            opacity: 0.35;
+            transition: all 0.4s linear;
+        }
+        &:hover{
+            img{
+                opacity: 1;
+            }
+        }
+    }
+    .owl-dots{
+        display: none;
+    }
+}
+/*=========== End clients-logo-area ==============*/
+
+.ebook-review{
+    background: #f4fafa;
+}
+
+
+/*============= Start screenshot area css ============*/
+.screenshots-area{
+    background: #f8fafc;
+    padding: 105px 0px 110px;
+}
+.screenshots-slider{
+    padding-top: 43px;
+    .screenshot{
+        display: block;
+        position: relative;
+        box-shadow: 0px 7px 17px 0px rgba(0, 0, 0, 0.25);
+        margin-bottom: 75px;
+        &:before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 99%);
+            opacity: 0;
+            z-index: 1;
+            transition: all 0.5s linear;
+            text-align: center;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: url("../image/screenshot/icon.png") no-repeat scroll center 0;
+            opacity: 0;
+            z-index: 1;
+            width: 100%;
+            height: 30px;
+        }
+        &:hover{
+            &:before{
+                opacity: 0.949;
+            }
+            &:after{
+                opacity: 1;
+            }
+        }
+    }
+    .owl-dots{
+        text-align: center;
+        margin-top: 2px;
+    }
+}
+/*============= End screenshot area css ============*/
+
+/*======= Start reviews-area-pr-2 css =======*/
+.reviews-area-pr-2{
+    padding: 103px 0px 109px;
+}
+.reviews-slider2{
+    padding-top: 38px;
+    .review-content{
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.2);
+        padding: 50px;
+        margin: 30px 15px;
+        i{
+            font-size: 30px;
+            color: #b2b2b2;
+            margin-bottom: 18px;
+        }
+        p{
+            color: $dk-gray;
+            padding-bottom: 35px;
+        }
+        img{
+            max-width: 100%;
+            width: auto;
+        }
+    }
+    .owl-dots {
+        margin-top: 45px;
+    }
+}
+/*======= End reviews-area-pr-2 css =======*/
+
+/*========= Start seo-review css ============*/
+.seo-review{
+    background: #f9faff;
+    .section-title{
+        margin-bottom: 0px;
+        h2{
+            padding-bottom: 0px;
+        }
+    }
+}
+.seo-review-slider{
+    .review-content{
+        padding: 50px 50px 10px;
+        box-shadow: 0px 10px 40px 0px rgba(105, 152, 192, 0.15);
+        .media{
+            .media-left{
+                width: 80px;
+                height: 80px;
+                padding-right: 25px;
+                img{
+                    width: auto;
+                    max-width: none;
+                }
+            }
+            .media-body{
+                vertical-align: middle;
+                h2{
+                    font: 400 18px/26px $mont;
+                    color: $p-color;
+                }
+                h4{
+                    font: 400 15px/32px $open;
+                    color: $dk-gray;
+                }
+                p{
+                    padding-bottom: 0px;
+                    margin-top: 0px;
+                }
+            }
+        }
+        p{
+            font-size: 18px;
+            line-height: 30px;
+            font-style: italic;
+            margin-top: 20px;
+        }
+    }
+}
+
+/*========= End seo-review css ============*/
+
+.faq-area2{
+    background: #f4fafa;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+}
+.ebook-faq{
+    .th-h2{
+        font-weight: 600;
+        font-size: 35px;
+        line-height: 60px;
+        text-transform: uppercase;
+    }
+    .faq-inner-accordion{
+        margin-top: 55px;
+        .panel{
+            background: transparent;
+            &:before{
+                display: none;
+            }
+            .panel-heading{
+                .panel-title{
+                    a{
+                        i{
+                            width: 30px;
+                            height: 30px;
+                            border: 1px solid #d6dcdc;
+                            font-size: 15px;
+                            line-height: 30px;
+                            color: $dk-blue;
+                        }
+                    }
+                }
+            }
+            .panel-collapse{
+                .panel-body{
+                    padding-left: 60px;
+                    padding-bottom: 10px;
+                }
+            }
+            & + .panel{
+                margin-top: 5px;
+            }
+        }
+    }
+}
+.ipad-img{
+    position: absolute;
+    width: auto;
+    margin-top: 16px;
+}

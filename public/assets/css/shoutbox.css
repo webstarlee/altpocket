@@ -1,0 +1,21 @@
+.shoutbox { width: 100%; bottom: -1px; margin-bottom: 0; border-radius: 0; }
+.profile-avatar { position: relative; z-index: 20; background-size: cover; background-position: center center; border-radius: 100%; -webkit-transition: opacity 0.3s ease-in; transition: opacity 0.3s ease-in; }
+.profile-avatar.tiny { width: 32px; height: 32px; border: none; }
+.shoutbox .panel-heading { border-radius: 0; }
+.shoutbox .profile-avatar { box-shadow: none; }
+.shoutbox .list-group { height: 300px; overflow-y: auto; }
+.shoutbox .list-group-item-heading, .shoutbox p { margin-left: 48px; padding-right: 30px; }
+.shoutbox .list-group-item .message-content { position: relative; }
+.shoutbox .list-group-item time { position: absolute; top: 0; right: 0; color: #777777; font-size: 12px; }
+.shoutbox .form-group { width: 100%; }
+.shoutbox input.form-control { width: 100%; resize: none; }
+.mentioned { background-color: #C6FFFA; }
+.panel-chat { border-color: #ddd; }
+.panel-chat > .panel-heading { color: #fff; background-color: #373d43; border-color: #ddd; }
+.panel-chat > .panel-heading + .panel-collapse > .panel-body { border-top-color: #ddd; }
+.panel-chat > .panel-heading .badge { color: #373d43; background-color: #fff; }
+.panel-chat > .panel-footer + .panel-collapse > .panel-body { border-bottom-color: #ddd; }
+.panel-chat .close { color: #fff; position: absolute; top: 8px; right: 16px; }
+.panel-heading h3 { padding:5px; }
+#chat-error { margin-left: 0px; margin-top: 5px; }
+.Founder { color: #375492!important; }

@@ -1,0 +1,634 @@
+
+/*=========== pre-loader css =============*/
+.loader-container {
+    position: fixed;
+    float: left;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+    background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+    background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+    z-index: 999999;
+}
+.loader-container .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+}
+#loading-center-absolute {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: 200px;
+    width: 200px;
+    margin-top: -100px;
+    margin-left: -100px;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+.object {
+    -moz-border-radius: 50% 50% 50% 50%;
+    -webkit-border-radius: 50% 50% 50% 50%;
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    border-top: 5px solid #fff;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #fff;
+    border-right: 5px solid transparent;
+    -webkit-animation: animate 2s infinite;
+    animation: animate 2s infinite;
+}
+
+#object_one {
+    left: 75px;
+    top: 75px;
+    width: 50px;
+    height: 50px;
+}
+
+#object_two {
+    left: 65px;
+    top: 65px;
+    width: 70px;
+    height: 70px;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+}
+
+#object_three {
+    left: 55px;
+    top: 55px;
+    width: 90px;
+    height: 90px;
+    -webkit-animation-delay: 0.4s;
+    animation-delay: 0.4s;
+}
+
+#object_four {
+    left: 45px;
+    top: 45px;
+    width: 110px;
+    height: 110px;
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+@-webkit-keyframes animate {
+    50% {
+        -ms-transform: rotate(360deg) scale(0.8);
+        -webkit-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+    }
+}
+
+@keyframes animate {
+    50% {
+        -ms-transform: rotate(360deg) scale(0.8);
+        -webkit-transform: rotate(360deg) scale(0.8);
+        transform: rotate(360deg) scale(0.8);
+    }
+}
+
+
+/*===============Start header area css ==============*/
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.navbar.navbar-default{
+    margin-bottom: 0px;
+    border-radius: 0px;
+    box-shadow: none;
+    background: none;
+    border: 0px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.102);
+    padding: 30px 0px 30px;
+    .navbar-header{
+        .navbar-brand{
+            height: auto;
+            padding: 0px 15px;
+            line-height: 40px;
+            display: inline-block;
+            img{
+                display: inline-block;
+                max-width: 100%;
+                & + img{
+                    display: none;
+                }
+            }
+        }
+    }
+    .navbar-collapse{
+        &.navbar-right{
+            padding-right: 0px;
+        }
+        .menu{
+            li{
+                margin-right: 40px;
+                a{
+                    font: 600 14px/40px $open;
+                    color: #fff;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 0px;
+                    text-shadow: none;
+                    background: transparent;
+                    box-shadow: none;
+                    border-bottom: 2px solid transparent;
+                    @include transition;
+                }
+                &:hover,&:focus{
+                    a{
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+                &.current{
+                    a{
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+    .navbar-toggle{
+        border: 0px;
+        padding: 9px 0px;
+        margin-bottom: 0px;
+        .icon-bar{
+            background: #fff;
+        }
+        &:hover,&:focus{
+            background: transparent;
+        }
+    }
+    .nav-right{
+        margin-right: 0px;
+        li{
+            a{
+                font-size: 18px;
+                color: #fff;
+                text-shadow: none;
+                display: inline-block;
+                padding: 0px;
+                background: transparent;
+                position: relative;
+                line-height: 42px;
+                &:hover,&:focus{
+                    background: none;
+                    box-shadow: none;
+                }
+            }
+            &.search_dropdown{
+                .search{
+                    padding: 0;
+                    width: 270px;
+                    position: absolute;
+                    top: 100%;
+                    right: 0;
+                    z-index: 1000;
+                    opacity: 0;
+                    visibility: hidden;
+                    float: left;
+                    padding: 0px;
+                    list-style: none;
+                    text-align: left;
+                    background: $blue;
+                    .search-form{
+                        margin: 0px;
+                        padding: 0;
+                        .input-group{
+                            .form-control{
+                                font: 400 14px/29px $mont;
+                                box-shadow: none;
+                                text-shadow: none;
+                                color: #fff;
+                                background: transparent;
+                                border: 0px;
+                                padding-left: 15px;
+                                @include placeholder{
+                                    color: #fff;
+                                }
+                            }
+                            .input-group-addon{
+                                padding: 0px;
+                                background: transparent;
+                                border: 0px;
+                                button{
+                                    line-height: 30px;
+                                    font-size: 18px;
+                                    background: transparent;
+                                    box-shadow: none;
+                                    border: 0px;
+                                    color: #fff;
+                                    padding-right: 15px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.open{
+                    .search{
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            .g-btn{
+                font: 600 14px/38px $open;
+                color: #fff;
+                text-transform: uppercase;
+                border: 1px solid #fff;
+                padding: 0px 36px;
+                display: inline-block;
+                text-align: center;
+                border-radius: 50px;
+                margin-left: 22px;
+                text-shadow: none;
+                @include transition;
+                &:hover{
+                    background: #fff;
+                    border-color: #fff;
+                    color: $dk-blue;
+                }
+            }
+        }
+    }
+}
+.navbar-toggle{
+    border: 0px;
+    padding: 9px 0px;
+    margin-top: 4px;
+    .icon-bar{
+        background: #fff;
+    }
+    &:hover,&:focus{
+        background: transparent;
+    }
+}
+.navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(3){
+    top: -1px;
+    transform: rotate(-45deg);
+    opacity: 1;
+}
+.navbar-toggle[aria-expanded="true"] .icon-bar {
+    transform: rotate(45deg);
+    opacity: 1;
+    position: relative;
+    top: -7px;
+}
+.navbar-toggle[aria-expanded="true"] .icon-bar:nth-child(2) {
+    opacity: 0;
+    display: none;
+    transition: all 0.1s linear;
+}
+
+/*===============End header area css ==============*/
+
+/*========== pr-2 nav css ============*/
+.navbar.navbar-default.pr-menu.pr2-menu{
+    border: 0px;
+    .menu{
+        li{
+            a{
+                color: $dk-gray;
+                &:hover{
+                    border-color: #1574d4;
+                    color: #1574d4;
+                }
+            }
+            &.current{
+                a{
+                    color: #1574d4;
+                    border-color: #1574d4;
+                }
+            }
+        } 
+    }
+    .nav-right{
+        li{
+            a{
+                color: #1574d4;
+                &.g-btn{
+                    border-color: #1574d4;
+                    &:hover{
+                        background: #1574d4;
+                        border-color: #1574d4;
+                        color: #fff;
+                    }
+                }
+            }
+        } 
+    }
+    .icon-bar{
+        background: #1574d4;
+    }
+}
+.navbar.navbar-default{
+    .startup{
+        .icon-bar{
+            background: $dk-gray;
+        }
+    }
+}
+
+
+/*============Start startup-menu css ================*/
+.navbar.navbar-default.startup-menu{
+    border: 0px;
+    .menu2{
+        li{
+            a{
+                color: $dk-gray;
+                &:hover{
+                    border-color: $dk-gray;
+                }
+                &.g-btn{
+                    border-color: $dk-gray;
+                    &:hover{
+                        background: $dk-blue;
+                        border-color: $dk-blue;
+                        color: #fff;
+                    }
+                }
+            }
+            &.current{
+                a{
+                    border-color: $dk-gray;
+                }
+            }
+        }
+    }
+}
+/*============End startup-menu css ================*/
+
+/*=============ebook header css ==============*/
+.navbar.navbar-default{
+    &.ebook-menu{
+        .menu{
+            li{
+                a{
+                    color: $dk-gray;
+                    &:hover{
+                        color: #f88e40;
+                        border-color: #f88e40;
+                    }
+                }
+                &.current{
+                    a{
+                        color: #f88e40;
+                        border-color: #f88e40;
+                    }
+                }
+            }
+        }
+        .nav-right{
+            li{
+                a{
+                    color: #f88e40;
+                    &.g-btn{
+                        border-color: #f88e40;
+                        color:  #f88e40;
+                        &:hover{
+                            background: #f88e40;
+                            color: #fff;
+                        }
+                    }
+                }
+            }  
+        }
+        .navbar-toggle{
+            .icon-bar{
+                background:  #f88e40;
+            }
+        }
+    }    
+}
+
+/*=============stricky-fixed menu css =================*/
+.stricky-fixed{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.97);
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    border-radius: 0px;
+    .navbar.navbar-default{
+        border: 0px;
+        padding: 20px 0px 20px;
+        @media (max-width:991px){
+            padding-bottom: 0px;
+        }
+        .navbar-header{
+            padding-bottom: 0px;
+            .navbar-brand{
+                line-height: 37px;
+                img{
+                    display: none;
+                    & +img{
+                        display: inline-block;
+                    }
+                }
+            }
+            @media (max-width:991px){
+                padding-bottom: 20px;
+            }
+        }
+        .navbar-toggle{
+            .icon-bar{
+                background: $blue;
+            }
+        } 
+        .navbar-collapse{
+            .menu{
+                li{
+                    a{
+                        color: $dk-gray;
+                        &:hover{
+                            border-color: $blue;
+                            color: $blue;
+                        }
+                    }
+                    &.current{
+                        a{
+                           border-color: $blue; 
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-right{
+            li{
+                a{
+                    color: $blue;
+                    &.g-btn{
+                        border-color: $blue;
+                        color: $blue;
+                        &:hover{
+                            background: $blue;
+                            color: #fff;
+                        } 
+                    }
+                }
+            }
+        }
+        .navbar-collapse.navbar-right{
+            @media (max-width:767px){
+                margin: 0px -15px;
+            }
+        }
+        &.pr-menu{
+            .navbar-toggle .icon-bar{
+                background: #1574d4;
+            }
+            .nav-right{
+                li{
+                    a{
+                        color: #1574d4;
+                        &.g-btn{
+                            border-color: #1574d4;
+                            color: #1574d4;
+                            &:hover{
+                                background: #1574d4;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+            .menu{
+                li{
+                    a{
+                        color: $dk-gray;
+                        &:hover{
+                            border-color: #1574d4;
+                            color: #1574d4;
+                        }
+                    }
+                    &.current{
+                        a{
+                            border-color: #1574d4;
+                            color: #1574d4;
+                        }
+                    }
+                }
+            }
+        }
+        &.pr-menu.pr2-menu{
+            .navbar-brand{
+                padding: 10px 15px;
+                img{
+                    display: block;
+                }
+            }
+        }
+        &.startup-menu{
+            .menu2{
+                li{
+                    a{
+                        &.g-btn{
+                            &:hover{
+                                border-color: $blue;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+        &.seo-header{
+            .navbar-toggle .icon-bar{
+                background: #5b75e7;
+            }
+            .menu{
+                li{
+                    a{
+                        color: $dk-gray;
+                        &:hover{
+                            border-color: #5b75e7;
+                            color: #5b75e7;
+                        }
+                    }
+                    &.current{
+                        a{
+                            border-color: #5b75e7;
+                            color: #5b75e7;
+                        }
+                    }
+                }
+            }
+             .nav-right{
+                li{
+                    a{
+                        color: #5b75e7;
+                        &.g-btn{
+                            border-color: #5b75e7;
+                            &:hover{
+                                background: #5b75e7;
+                                border-color: #5b75e7;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+        &.ebook-menu{
+            .navbar-brand{
+                padding: 10px 15px;
+                img{
+                    display: block;
+                }
+            }
+            .menu{
+                li{
+                    a{
+                        color: $dk-gray;
+                        &:hover{
+                            border-color: #f88e40;
+                            color: #f88e40;
+                        }
+                    }
+                    &.current{
+                        a{
+                            color: #f88e40;
+                            border-color: #f88e40;
+                        }
+                    }
+                }
+            }
+            .nav-right{
+                li{
+                    a{
+                        color: #f88e40;
+                        &.g-btn{
+                            border-color: #f88e40;
+                            &:hover{
+                                background: #f88e40;
+                            }
+                        } 
+                    }
+                }
+            }
+            .navbar-toggle{
+                .icon-bar{
+                    background:  #f88e40;
+                }
+            }
+        } 
+    }
+}
+
+
+
+
+

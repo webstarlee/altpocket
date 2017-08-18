@@ -1,0 +1,192 @@
+
+/*========== call to action button css==========*/
+.reg-btn{
+    background: $l-green;
+    font: 700 14px/60px $open;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0px 72px;
+    border: 0px;
+    box-shadow: none;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    text-shadow: none;
+    z-index: 1;
+    max-width: 280px;
+    transition: all 0.2s linear;
+    &:hover{
+        color: #fff;
+        background: rgba(108, 202, 26, 0.80);
+    }
+}
+
+/*============ features  area button css -============*/
+
+.thm-btn{
+    font: 700 14px/58px $open;
+    letter-spacing: 1.4px;
+    height: 60px;
+    width: 220px;
+    padding: 0px;
+    text-align: center;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 3px;
+    color: #fff;
+    position: relative;
+    background: rgb(26, 171, 236);
+    z-index: 2;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    &:hover,&:focus{
+        color: #fff;
+        background: #0691cf;
+    }
+}
+
+.sub_btn{
+    width: 290px;
+    height: 60px;
+    display: inline-block;
+    font: 700 14px/40px $open;
+    letter-spacing: 1px;
+    border-radius: 40px;
+    background: $blue;
+    text-transform: uppercase;
+    color: #fff;
+    border: 2px solid transparent;
+    @include transition;
+    &:hover{
+        background: #0691cf;
+        border-color: #0691cf;
+        color: #fff;
+    }
+}
+.sub_btn-two{
+    max-width: 220px;
+    line-height: 43px;
+}
+
+
+/*============ slider3 btn css ==============*/
+.app-btn{
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 57px;
+    transition: all 0.3s linear;
+    background: #fff;
+    img{
+        & + img{
+            display: none;
+            text-align: center;
+        }
+    }
+    & + .app-btn{
+        margin-left: 8px;
+    }
+    &:hover{
+        background: transparent;
+        img{
+            display: none;
+            & + img{
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/*============ product-btn css ==============*/
+.product-btn{
+    width: 300px;
+    height: 50px;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    font: 600 12px/50px $mont;
+    padding: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+    box-shadow: none;
+    color: #fff;
+    &:hover{
+        background: #1574d4;
+        border-color: #1574d4;
+        color: #fff;
+    }
+    &.active{
+        box-shadow: none;
+    }
+}
+
+.pr-2-btn{
+    background: transparent;
+    border-color: #1574d4;
+    height: 45px;
+    line-height: 45px;
+    letter-spacing: 0.50px;
+    color: #1574d4;
+    &:hover{
+        background: #1574d4;
+        color: #fff;
+    }
+    &.active{
+        background: #1574d4;
+        color: #fff;
+        &:hover{
+            background: transparent;
+            color: #1574d4;
+        }
+    }
+}
+
+/*========== slider btn  css ===========*/
+.slider-btn{
+    width: 220px;
+    height: 48px;
+    font-family: $mont;
+    font-weight: 400;
+    border:1px solid #fff;
+    border-radius: 50px;
+    display: inline-block;
+    line-height: 37px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all 0.4s linear;
+    &:hover{
+        background: #1574d4;
+        border-color: #1574d4;
+        color: #fff;
+    }
+    &.active{
+        background: #1574d4;
+        border-color: #1574d4;
+        box-shadow: none;
+        &:hover{
+            background: transparent;
+            border-color: #fff;
+            color: #fff;
+        }
+    }
+    & + .slider-btn{
+        margin-left: 30px;
+    }
+}
+
+/*========= seo-btn css ==========*/
+.seo-btn{
+    background: #5b75e7;
+    &:hover{
+        background: #4f68d5;
+    }
+}
+.s-price-btn{
+    border-radius: 40px !important;
+}

@@ -1,0 +1,983 @@
+/*=============== start products-area =============*/
+.products-area{
+    padding: 102px 0px 109px;
+    .products-slider{
+        .item{
+            padding: 20px 0px;
+            .product-img{
+                box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.13);
+                position: relative;
+                display: block;
+                &:before{
+                    content: '';
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+                    background-image: -moz-radial-gradient(50% 50%, circle closest-side, #1aabec 0%, #3a7bd5 100%);
+                    background-image: -webkit-radial-gradient(50% 50%, circle closest-side, #1aabec 0%, #3a7bd5 100%);
+                    background-image: -ms-radial-gradient(50% 50%, circle closest-side, #1aabec 0%, #3a7bd5 100%);
+                    opacity: 0;
+                    transition: all 0.2s linear;
+                }
+                &:after{
+                    content: '';
+                    width: 30px;
+                    height: 30px;
+                    top: 50%;
+                    left: 50%;
+                    margin-left: -15px;
+                    margin-top: -15px;
+                    background: url("../image/screenshot/icon.png")no-repeat scroll center 0;
+                    position: absolute;
+                    opacity: 0;
+                    transition: all 0.4s linear;
+                }
+                &:hover{
+                    &:before{
+                        opacity: 0.75;
+                    }
+                    &:after{
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+.owl-dots{
+    text-align: center;
+    margin-top: 57px;
+    .owl-dot{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #b7b9bd;
+        display: inline-block;
+        margin: 5px;
+        &.active{
+            background: #1aabec;
+        }
+    }
+}
+/*=============== End products-area =============*/
+
+/*============= Start hand-product-area ==============*/
+.hand-product-area{
+    background-image: -moz-linear-gradient( 0deg, rgb(132,183,129) 0%, rgb(2,164,199) 100%);
+    background-image: -webkit-linear-gradient( 0deg, rgb(132,183,129) 0%, rgb(2,164,199) 100%);
+    background-image: -ms-linear-gradient( 0deg, rgb(132,183,129) 0%, rgb(2,164,199) 100%);
+    padding: 130px 0px 118px;
+    overflow: hidden;
+    .img{
+        position: relative;
+        &:before{
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: url('../image/product/hand-picked-shadow.png') no-repeat scroll center bottom;
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+        }  
+    }
+    img{
+        animation: jump 3s infinite linear;
+    }
+}
+.picked-content{
+    color: #fff;
+    padding-top: 37px;
+    h2{
+        font: 600 34px/50px $mont;
+        text-transform: uppercase;
+        letter-spacing: 0px;
+        padding-bottom: 50px;
+    }
+    p{
+        padding-bottom: 63px;
+        font-size: 16px;
+    }
+}
+@keyframes jump {
+    0%{
+        transform: translateY(-0);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/*============= End hand-product-area ==============*/
+
+/*============= Start products-gallery ==============*/
+.products-gallery{
+    background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(108,117,134) 0%, rgb(64,71,87) 100%);
+    background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(108,117,134) 0%, rgb(64,71,87) 100%);
+    background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(108,117,134) 0%, rgb(64,71,87) 100%);
+    padding: 102px 0px 108px;
+    .section-title{
+        h2{
+            color: #fff;
+        }
+        p{
+            color: #ddd;
+        }
+    }
+    .product-gallery{
+        margin-top: 90px;
+        .item{
+            text-align: center;
+            img{
+                width: auto;
+                max-width: 100%;
+                display: inline-block;
+            }
+        }
+    }
+}
+.pr-dot{
+    .owl-dots{
+        text-align: center;
+        margin-top: 90px;
+        .owl-dot{
+            width: 15px;
+            height: 3px;
+            background: #b4b0b0;
+            margin: 5px;
+            display: inline-block;
+            border-radius: 1.5px;
+            &.active{
+                background: #262a31;
+            }
+        }
+    }
+}
+/*============= End products-gallery ==============*/
+
+/*============= Start magic-are ===============*/
+.magic-area{
+    background: url("../image/product/magic-bg.jpg") no-repeat scroll center 0;
+    background-size: cover;
+    padding: 160px 0px 215px; 
+}
+.magic-content{
+    max-width: 770px;
+    margin: 0 auto;
+    text-align: center;
+    .th-h2{
+        font-weight: 600;
+        font-size: 35px;
+        text-transform: uppercase;
+        margin-bottom: 52px;
+    }
+    p{
+        font-size: 20px;
+        line-height: 35px;
+    }
+    .product-btn{
+        width: 220px;
+        border-color: #1574d4;
+        color: #1574d4;
+        font-weight: 600;
+        margin-top: 73px;
+        &:hover{
+            color: #fff;
+        }
+        &.active{
+            box-shadow: none;
+            background: #1574d4;
+            color: #fff;
+            &:hover{
+                border-color: #1574d4;
+                color: #1574d4;
+                background: transparent;
+            }
+        }
+        & + .product-btn{
+            margin-left: 30px;
+        }
+    }
+}
+/*============= End magic-are ===============*/
+
+/*=========== Start products-gallery-2 css ============*/
+.products-gallery-2{
+    background: none;
+    .section-title{
+        h2{
+            color: $dk-blue;
+        }
+        p{
+            color: $dk-gray;
+        }
+    }
+    .owl-dots{
+        .owl-dot{
+            &.active{
+                background: #1574d4;
+            }
+        }
+    }
+}
+.product-gallery2{
+    text-align: center;
+    padding-top: 65px;
+    .item{
+        img{
+            display: inline-block;
+            max-width: 100%;
+            width: auto;
+        }
+        .content{
+            padding: 50px 100px 0px;
+            h2{
+                font: 400 22px/60px $mont;
+                color: $dk-blue;
+            }
+            p{
+                color: $dk-gray;
+            }
+        }
+    }
+}
+/*=========== End products-gallery-2 css ============*/
+
+/*==============Start related-product css ==============*/
+.related-products{
+    position: relative;
+    padding: 102px 0px 120px;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: url('../image/product/related-pr-bg.jpg') no-repeat scroll center 0;
+        background-size: cover;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.10;
+    }
+    &:after{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        background-image: -webkit-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        background-image: -ms-linear-gradient( 0deg, rgb(2,164,199) 0%, rgb(137,186,134) 100%);
+        opacity: 0.94;
+        z-index: -2;
+    }
+    .section-title{
+        color: #fff;
+        max-width: 680px;
+        h2{
+            color: #fff;
+        }
+    }
+    .owl-dots{
+        .owl-dot{
+            background: #d5d5d5;
+            &.active{
+                background: #fff;
+            }
+        }
+    }
+}
+.related-slider{
+    padding-top: 63px;
+    .rel-item{
+        background: #fff;
+        text-align: center;
+        font-family: $mont;
+        padding: 54px 0px;
+        border-radius: 3px;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+        img{
+            max-width: 100%;
+            width: auto;
+            display: inline-block;
+        }
+        h2{
+            font-size: 18px;
+            color: $dk-blue;
+            line-height: 26px;
+            font-weight: 600;
+            padding-top: 42px;
+            cursor: pointer;
+            transition: all 0.4s linear;
+            &:hover{
+               color: #1574d4; 
+            }
+        }
+        h6{
+            color: #ff6622;
+            font-size: 18px;
+            line-height: 26px;
+            padding-top: 16px;
+            display: inline-block;
+            font-weight: 600;
+            &.pr{
+                text-decoration: line-through;
+                color: #666;
+                padding-right: 15px;
+            }
+        }
+        .product-btn{
+            width: 220px;
+            border-color: #1574d4;
+            color: #1574d4;
+            margin-top: 30px;
+            transition: all 0.4s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            &:hover{
+                color: #fff;
+            }
+        }
+        &:hover{
+            .sale{
+                &:after{
+                    opacity: 0;
+                    transform: scale(1.2);
+                    border-color: #0da8c9; 
+                }
+            }
+            .product-btn{
+                background: #1574d4;
+                color: #fff;
+            }
+        }
+    }
+}
+.sale{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #0da8c9;
+    color: #fff;
+    font: 400 13px/50px $open;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    &:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        border: 6px solid transparent;
+        transition: transform 0.25s ease 0s, opacity 0.6s ease 0.6ms;
+    }
+}
+/*==============End related-product css ==============*/
+
+/*==============Start ebook-chapter-area css ==============*/
+.ebook-chapter-area{
+    padding: 104px 0px 108px;
+}
+.ebook-slider{
+    .rel-item{
+        box-shadow: none;
+        border: 1px solid #f1f1f1;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        .chapter-img{
+            background: #f4fafa;
+            padding: 68px 0px;
+        }
+        .text{
+            padding: 38px 10px;
+            h2{
+                font-size: 24px;
+                padding-top: 0px;
+                padding-bottom: 25px;
+            }
+            p{
+                color: #555555;
+            }
+        }
+    }
+    .owl-dots{
+        margin-top: 80px;
+    }
+}
+/*==============End ebook-chapter-area css ==============*/
+
+/*==============Start more-related-pr css============*/
+.more-related-pr{
+    position: relative;
+    padding: 102px 0px 55px;
+    .owl-prev,.owl-next{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 2;
+        i{
+            font-size: 75px;
+            color: #e5e5e5;
+        }
+    }
+    .owl-prev{
+        left:150px; 
+    }
+    .owl-next{
+        right: 150px;
+    }
+}
+.related-slider2{
+    padding-top: 60px;
+    .related-pr-img{
+        padding-right: 85px;
+        img{
+            max-width: 100%;
+        }
+    }
+    .related-content{
+        h2{
+            font: 600 22px/35px $mont;
+            color: $dk-blue;
+            padding-bottom: 15px;
+        }
+        p{
+            font: 400 16px/30px $open;
+            color: #000;
+        }
+        ul{
+            padding-top: 10px;
+            li{
+                margin-top: 23px;
+                position: relative;
+                padding-left: 30px;
+                i{
+                    color: #1574d4;
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    line-height: 28px;
+                    height: 100%;
+                }
+                color: $dk-gray;
+            }
+        }
+        span{
+            font: 200 18px/28px $mont;
+            color: #1574d4;
+            display: block;
+            margin-top: 45px;
+            a{
+                color: #333333;
+                font-weight: 400;
+            }
+        }
+        .product-btn{
+            width: 240px;
+            background: #1574d4;
+            margin-top: 15px;
+            border-color: #1574d4;
+            &:hover{
+                color: #fff;
+                background: #095caf;
+                border-color: #095caf;
+            }
+        }
+    }
+    .owl-dots{
+        display: none;
+    }
+}
+/*==============End more-related-pr css============*/
+
+/*============ Start product-info-area =============*/
+.product-info-area{
+    padding: 120px 0px 115px;
+}
+.pr-info-item{
+    text-align: center;
+    .round{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.122);
+        margin: 0 auto;
+        line-height: 80px;
+        color: #1574d4;
+        font-size:30px;
+        transition: all 0.4s linear;
+    }
+    h2{
+        font: 400 18px/58px $mont;
+        color: $dk-blue;
+        padding-top: 9px;
+    }
+    p{
+        color: $dk-gray;
+    }
+    &:hover{
+        .round{
+            background: #1574d4;
+            color: #fff;
+        }
+    }
+}
+/*============ End product-info-area =============*/
+
+/*===========start pr-2-power-features ===============*/
+.pr-2-power-features{
+    padding: 103px 0px 108px; 
+}
+.pr-2-features{
+    padding-top: 65px;
+}
+.pr-2-features-content{
+    padding-top: 80px;
+    .th-h2{
+        font-size: 36px;
+        line-height: 45px;
+    }
+    p{
+        color: $dk-gray;
+        padding-top: 40px;
+        padding-bottom: 18px;
+    }
+    ul{
+        li{
+            line-height: 42px;
+            color: $dk-gray;
+            i{
+                color: #1574d4;
+                font-size: 12px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+.pr-sliders{
+    .item{
+        text-align: center;
+        margin-bottom: 20px;
+        img{
+            max-width: 100%;
+            width: auto;
+            display: inline-block;
+        }
+    }
+}
+/*===========end pr-2-power-features ===============*/
+
+
+/*=========== Start sngle-pr-2-area css ===========*/
+.sngle-pr-2-area{
+    padding: 120px 0px;
+    .single-pr-img{
+        text-align: center;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+.single-pr-content{
+    padding-top: 53px;
+    h4{
+        font: 400 16px $mont;
+        letter-spacing:-0.20px;
+        color: $dk-gray;
+        text-transform: uppercase;
+    }
+    .th-h2{
+        font-size: 36px;
+        line-height: 45px;
+        padding-top: 10px;
+    }
+    .star{
+        color: #e28603;
+        font-size: 17px;
+        display: inline-block;
+    }
+    .review{
+        font: 400 15px/45px $open;
+        color: $dk-gray;
+        padding-left: 18px;
+    }
+    p{
+        font: 400 20px/35px $open;
+        color: $dk-gray;
+        padding: 25px 0px 40px;
+    }
+    .price{
+        font: 700 35px/50px $mont;
+        color: $dk-blue;
+        display: block;
+    }
+    .product-btn{
+        width: 200px;
+        background: #1574d4;
+        border-color: #1574d4;
+        margin-top: 23px;
+        &:hover,&:focus{
+            background: #095caf;
+            border-color: #095caf;
+            color: #fff;
+        }
+    }
+}
+/*=========== End sngle-pr-2-area css ===========*/
+
+
+/*========== Start ex-pr-details css ==========*/
+.ex-pr-details{
+    padding-top: 103px;
+    .ex-pr{
+        padding-top: 60px;
+    }
+}
+.ex-pr-slider{
+    padding-right: 20px;
+    padding-top: 65px;
+    .th-h2{
+        font-size: 36px;
+        line-height: 45px;
+    }
+    p{
+        font-size: 16px;
+        color: $dk-gray;
+        padding-top: 30px;
+    }
+    .owl-dots{
+        display: none;
+    }
+    .owl-nav{
+        margin-top: 72px;
+        .owl-prev,.owl-next{
+            width: 50px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            font-size: 18px;
+            line-height: 50px;
+            color: $dk-gray;
+            display: inline-block;
+            @include transition;
+            &:hover{
+                background:#1574d4;
+                color: #fff;
+                border-color: #1574d4;
+            }
+        }
+        .owl-next{
+            margin-left: 10px;
+        }
+    }
+}
+/*========== End ex-pr-details css ==========*/
+
+/*=============== Start hand-product-area2 css ===============*/
+.hand-product-area2{
+    padding: 103px 0px 100px;
+    color: #fff;
+    .section-title{
+        h2{
+            color: #fff;
+        }
+    }
+    .hand-pr-img{
+        text-align: center;
+        position: relative;
+        padding-top: 65px;
+        &:before{
+            content: '';
+            background: url(../image/product-2/hand-pr-watch-shadow.png) no-repeat scroll center bottom;
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            height: 100%;
+            left: 0;
+        }
+        img{
+            max-width: 100%;
+            animation: jump 3s infinite linear;
+        }
+    }
+}
+/*=============== End hand-product-area2 css ===============*/
+
+/*============ Start shop-product-pr-2 css ==============*/
+.shop-product-pr-2{
+    padding: 103px 0px 106px;
+}
+.shop-pr-slider{
+    padding-top: 35px;
+    .shop-pr-content{
+        text-align: center;
+        padding: 60px 0px;
+        margin: 30px 15px;
+        @include transition;
+        position: relative;
+        img{
+            max-width: 100%;
+            width: auto;
+            display: inline-block
+        }
+        h2{
+            font: 400 20px/60px $mont;
+            color: $dk-gray;
+            padding-top: 27px;
+            transition: all 0.4s linear;
+            &:hover{
+                color: #1574d4;
+            }
+        }
+        .price{
+            display: block;
+            font: 700 24px/30px $mont;
+            color: #ff6622;
+            span{
+                text-decoration: line-through;
+                padding-right: 15px;
+                color: #666;
+            }
+        }
+        .pr-2-btn{
+            height: 45px;
+            width: 160px;
+            line-height: 45px;
+            font-weight: 600;
+            margin-top: 27px;
+        }
+        &:hover{
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 12px 30px 2px rgba(0, 0, 0, 0.15);
+            .sale{
+                &:after{
+                    opacity: 0;
+                    transform: scale(1.2);
+                    border-color: #0da8c9; 
+                }
+            }
+        }
+    }
+    .center{
+        @include transition;
+        .shop-pr-content{
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 12px 30px 2px rgba(0, 0, 0, 0.15);
+            @include transition;
+        }
+    }
+    .owl-dots{
+        margin-top: 47px;
+        .owl-dot{
+            &.active{
+                background: #1574d4;
+            }
+        }
+    }
+}
+/*============ End shop-product-pr-2 css ==============*/
+
+/*========== Start pr-features-area css ==============*/
+.pr-features-area{
+    background: #f4f4f4;
+    .img{
+        text-align: center;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+.pr-f-area{
+    max-width: 430px;
+    padding-top: 180px;
+    .th-h2{
+        font-weight: 700;
+    }
+}
+/*========== End pr-features-area css ==============*/
+
+/*============ Start seo-products css ============*/
+.seo-products{
+    background: #f9faff;
+    .seo-pr-slider{
+        .item{
+            padding: 36px 0px;
+        }
+    }
+}
+.seo-pr-slider{
+    .item{
+        padding: 36px 0px;
+    }
+    .user-item{
+        text-align: center;
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0px 10px 40px 0px rgba(105, 152, 192, 0.15);
+        padding: 52px 35px;
+        i{
+            font-size: 50px;
+            line-height: 60px;
+            color: #4f68d5;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .th-h2{
+            font-size: 24px;
+            padding-bottom: 5px;
+        }
+    }
+}
+.seo-dot{
+    .owl-dots{
+        margin-top: 40px;
+        .owl-dot{
+            background: #bac5f5;
+            &.active{
+                background: #4f68d5;
+            }
+        }
+    }
+}
+
+/*============ Start kickstarter-project css ============*/
+.kickstarter-project{
+    padding-top: 32px;
+    .pr-2-features-content{
+        padding-top: 0px;
+        .larg-btn{
+            margin-top: 30px;   
+        }
+    }
+    .kickstart-project-img{
+        text-align: right;
+        padding-top: 50px;
+        img{
+            max-width: 100%;
+        }
+    }
+}
+
+.kickstart-pr-2{
+    background:#fafafa; 
+    .kickstart-project-img{
+        text-align: left;
+    }
+}
+/*============ End kickstarter-project css ============*/
+
+/*============= Start general-feature2 css  ===============*/
+.general-feature2{
+    background: #f4fafa;
+    padding: 120px 0px;
+    .pr-2-features-content{
+        .th-h2{
+            text-transform: uppercase;
+            font-weight: 600;
+            padding-bottom: 20px;
+        }
+        ul{
+            li{
+                i{
+                    color: #f88e40;
+                }
+            }
+        }
+    }
+    .pr-img{
+        text-align: center;
+        img{
+            max-width: 100%;
+            box-shadow: 0px 12px 30px 2px rgba(0, 0, 0, 0.25);
+        }
+    }
+}
+/*============= End general-feature2 css  ===============*/
+
+/*============= Start about-author-area css  ===============*/
+.about-author-area{
+    padding-top: 120px;
+}
+.author-img{
+    img{
+        max-width: 100%;
+    }
+}
+.author-bio{
+    padding-top: 65px;
+    .author-name{
+        margin-bottom: 20px;
+        h2{
+            font: 600 35px/45px $mont;
+            color: $dk-blue;
+            text-transform: uppercase;
+        }
+        h6{
+            font: 400 15px/42px $open;
+            color: $dk-gray;
+            span{
+                font-weight: 700;
+                color: $dk-blue;
+                padding-right: 16px;
+            }
+        }
+    }
+    p{
+        width: 48%;
+        float: left;
+        color: $dk-gray;
+        & + p{
+            margin-left: 4%;
+        }
+    }
+}
+.ebook-btn{
+    padding-top: 45px;
+    .sub_btn-two{
+        background: transparent;
+        border-color: #f88e40;
+        color: #f88e40;
+        max-width: 240px;
+        padding: 2px 32px;
+        height: 52px;
+        &:hover{
+            background: #f88e40;
+            color: #fff;
+        }
+        & + .sub_btn-two{
+            margin-left: 15px;
+        }
+        &.active{
+            box-shadow: none;
+            background: #f88e40;
+            color: #fff;
+            &:hover{
+                background: transparent;
+                border-color: #f88e40;
+                color: #f88e40;
+            }
+        }
+    }
+}
+.ebook{
+    .owl-dots{
+        .owl-dot{
+            &.active{
+                background: #f88e40 !important;
+            }
+        }
+    }
+}
+/*============= End about-author-area css  ===============*/

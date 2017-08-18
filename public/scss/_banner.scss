@@ -1,0 +1,37 @@
+/*=============== Start banner-area css ================*/
+.banner-area{
+    background: url(../image/blog/blog-banner-img.jpg) no-repeat scroll;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: 50%, 25%;
+    padding: 235px 0px 166px;
+    z-index: 1;
+    position: relative;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        z-index: -1;
+        opacity: 0.75;
+    }
+}
+.banner-content{
+    text-align: center;
+    color: #fff;
+    h2{
+        font: 200 55px/65px $mont;
+        text-transform: uppercase;
+        letter-spacing: 0.50px;
+    }
+    p{
+        font: 400 18px $open;
+        padding-top: 12px;
+    }
+}
+/*=============== End banner-area css ================*/

@@ -1,0 +1,373 @@
+
+/*==========header color css========*/
+.stricky-fixed .navbar.navbar-default .navbar-header .navbar-brand img + img,.navbar.navbar-default.ebook-menu .navbar-header .navbar-brand img,.navbar.navbar-default.pr-menu.pr2-menu .navbar-header .navbar-brand img{
+    visibility: hidden;
+}
+.stricky-fixed .navbar.navbar-default .navbar-header .navbar-brand,.navbar.navbar-default.ebook-menu .navbar-header .navbar-brand,.navbar.navbar-default.pr-menu.pr2-menu .navbar-header .navbar-brand{
+    background-image: url(../../image/logo1-dk-pink.png)!important;
+    background-repeat: no-repeat;
+    background-position: 15px 9px;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li.current a,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a,.navbar.navbar-default.ebook-menu .nav-right li a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a:hover{
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li.current a,.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a.g-btn,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a.g-btn,.navbar.navbar-default.ebook-menu .menu li.current a,.navbar.navbar-default.ebook-menu .menu li a:hover,.navbar.navbar-default.ebook-menu .nav-right li a.g-btn{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default .nav-right li a.g-btn:hover{
+    border-color: #eb1478;
+    background:  #eb1478;
+}
+.stricky-fixed .navbar.navbar-default .navbar-toggle .icon-bar,.navbar.navbar-default.ebook-menu .nav-right li a.g-btn:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .nav-right li a.g-btn:hover,.products-area .products-slider .item .product-img:before{
+    background: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a,.stricky-fixed .navbar.navbar-default.pr-menu.pr2-menu .menu li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a,.stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a{
+    color: #555;
+}
+/*======btn color css ======*/
+.thm-btn,.price .pricing-box.active:hover .purchase-btn{
+   background: #eb1478;
+}
+.thm-btn:hover,.thm-btn:focus,.price .pricing-box:hover .purchase-btn,.seo-pricing .price .pricing-box:hover .purchase-btn{
+    background: #e01272;
+}
+.purchase-btn,.seo-pricing .price .pricing-box .purchase-btn{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.sub_btn{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.sub_btn:hover{
+    background: #e01272;
+    border-color: #e01272;
+}
+.rev_slider .seo-btn{
+    background: #eb1478;
+}
+.rev_slider .seo-btn:hover{
+    background:  #e01272;
+}
+.owl-dots .owl-dot.active,.seo-dot .owl-dots .owl-dot.active{
+    background: #eb1478;
+}
+
+/*slider color css*/
+.slider-image:before,.call-action-area:before,.fun-fact-area:after,.videoWrapper .videoPoster:after,.review-area:before,.support-area:before,.slider3:before,.video-features .app-video:before,.team-member .team-item .hover:before,.call-action3-area:before,.overlay2:before,.seo-video .video-background:before,.video-background:before,.banner-area:before{
+    background: #eb1478;
+}
+
+/*=====usability-area color css=====*/
+.user .user-item i,.seo-usability3 .user .user-item i,.seo-pr-slider .user-item i,.related-slider .rel-item h2:hover{
+    color: #eb1478;
+}
+
+/*=======features-area3 color css=======*/
+.features-area3 .features-tab li.active a{
+    background: #eb1478;
+    border-left-color: #eb1478;
+}
+.features-area3 .features-tab li a:hover, .features-area3 .features-tab li a:focus{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+
+.power-features-item i,.power-features-item .media-left i{
+    color: #eb1478;
+}
+.power-fea-text h2:hover{
+    color: #eb1478;
+}
+
+.video-description .play-btn{
+    color: #eb1478;
+    border-color: #eb1478;
+}
+
+.price .pricing-box .pricing-header .packeg_typ,.price .pricing-box .pricing-header .packeg_typ small,.compare-table-are .table tbody tr td.price,.seo-pricing .price .pricing-box .pricing-header .packeg_typ,.seo-pricing .price .pricing-box .pricing-header .packeg_typ small{
+    color: #eb1478;
+}
+.try:hover,.seo-pricing .price .pricing-box .try:hover{
+    color: #eb1478;
+}
+.compare-table-are .table tbody tr td .purchase-btn:hover{
+    background: #eb1478;
+}
+/*======== blog area color css =========*/
+.blogs .blog-item .texts .th-h2 a:hover,.support-item a,.support-item i{
+    color: #eb1478;
+}
+.blog2-btn{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.blog2-btn:hover{
+    background: #e01272;
+    border-color: #e01272;
+}
+
+.get_touch .right_inner_content .contact-form .form-control:focus,.two-row .right-inner-content .features-content .request-form .form-control:focus{
+    border-color: #eb1478;
+}
+
+/*=======footer color css======*/
+.footer-top .footer_sidebar .widget.about_us_widget .social_icon li a:hover,.footer-top .footer_sidebar .widget.widget_contact ul li .fleft a:hover,
+.footer-top .footer_sidebar .widget.widget_twitter .tweets li .tweets-text a:hover,.footer-top .footer_sidebar .widget.widget_instagram span a:hover,.footer_bottom a:hover,.ebook-f.footer-top .footer_sidebar .widget.widget_contact ul li .fleft a:hover, .ebook-f.footer-top .footer_sidebar .widget.about_us_widget .social_icon li a:hover, .ebook-f.footer-top .footer_sidebar .widget.widget_twitter .tweets li .tweets-text a:hover, .ebook-f.footer-top .footer_sidebar .widget.widget_instagram span a:hover, .ebook-f.footer_bottom a:hover{
+    color: #eb1478;
+}
+
+/*app page color css */
+.team-member .team-item:hover h2,.team-member .team-item .social li a:hover,.slide3-text .slider-text .sub_btn-two.active,.slide3-text .slider-text .sub_btn-two:hover{
+    color: #eb1478;
+}
+.review-area2 .review-slider .owl-dots .owl-dot.active {
+    background: #eb1478;
+}
+.faq-inner-accordion .panel .panel-heading .panel-title a i,.subcribes.input-group .input-group-btn .btn-submit{
+    color: #eb1478;
+}
+.subcribes.input-group .input-group-btn .btn-submit:hover{
+    background: #e01272;
+}
+
+/*====kickstarter page color css====*/
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a{
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a.g-btn{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .nav-right li a.g-btn:hover{
+    background: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.pr-menu .navbar-toggle .icon-bar,.navbar.navbar-default.pr-menu.pr2-menu .icon-bar{
+    background: #eb1478;
+}
+
+.pr-2-features-content ul li i,.general-item .power-features-item .media .media-right i,.pr-2-faq .faq-inner-accordion .panel .panel-heading .panel-title a i,.related-slider2 .related-content ul li i,.related-slider2 .related-content span{
+    color: #eb1478;
+}
+.single-pr-content .product-btn,.general-item .wrapper .line-box:before{
+    background: #eb1478;
+}
+.single-pr-content .product-btn{
+    border-color: #eb1478;
+}
+.single-pr-content .product-btn:hover{
+    background: #e01272;
+    border-color: #e01272;
+}
+.general-item .wrapper .line-box .pulse-wrapper .pulse-1, .general-item .wrapper .line-box .pulse-wrapper .pulse-2{
+    border-color: rgba(235, 20, 120, 0.302); 
+}
+.pulse-1:before, .pulse-2:before{
+    background: rgba(235, 20, 120, 0.502);
+}
+.pulse-1:after, .pulse-2:after{
+    background: #eb1478;
+}
+.ex-pr-slider .owl-nav .owl-prev:hover, .ex-pr-slider .owl-nav .owl-next:hover{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.pr-2-btn,.pr-2-btn.active {
+    background: transparent;
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.pr-2-btn:hover,.product-btn:hover {
+    background: #eb1478;
+    color: #fff;
+    border-color: #eb1478;
+}
+.pr-2-btn.active{
+    background: #eb1478;
+    color: #fff;
+}
+.power-features-item.pr-f .media-left i,.pr-info-item .round{
+    color: #eb1478;
+}
+.pr-info-item:hover .round{
+    background: #eb1478;
+    color: #fff;
+    border-color: #eb1478;
+}
+.power-features-item.pr-f .media-body h2:hover,.pr-2-btn.active:hover,.blog-area.form-blog .blogs .blog-item .texts .th-h2 a:hover,.seo-features3 .features-content ul li i{
+    color: #eb1478;
+}
+.shop-pr-slider .owl-dots .owl-dot.active{
+    background: #eb1478;
+}
+.blog-btn{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.blog-btn:hover,.related-slider .rel-item:hover .product-btn,.related-slider2 .related-content .product-btn:hover{
+    background: #e01272;
+    border-color: #e01272;
+}
+
+/*product-1 css*/
+.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a{
+    color: #eb1478;
+}
+.navbar.navbar-default.pr-menu.pr2-menu .menu li.current a,.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a.g-btn{
+    color: #eb1478;
+    border-color: #eb1478;
+}
+.navbar.navbar-default.pr-menu.pr2-menu .nav-right li a.g-btn:hover{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.slider-btn:hover,.related-slider .rel-item .product-btn:hover{
+    background: #eb1478;
+}
+.hero-content .slider-btn.active{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+.hero-content .slider-btn {
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.hero-content .slider-btn.active:hover{
+    color: #eb1478;
+    border-color: #eb1478;
+}
+.hero-content .slider-btn:hover,.pro-main-hero .hero-content .slider-btn.active,.related-slider .rel-item .product-btn:hover,.pro-main-hero .hero-content .slider-btn:hover,.single-post blockquote{
+    border-color: #eb1478;
+}
+.hots-features-items .item .pulse-wrapper:before,.products-gallery-2 .owl-dots .owl-dot.active{
+    background: #eb1478;
+}
+.pulse-1, .pulse-2{
+    background: rgba(235, 20, 120, 0.4);
+}
+.magic-content .product-btn,.magic-content .product-btn.active:hover,.related-slider .rel-item .product-btn{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.magic-content .product-btn.active {
+    background: #eb1478;
+    color: #fff;
+}
+.related-slider2 .related-content .product-btn{
+    border-color: #eb1478;
+    background: #eb1478;
+}
+.shop-pr-slider .shop-pr-content h2:hover{
+    color: #eb1478;
+}
+/*seo color css*/
+.seo-features3 .features-content ul li i,.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a,.portfolio-area .portfolio-gallery .portfolio-item .portfolio-image .popup i{
+    color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a.g-btn,.stricky-fixed .navbar.navbar-default.startup-menu .menu2 li a.g-btn,.stricky-fixed .navbar.navbar-default.startup-menu .menu2 li a.g-btn:hover{
+    border-color: #eb1478;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .nav-right li a.g-btn:hover{
+    background: #eb1478;
+    border-color: #eb1478;
+    color: #fff;
+}
+.stricky-fixed .navbar.navbar-default.seo-header .navbar-toggle .icon-bar{
+    background: #eb1478;
+}
+
+
+.sc-arrow a{
+    background-color: rgba(235, 20, 120, 0.502);
+}
+.sc-arrow a::before,.video-area2 .video-content::before,.portfolio-area .portfolio-gallery .portfolio-item .portfolio-image .popup{
+    background: #eb1478;
+}
+.sc-arrow a::after{
+    background-color: rgba(235, 20, 120, 0.502);
+}
+
+/*ebook color css*/
+.ebook-contain .price-box,.usability-area .ebook-user .user-item i,.general-feature2 .pr-2-features-content ul li i{
+    color: #eb1478;
+}
+.ebook-contain .ebook-btn,.ebook-call-action .sub_btn-two{
+    background: #eb1478;
+}
+.ebook .owl-dots .owl-dot.active{
+    background: #eb1478 !important;
+}
+.ebook-video .video-description .sub_btn-two{
+    background:#eb1478;
+    border-color: #eb1478;
+}
+.ebook-video .video-description .sub_btn-two:hover,.ebook-call-action .sub_btn-two:hover{
+    background: #e01272;
+    border-color: #e01272;
+}
+.ebook-contain .ebook-btn:hover{
+    background: #e01272;
+}
+.ebook-btn .sub_btn-two{
+    border-color: #eb1478;
+    color: #eb1478;
+}
+.ebook-btn .sub_btn-two:hover,.screenshots-slider .screenshot::before{
+    background: #eb1478;
+}
+.ebook-btn .sub_btn-two.active{
+    background: #eb1478;
+    color: #fff;
+}
+.ebook-btn .sub_btn-two.active:hover{
+    background: transparent;
+    border-color: #eb1478;
+    color: #eb1478;
+}
+
+.blog-items .blog-content h2:hover,.post-info li a:hover,.post-info li span:hover,.post-widget .media .media-body .tn_tittle:hover,.post-widget .media .media-body ul li a:hover,.categories-widget .c-list li a:hover,.tweets-widget .tweets li a:hover,.post-widget .media .media-body ul li a:hover i,.single-post .pagination a:hover,.comments .comment .media-body .reply-btn:hover{
+    color: #eb1478;
+}
+.tag-widget .tag li a:hover{
+    background: #eb1478;
+}
+
+.pay-btn{
+    background: #eb1478;
+    border-color:#eb1478;
+}
+.pay-btn:hover,.pay-btn:focus {
+    background: #e01272;
+    border-color: #e01272;
+}
+#product-imgs .carousel-indicators li.active{
+    background: #eb1478;
+}
+.go-btn:hover{
+    background: #eb1478;
+    border-color: #eb1478;
+}
+@media (max-width:991px){
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a, .stricky-fixed .navbar.navbar-default .nav-right li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.pr-menu.pr2-menu .menu li a, .stricky-fixed .navbar.navbar-default.pr-menu .menu li a{
+        color: #fff;
+    }
+    .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li.current a, .stricky-fixed .navbar.navbar-default .navbar-collapse .menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .menu li a:hover{
+        border-color: #fff;
+        color: #fff;
+    }
+    .navbar.navbar-default.ebook-menu .menu li.current a,.navbar.navbar-default.ebook-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li.current a,.stricky-fixed .navbar.navbar-default.ebook-menu .menu li a:hover,.stricky-fixed .navbar.navbar-default.ebook-menu li a:hover,.navbar.navbar-default.pr-menu.pr2-menu .menu li.current a{
+        color: #fff;
+        border-color: #fff;
+    }
+    .navbar.navbar-default.ebook-menu li.search_dropdown a{
+        color: #eb1478;
+    }
+    .navbar.navbar-default.ebook-menu .navbar-toggle .icon-bar,.stricky-fixed .navbar.navbar-default.ebook-menu .navbar-toggle .icon-bar,.navbar-collapse{
+        background: #eb1478;
+    }
+}

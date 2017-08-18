@@ -1,0 +1,1110 @@
+/*================Start slide-banner css================*/
+.slide-banner{
+    background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+    background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+    background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+    padding-top: 200px;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    .page-title-img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        img{
+            max-width: 100%;
+
+        }
+    }
+}
+.lrg-text{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h2{
+        font: 700 42px/60px $open;
+        padding-bottom: 14px;
+        span{
+            text-transform: uppercase;
+        }
+    }
+    p{
+        font: 300 21px/40px $open;
+    }
+    .input-group{
+        max-width: 570px;
+        margin: 40px auto 80px;
+        .form-control{
+            padding: 0px 30px;
+            font: 400 16px/40px $open;
+            box-shadow: none;
+            border: 0px;
+            color: $dk-gray;
+            height: 60px;
+            @include placeholder{
+                color: #9fa2a8;
+            }
+        }
+        .input-group-btn{
+            .btn-submit{
+                font: 700 14px/60px $open;
+                letter-spacing: 1.4px;
+                padding: 0px 50px;
+                border: 0px;
+                margin: 0px;
+                background: $l-green;
+                box-shadow: none;
+                text-shadow: none;
+                color: #fff;
+                position: relative;
+                z-index: 1;
+                overflow: hidden;
+                text-transform: uppercase;
+                @include transition;
+                &:hover{
+                    background: rgba(108, 202, 26, 0.80);
+                }
+            }
+        }
+    }
+    .mchimp-errmessage,.mchimp-sucmessage{
+        position: absolute;
+        bottom: 50px;
+        color: #fff;
+        left: 50%;
+        transform: translateX(-50%);
+        font: 400 14px/24px $open;
+    }
+}
+
+
+/*================End slide-banner css================*/
+
+/*===========Start slider-image css =============*/
+.slider-image{
+    background: url("../image/slider/saas-image-bg.jpg") no-repeat scroll center 0;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0.85;
+    }
+}
+/*===========End slider-image css =============*/
+
+/*===========Start slider-video css =============*/
+.slider-video{
+}
+.video-background{
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: -99;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(26,171,236) 0%, rgb(58,123,213) 100%);
+        opacity: 0.80;
+        z-index: 0;
+        position: absolute;
+    }
+    video{
+        position: absolute;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: -5;
+    }
+}
+/*===========End slider-video css =============*/
+
+/*================Start slide2 css================*/
+.slider2{
+    background: url("../image/slider/slider2.jpg") no-repeat scroll center 100%;
+    background-size: cover;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #0f1120;
+        opacity: 0.55;
+        z-index: -1;
+    }
+}
+.slider-text{
+    color: #fff;
+    padding-top: 120px;
+    h2{
+        font: 400 60px/72px $mont;
+        letter-spacing: 0px;
+    }
+    p{
+        font: 400 24px/40px $open;
+        padding-top: 38px;
+    }
+}
+.subcribe-form{
+    max-width: 430px;
+    background: #fff;
+    text-align: center;
+    padding: 50px 70px 60px;
+    h4{
+        font: 400 24px/40px $mont;
+        color: $dk-blue;
+    }
+    p{
+        font: 400 14px/28px $open;
+        color: $dk-gray;
+        padding-bottom: 30px;
+    }
+    .form-group{
+        .form-control{
+            font: 400 14px/28px $open;
+            color: $dk-gray;
+            border: 0px;
+            border-bottom: 1px solid #ededed;
+            box-shadow: none;
+            text-shadow: none;
+            border-radius: 0px;
+            padding-left: 0px;
+            height: 58px;
+            padding-bottom: 20px;
+            @include placeholder{
+                color: #878c95;
+            }
+            &:hover,&:focus{
+                border-color: $blue;
+            }
+        }
+    }
+    .sub_btn{
+        margin-top: 25px;
+    }
+}
+.slider-subcribe,.slider3-subcribe{
+    position: relative;
+    height: 100vh;
+    .s-conten,.slider3-content{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        width: 100%;
+    }
+
+}
+.sc-arrow{
+    position: absolute;
+    left: 0;
+    bottom: -45px;
+    width: 100%;
+    text-align: center;
+    a{
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        border-radius: 100%;
+        background-color: rgba(26, 171, 236, 0.502);
+        font-size: 16px;
+        line-height: 90px;
+        color: #fff;
+        position: relative;
+        z-index: 1;
+        &:before{
+            content: '';
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(0,210,255) 100%);
+            background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(0,210,255) 100%);
+            background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(0,210,255) 100%);
+            z-index: -1;
+        }
+        &:after{
+            width: 90px;
+            content: "";
+            height: 90px;
+            border-radius: 100%;
+            background-color: rgba(26, 171, 236, 0.502);
+            position: absolute;
+            z-index: -2;
+            top: 0;
+            left: 0;
+            animation: runpulse2 2s infinite linear;
+        }
+    }
+}
+@keyframes runpulse2 {
+    0% {
+        opacity: 1;
+        -moz-transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        -o-transform: scale(0.5);
+        -ms-transform: scale(0.5);
+        transform: scale(0.5);
+    }
+   50% {
+        opacity: 1;
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*================End slide2 css================*/
+
+/*================Start startup-img css================*/
+.startup-img{
+    background: url("../image/slider/startup-image1.jpg") no-repeat scroll center 0;
+    background-size: cover;
+    &:before{
+        display: none;
+    }
+}
+.startup-content{
+    color: $dk-blue;
+    p{
+        color: $dk-gray;
+    }
+    .sub_btn-two{
+        max-width: 260px;
+        margin-top: 45px;
+        color: #fff;
+    }
+}
+/*================End startup-img css================*/
+/*================Start startup-slider css================*/
+.startup-slider{
+}
+.st-slider-text{
+    text-align: center;
+    padding-top: 0px;
+    p{
+        padding: 38px 120px 0px;
+    }
+    .subcribe{
+        max-width: 770px;
+        margin: 60px auto 0px;
+        position: relative;
+        .form-control{
+            width: 100%;
+            box-shadow: none;
+            height: 70px;
+            font: 400 14px/28px $open;
+            color: $dk-gray;
+            border-radius: 50px;
+            padding-left: 50px;
+            @include placeholder{
+                color: #878c95;
+            }
+            &:focus{
+                outline: $blue;
+            }
+        }
+        label{
+            position: absolute;
+            top: 50%;
+            margin: -30px 0px 0px;
+            right: 5px;
+            .sub_btn-two{
+                max-width: 280px;
+            }
+        }
+    }
+    .mailchimp{
+        .mchimp-errmessage,.mchimp-sucmessage{
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            line-height: 24px;
+            padding: 0px;
+        }
+    }
+}
+.cb-slideshow{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: -2;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: #0f1120;
+        opacity: 0.65;
+        z-index: -1;
+    }
+    .slideshowPic{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: transparent;
+        background-position: 50% 50%;
+        background-repeat: none;
+        opacity: 0;
+        z-index: 0;
+        animation: slideShow 24s linear infinite 0s;
+        -o-animation: slideShow 24s linear infinite 0s;
+        -moz-animation: slideShow 24s linear infinite 0s;
+        -webkit-animation: slideShow 24s linear infinite 0s;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+        &.pic-1{
+            opacity: 1;
+            background: url("../image/slider/startup-slider1.jpg");
+        }
+        &.pic-2{
+            background: url("../image/slider/startup-slider2.jpg");
+            animation-delay: 6s;
+        }
+        &.pic-3{
+            background: url("../image/slider/startup-slider3.jpg");
+            animation-delay: 12s;
+        }
+        &.pic-4{
+            background: url("../image/slider/seo-slider-bg.jpg");
+            animation-delay: 18s;
+        }
+    }
+}
+/*=============== slider  keyframe ===============*/
+/* Animation for the slideshow images */
+@keyframes slideShow {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+        -ms-transform: scale(1);
+    }
+    5% {
+        opacity: 1
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+        transform: scale(1.1);
+        -ms-transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+        -ms-transform: scale(1);
+    }
+}
+
+@-o-keyframes slideShow {
+    0% {
+        opacity: 0;
+        -o-transform: scale(1);
+    }
+    5% {
+        opacity: 1
+    }
+    25% {
+        opacity: 1;
+    }
+    30% {
+        opacity: 0;
+        -o-transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        -o-transformm: scale(1);
+    }
+}
+
+@-moz-keyframes slideShow {
+    0% {
+        opacity: 0;
+        -moz-transform: scale(1);
+    }
+    5% {
+        opacity: 1
+    }
+    25% {
+        opacity: 1;
+
+    }
+    30% {
+        opacity: 0;
+        -moz-transform: scale(1.1);
+    }
+    100% {
+        opacity: 0;
+        -moz-transformm: scale(1);
+    }
+}
+
+@-webkit-keyframes slideShow {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+    }
+    5% {
+        opacity: 1
+    }
+    25% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+        -webkit-transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        -webkit-transformm: scale(1);
+    }
+}
+.startup-video{
+    &:before{
+        display: none;
+    }
+}
+/*================End startup-slider css================*/
+/*================Start slide3 css================*/
+.slider3{
+    background: url("../image/slider/app-slider1.jpg") no-repeat scroll center 100%;
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 0px;
+    &:before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: -moz-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -webkit-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        background-image: -ms-linear-gradient( -15deg, rgb(58,123,213) 0%, rgb(26,171,236) 100%);
+        opacity: 0.65;
+        z-index: -1;
+    }
+}
+.slider3-img{
+    position: absolute;
+    right: 0;
+    bottom: -128px;
+    text-align: right;
+    width: calc(100% - 960px);
+}
+.slide3-text{
+    .slider-text{
+        color: #fff;
+        max-width: 620px;
+        padding-top: 0px;
+        h2{
+            font: 300 60px/72px $mont;
+        }
+        p{
+            font:400 24px/40px $open;
+            padding: 35px 0px 55px;
+        }
+        .sub_btn-two{
+            border-color: #fff;
+            background: transparent;
+            color: #fff;
+            border-radius: 5px;
+            &:hover{
+                background: #fff;
+                color: $blue;
+            }
+            &.active{
+                background: #fff;
+                box-shadow: none;
+                color: $blue;
+                &:hover{
+                    background: transparent;
+                    color: #fff;
+                }
+            }
+            &:last-child{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+/*================End slide3 css================*/
+
+/*=============== Start slider-app css ==================*/
+.slider-app{
+    min-height: auto;
+    height: auto;
+    padding: 200px 0px 112px;
+}
+.appslider{
+    .slide3-text{
+        padding-top: 130px;
+    }
+    .img{
+        padding-left: 25px;
+        img{
+            max-width: 100%;
+            width: auto;
+            display: inline-block;
+        }
+    }
+    .owl-dots{
+        margin-top: 90px;
+        .owl-dot{
+            background: #64a7d4;
+            &.active{
+                background: #fff;
+            }
+        }
+    }
+}
+/*=============== End slider-app css ==================*/
+
+/*=============== Start slider-video css ==================*/
+.appslider-video{
+    background: none;
+}
+.slider-text.app-videos{
+    max-width: 100%;
+    text-align: center;
+    padding-top: 0px;
+    p{
+        padding:40px 280px 70px;
+    }
+    h6{
+        text-transform: uppercase;
+        font: 700 14px/24px $open;
+        padding-top: 27px;
+    }
+}
+
+/*=============== Start rev main-slider-area css ==================*/
+.pro-main-hero{
+    background: url("../image/slider/pro-slider3.jpg") no-repeat scroll center 0;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    .hero-content{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 0px 20px;
+        h1{
+            letter-spacing: 11px;
+            color: #fff;
+        }
+        p{
+            color: #fff;
+        }
+        .slider-btn{
+            border-color: #fff;
+            color: #fff;
+            &:hover{
+                border-color: #1574d4;
+            }
+            &.active{
+                border-color:#1574d4;
+                &:hover{
+                    border-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+/*=============== End rev main-slider-area css ==================*/
+
+
+/*========== Start pr-2 hero-section-area css ==========*/
+.hero-section-area{
+    background: url(../image/product-2/pr-2-slider.jpg) no-repeat scroll center 0;
+    background-size: cover;
+    min-height: 100vh;
+    padding-top: 240px;
+}
+.hero-content{
+    text-align: center;
+    h1{
+        font: 400 55px/65px $mont;
+        color: $dk-blue;
+        letter-spacing: 2.75px;
+        text-transform: uppercase;
+        padding-bottom: 10px;
+    }
+    p{
+        font-size: 18px;
+        color: $dk-gray;
+        margin-bottom: 45px;
+    }
+    .slider-btn{
+        border-color: #1574d4;
+        color: #1574d4;
+        &:hover{
+            color: #fff;
+        }
+        &.active{
+            background: #1574d4;
+            color: #fff;
+            &:hover{
+                background: transparent;
+                border-color: #1574d4;
+                color: #1574d4;
+            }
+        }
+    }
+}
+/*========== End pr-2 hero-section-area css ==========*/
+
+/*============ start seo-banner css ============*/
+.seo-banner{
+    padding-top: 280px;
+}
+.seo-text{
+    color: #fff;
+    text-align: center;
+    h2{
+        font: 400 42px/60px $mont;
+        padding-bottom: 27px;
+        span{
+            text-transform: uppercase;
+        }
+    }
+    p{
+        padding: 0px 265px;
+    }
+}
+.seo-img{
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: 1620px;
+    transform: translateX(-50%);
+    left: 50%;
+    z-index: -1;
+    .single-img{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        &.left{
+            left: 0;
+            bottom: -6px;
+            transform: translateX(0);
+        }
+        &.middle{
+            bottom: -178px;
+            background-color: rgb(205, 205, 205);
+            box-shadow: 0px 30px 50px 0px rgba(0, 0, 0, 0.2);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            img{
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+        }
+        &.right{
+            left: auto;
+            right: 0px;
+            z-index: -1;
+            bottom: -6px;
+            transform: translateX(0);
+        }
+    }
+}
+
+.seo-video{
+    .video-background{
+        &:before{
+            opacity: 0.90;
+            background-image: -moz-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+            background-image: -ms-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+            background-image: -webkit-linear-gradient(90deg, #449be6 17%, #5b75e7 100%);
+        }
+    }
+
+}
+/*============ End seo-banner css ============*/
+
+
+/*===========Start kickstarter-hero css ==============*/
+.kickstarter-hero{
+    background: #fafafa;
+    padding: 245px 0px;
+}
+.kickstarter-content{
+    padding-top: 90px;
+    h2{
+        padding-right: 170px;
+        font: 200 55px/70px $mont;
+        letter-spacing: 0.50px;
+        color: $dk-blue;
+        text-transform: uppercase;
+        padding-bottom: 38px;
+    }
+    p{
+        font: 400 18px/30px $open;
+        color: $dk-gray;
+    }
+}
+.larg-btn{
+    font: 400 15px/30px $mont;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 9px 38px;
+    border-radius: 50px;
+    margin-top: 50px;
+    @include transition;
+    &:hover{
+        color: #fff;
+    }
+    &.green{
+        background: #14e06e;
+        &:hover{
+            background: #0ece63;
+        }
+    }
+    &.red{
+        background: #eb1478;
+        &:hover{
+            background: #d30565;
+        }
+    }
+    & + .larg-btn{
+        margin-left: 15px;
+        padding: 9px 45px;
+    }
+}
+.kickstarter-image{
+    text-align: center;
+    img{
+        max-width: 100%;
+    }
+}
+/*===========End kickstarter-hero css ==============*/
+
+/*============ Start seoslider css ============*/
+.seo-slider{
+    background: url(../image/slider/seo-slider-bg.jpg) no-repeat scroll center 0;
+    background-size: cover;
+    &:before{
+        opacity: 0.85;
+    }
+}
+.seoslider{
+    .slider-text{
+        max-width: 570px;
+        margin-left: auto;
+        margin-right: 0;
+        padding-right: 40px;
+        padding-top: 45px;
+        h2{
+            font: 400 42px/60px $mont;
+            padding-right: 60px;
+            span{
+                text-transform: uppercase;
+            }
+        }
+        p{
+            font-size: 20px;
+            line-height: 35px;
+            padding-top: 25px;
+            padding-bottom: 45px;
+        }
+        .seo-btn{
+            background: $seo-g;
+            &:hover{
+                background: #82ba3d;
+            }
+        }
+    }
+    .img{
+        img{
+            max-width: 100%;
+            width: auto;
+            border-radius: 15px;
+        }
+    }
+    .owl-dots{
+        margin-top: 70px;
+        .owl-dot{
+            background: transparent;
+            border-radius: 0px;
+            width: 30px;
+            height: 5px;
+            span{
+                width: 30px;
+                height: 3px;
+                border-radius: 1.5px;
+                background: #79a8db;
+                display: block;
+            }
+
+        }
+        .owl-dot{
+            &.active{
+                background: transparent;
+                span{
+                    background: #fff;
+                }
+            }
+        }
+    }
+}
+
+/*=============Start hero-section-ebook css ============*/
+.hero-section-ebook{
+    background: #fafafa;
+    padding: 200px 0px 180px;
+}
+.ebook-contain{
+    padding-right: 86px;
+    padding-top: 86px;
+    h2{
+        font: 500 45px/55px $mont;
+        color: $dk-blue;
+        letter-spacing: 2.4px;
+        text-transform: uppercase;
+        padding-bottom: 30px;
+    }
+    p{
+        font: 400 18px/30px $open;
+        color: $dk-gray;
+    }
+    .price-box{
+        font-family: $mont;
+        line-height: 50px;
+        color: #ff6622;
+        padding: 40px 0px 35px;
+        .old-price{
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: line-through;
+            padding-right: 18px;
+        }
+        .price{
+            font-size: 35px;
+            font-weight: 700;
+            font-family:Montserrat;
+        }
+    }
+    .ebook-btn{
+        background: #f88e40;
+        box-shadow: none;
+        border-radius: 50px;
+        padding: 17px 47px;
+        @include transition;
+        &:hover{
+            background: #eb8337;
+        }
+        & + .ebook-btn{
+            margin-left: 15px;
+        }
+    }
+}
+.ebook-img{
+    text-align: center;
+    img{
+        box-shadow: 0px 12px 30px 2px rgba(0, 0, 0, 0.25);
+        max-width: 100%;
+    }
+}
+
+
+/*=========== ebook-slider css ============*/
+.ebook-slider{
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: #fff;
+        opacity: 0.85;
+        position: absolute;
+        z-index: -1;
+    }
+    .cb-slideshow{
+        .slideshowPic{
+            &.pic-1{
+                opacity: 1;
+                background: url("../image/ebook/slider1.jpg");
+            }
+            &.pic-2{
+                background: url("../image/ebook/slider2.jpg");
+                animation-delay: 6s;
+            }
+            &.pic-3{
+                background: url("../image/ebook/slider3.jpg");
+                animation-delay: 12s;
+            }
+            &.pic-3{
+                background: url("../image/slider/seo-slider-bg.jpg");
+                animation-delay: 18s;
+            }
+        }
+    }
+    .video-background{
+        &:before{
+            display: none;
+        }
+    }
+}
+
+
+/*=========== rev-slider bullet slider =========*/
+
+.bullet-bar .tp-bullet{
+    width: 35px;
+    height: 3px;
+    position: absolute;
+    border-radius: 4px;
+    background: rgba(51,51,51,0.2);
+    cursor: pointer;
+    box-sizing: content-box;
+    &:hover,&.selected{
+        background: rgba(102,102,102,0.6);
+    }
+}
+
+.rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
+    @media(min-width:1920px){
+        min-height: 100vh !important;
+    }
+}
+.rev_slider_wrapper, .rev_slider, .tp-fullwidth-forcer, .rev_slider .tp-bgimg.defaultimg {
+    @media(min-height:1080px){
+        min-width: 100vh !important;
+    }
+}
+.rev_slider ul li{
+    z-index: 1 !important;
+}
+.tp-bannertimer{
+    z-index: -1;
+}
+.rev_slider .seo-btn{
+    line-height: 58px !important;
+    font-size: 18px !important;
+    background: #8ec549;
+    transition: all 0.4s linear;
+    &:hover{
+        background: #82ba3d;
+    }
+}
+.uranus.tparrows{
+    &:before{
+        color: rgba(255, 255, 255, 0.70);
+    }
+    &:hover{
+        &:before{
+            opacity: 1;
+            color: rgba(255, 255, 255, 1);
+        }
+    }
+}
+
+tp-loop-wrap.rs-slideloop{
+    z-index: -1 !important;
+}
+.rev_slider ul li.overlays{
+    z-index: 5;
+}
+.rev_slider ul li.overlays .slotholder:before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: rgba(15,17,72,0.35);
+    z-index: 2;
+}
+.ebook-wbg{
+    .slotholder:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background: rgba(255,255,255,0.95);
+        z-index: 2;
+    }
+}
+.error-bg{
+    z-index: 1;
+    .slotholder:before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        position: absolute;
+        background: rgba(91,117,231,0.85);
+        z-index: 2;
+    }
+    .tp-bgimg.defaultimg{
+        z-index: -5 !important;
+    }
+}
