@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'affiliate_id' => str_random(10),
             'referred_by'   => $referred_by,
-            'reg_ip' => $_SERVER["HTTP_CF_CONNECTING_IP"]
+            'reg_ip' => '127.0.0.1'
         ]);
     }
 }
