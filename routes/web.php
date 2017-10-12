@@ -402,3 +402,6 @@ Route::get('/get/profile/{username}/{serverid}', 'HomeController@getProfile');
 Route::get('/discord/auth/{key}/{serverid}/{servername}', 'HomeController@discordAuth');
 
 Route::get('/get/stats/{username}', 'HomeController@getInvestments');
+
+
+Route::get('/chart/{coin}/{username}', 'HomeController@getChart');
