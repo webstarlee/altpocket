@@ -403,5 +403,6 @@ Route::get('/discord/auth/{key}/{serverid}/{servername}', 'HomeController@discor
 
 Route::get('/get/stats/{username}', 'HomeController@getInvestments');
 
-
-Route::get('/chart/{coin}/{username}', 'HomeController@getChart');
+Route::get('/chart/{coin}/{username}', function ($coin,$user) {
+    return 'User '.$user;
+});
