@@ -46,6 +46,12 @@
     ga('send', 'pageview');
 
   </script>
+	<style>
+		.form-group2 {
+			margin-bottom:10px!important;
+		}
+
+	</style>
 </head>
 
 <body class="landing-page">
@@ -99,7 +105,7 @@
 				<p>We are the only tool you need for tracking, showcasing and manging your cryptocurrency investments.
           Now with a touch of socialization and Gamification.
 				</p>
-				<a href="#" class="btn btn-md btn-border c-white" style="background-color:white;">Register Now!</a>
+				<a href="/login" class="btn btn-md btn-border c-white" style="background-color:white;">Already registered? Login here</a>
 			</div>
 		</div>
 
@@ -107,12 +113,7 @@
 			<div class="registration-login-form">
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs" role="tablist">
-					<li class="nav-item">
-						<a class="nav-link" data-toggle="tab" href="#home" role="tab">
-							<svg class="olymp-login-icon"><use xlink:href="/version2/icons/icons.svg#olymp-login-icon"></use></svg>
-						</a>
-					</li>
-					<li class="nav-item">
+					<li class="nav-item" style="height:100%!important;">
 						<a class="nav-link active" data-toggle="tab" href="#profile" role="tab">
 							<svg class="olymp-register-icon"><use xlink:href="/version2/icons/icons.svg#olymp-register-icon"></use></svg>
 						</a>
@@ -121,19 +122,19 @@
 
 				<!-- Tab panes -->
 				<div class="tab-content">
-					<div class="tab-pane" id="home" role="tabpanel" data-mh="log-tab">
+					<div class="tab-pane active" id="home" role="tabpanel" data-mh="log-tab">
 						<div class="title h6">Register to Altpocket</div>
 						<form class="content" role="form" method="POST" action="{{ route('register') }}" id="createaccountt">
 							<div class="row">
-                @if (count($errors))
-                        @foreach($errors->all() as $error)
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <div class="alert alert-danger" role="alert">
-                    <strong>Oh snap!</strong>
-                  </div>
-                </div>
-                        @endforeach
-                @endif
+								@if (count($errors))
+	                      @foreach($errors->all() as $error)
+	              <div class="col-xl-12 col-lg-12 col-md-12">
+	                <div class="alert alert-danger" role="alert">
+	                  <strong>Oh snap!</strong> {{$error}}
+	                </div>
+	              </div>
+	                      @endforeach
+	              @endif
                 {{ csrf_field() }}
 								<div class="col-xl-12 col-lg-12 col-md-12">
 									<div class="form-group label-floating is-empty">
@@ -158,7 +159,7 @@
 										<div class="checkbox">
 											<label>
 												<input name="optionsCheckboxes" type="checkbox">
-												I accept the <a href="#">Terms and Conditions</a> of the website
+												I accept the <a href="https://docs.google.com/document/d/1kmPggYBodjUzAllo-T-mZR4UTxSQ-Bq9dTSioOvo3rY/edit?usp=sharing">Terms and Conditions</a> of the website
 											</label>
 										</div>
 									</div>
@@ -169,7 +170,7 @@
 						</form>
 					</div>
 
-					<div class="tab-pane active" id="profile" role="tabpanel" data-mh="log-tab">
+					<div class="tab-pane" id="profile" role="tabpanel" data-mh="log-tab">
 						<div class="title h6">Login to your Account</div>
 						<form class="content" style="margin-top:50px;" role="form" method="POST" action="{{ url('/login') }}">
 
@@ -247,7 +248,37 @@
 <script src="/version2/js/mediaelement-and-player.min.js"></script>
 <script src="/version2/js/mediaelement-playlist-plugin.min.js"></script>
 
+<script>
 
+$('a').click(function(){
+
+ if($(this).hasClass('btn')){
+	 ga('send', {
+		hitType: 'event',
+		eventCategory: 'Click',
+		eventAction: 'A',
+		eventLabel: $(this).parent(0).attr('data-original-title')
+	});
+} else {
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'A',
+	 eventLabel: $(this).text()
+ });
+}
+});
+
+$('button').click(function(){
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'Button',
+	 eventLabel: $(this).text()
+ });
+});
+
+</script>
 
 
 </body>

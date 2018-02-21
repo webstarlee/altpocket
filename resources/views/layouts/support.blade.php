@@ -15,7 +15,9 @@
     <title>Altpocket - @yield('title')</title>
 
     <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon-2.png">
+    <link rel="icon"
+      type="image/gif"
+      href="/assets/logo.png">
 
     <!-- Bootstrap CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +43,25 @@
     <!-- Responsive CSS -->
     <link href="/css/responsive3.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-98999843-1', 'auto');
+      @if(Auth::user())
+      ga('set', 'userId', {{Auth::user()->id}}); // Ange användar-id med inloggat user_id.
+      @endif
+      ga('send', 'pageview');
+    </script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        @yield('css')
 </head>
 
 <body>
@@ -70,7 +87,7 @@
                         <!-- Start Header Logo -->
                         <div class="col-xs-12 col-md-3">
                             <div class="header-logo">
-                                <a href="/support"><img style="max-height:45px!important;" src="/assets/logo.gif" alt="logo"></a>
+                                <a href="/support"><img style="max-height:45px!important;" src="/assets/logo_blue_text.png" alt="logo"></a>
                             </div>
                         </div>
                         <!-- End Header Logo -->
@@ -105,8 +122,6 @@
                                                         @endif
                                                     </ul>
                                                 </li>
-                                                <li><a href="/blog">Blog<span>Our Blog</span></a></li>
-                                                <li><a href="/updates">Updates<span>Our Updates</span></a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -124,40 +139,21 @@
             <div class="mobile-menu">
                 <nav>
                     <ul>
-                        <li><a href="index.html">Home</a>
-                            <ul>
-                                <li><a href="index.html">Home Version 1</a></li>
-                                <li><a href="index-2.html">Home Version 2</a></li>
-                            </ul>
-						</li>
-						<li><a href="about-us.html">About</a></li>
-                        <li><a href="#">Questions</a>
+            <li class="active"><a href="/support">Home</a></li>
+						<li><a href="/about">About</a></li>
+              <li><a href="#">Questions</a>
 							<ul>
-								<li><a href="questions.html"> Questions</a></li>
-								<li><a href="answers.html">Answers</a></li>
-								<li><a href="login.html">Login</a></li>
-								<li><a href="register.html">Register</a></li>
+                <li>
+                    <a href="/questions">All Questions</a>
+                </li>
+                @if(Auth::user())
+                <li><a href="/ask">Ask A Question</a></li>
+                <li><a href="/myquestions">My Questions</a></li>
+                @else
+                <li><a href="/login">Login To Ask</a></li>
+                @endif
 							</ul>
 						</li>
-                        <li><a href="#">Pages</a>
-							<ul>
-							   <li><a href="index-2.html">Home 2</a></li>
-							   <li><a href="blog.html">Blog</a></li>
-							   <li><a href="blog-details.html">Blog Details</a></li>
-							   <li><a href="questions.html">Questions</a></li>
-							   <li><a href="answers.html">Answers</a></li>
-							   <li><a href="updates.html">Updates</a></li>
-							   <li><a href="contact.html">Contact</a></li>
-							   <li><a href="left-sidebar.html">Left Sidebar</a></li>
-							   <li><a href="right-sidebar.html">Right Sidebar</a></li>
-							   <li><a href="login.html">login</a></li>
-							   <li><a href="register.html">Register</a></li>
-							   <li><a href="404.html">404</a></li>
-							</ul>
-						</li>
-						<li><a href="blog.html">Blog</a></li>
-						<li><a href="updates.html">Updates</a></li>
-						<li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -182,11 +178,10 @@
     <!-- Mean Menu -->
     <script src="/js/jquery.meanmenu.js"></script>
 
-    <!-- Particles JS CDN -->
-    <script src="/js/particles.min.js"></script>
+
 
     <!-- Main Js -->
-    <script src="/js/main2.js"></script>
+    <script src="/js/main2.js?v=1.0"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 
@@ -194,6 +189,38 @@
     @yield('js')
 
     @include('sweet::alert')
+
+    <script>
+
+    $('a').click(function(){
+
+     if($(this).hasClass('btn')){
+       ga('send', {
+        hitType: 'event',
+        eventCategory: 'Click',
+        eventAction: 'A',
+        eventLabel: $(this).parent(0).attr('data-original-title')
+      });
+    } else {
+      ga('send', {
+       hitType: 'event',
+       eventCategory: 'Click',
+       eventAction: 'A',
+       eventLabel: $(this).text()
+     });
+    }
+    });
+
+    $('button').click(function(){
+      ga('send', {
+       hitType: 'event',
+       eventCategory: 'Click',
+       eventAction: 'Button',
+       eventLabel: $(this).text()
+     });
+    });
+
+    </script>
 </body>
 
 </html>

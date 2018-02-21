@@ -1,0 +1,30 @@
+/*------------- #W-ABOUT --------------*/
+
+
+
+.w-about {
+  .logo {
+	background-color: transparent;
+	display: block;
+	color: inherit;
+	overflow: hidden;
+	position: relative;
+	font-size: 7px;
+	margin-bottom: 30px;
+	padding: 0;
+  }
+
+  ul {
+	margin-bottom: 0;
+  }
+
+  img {
+	margin-right: 17px;
+  }
+
+  .logo-title {
+	margin-top: 10px;
+	color: $heading-color;
+	font-size: 18px;
+  }
+}

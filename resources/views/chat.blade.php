@@ -1,178 +1,77 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Real-Time Laravel with Pusher</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <title>Realtime Chat Widget using Pusher</title>
 
-    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,200italic,300italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://d3dhju7igb20wy.cloudfront.net/assets/0-4-0/all-the-things.css" />
-    <style>
-        .chat-app {
-            margin: 50px;
-            padding-top: 10px;
-        }
+    <link rel="stylesheet/less" type="text/css" href="lib/twitter-bootstrap/lib/bootstrap.less">
+    <script src="lib/less/less-1.1.5.min.js"></script>
 
-        .chat-app .message:first-child {
-            margin-top: 15px;
-        }
+    <link href="/assets/css/styles.css" rel="stylesheet" />
+    <link href="/assets/css/pusher-chat-widget.css" rel="stylesheet" />
 
-        #messages {
-            height: 300px;
-            overflow: auto;
-            padding-top: 5px;
-        }
-    </style>
-
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://cdn.rawgit.com/samsonjs/strftime/master/strftime-min.js"></script>
-    <script src="//js.pusher.com/3.0/pusher.min.js"></script>
-
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+    <script src="/assets/js/PusherChatWidget.js"></script>
     <script>
-        // Ensure CSRF token is sent with AJAX requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+      $(function() {
+        var pusher = new Pusher("PUSHER_APP_KEY")
+        var chatWidget = new PusherChatWidget(pusher, {
+          appendTo: "#pusher_chat_widget"
         });
-
-        // Added Pusher logging
-        Pusher.log = function(msg) {
-            console.log(msg);
-        };
+      });
     </script>
-</head>
-<body>
+  </head>
+  <body>
 
-<div class="stripe no-padding-bottom numbered-stripe">
-    <div class="fixed wrapper">
-        <ol class="strong" start="2">
-            <li>
-                <div class="hexagon"></div>
-                <h2><b>Real-Time Chat</b> <small>Fundamental real-time communication.</small></h2>
-            </li>
-        </ol>
-    </div>
-</div>
-
-<section class="blue-gradient-background">
     <div class="container">
-        <div class="row light-grey-blue-background chat-app">
 
-            <div id="messages">
-                <div class="time-divide">
-                    <span class="date">Today</span>
-                </div>
-            </div>
+      <div class="topbar">
+        <div class="fill">
+          <div class="container">
+            <a class="brand" href="/">Realtime Chat Widget using Pusher</a>
+          </div>
+        </div>
+      </div>
 
-            <div class="action-bar">
-                <textarea class="input-message col-xs-10" placeholder="Your message"></textarea>
-                <div class="option col-xs-1 white-background">
-                    <span class="fa fa-smile-o light-grey"></span>
-                </div>
-                <div class="option col-xs-1 green-background send-message">
-                    <span class="white light fa fa-paper-plane-o"></span>
-                </div>
-            </div>
+      <div class="hero-unit">
+        <h1>Realtime Chat Widget</h1>
+        <p>This page demonstrates a Realtime Chat widget built using <a href="http://pusher.com">Pusher</a>. This functionality can easily be added to any PHP, Ruby or Node.js application.</p>
+        <p>The widget can easily be added to any page and the channel name for the chat is generated based on the URL of the page. The chat message events are triggered via PHP, Ruby or Node.js using <a href="http://pusher.com/docs/server_libraries">Pusher libraries</a>.</p>
+        <p><a href="https://github.com/pusher/pusher-realtime-chat-widget" class="btn primary large" target="_blank">Get the code &raquo;</a></p>
+        <p><small>Other backend technologies will be added in the future. Feel free to <a href="https://github.com/pusher/pusher-realtime-chat-widget">fork</a> and try it for yourself.</small></p>
+      </div>
+
+      <section class="realtime-chat">
+
+        <div class="page-header">
+          <h1>Realtime Chat Widget Example</h1>
+        </div>
+
+        <div class="row">
+
+          <div class="span5">
+            <p>
+              <p><strong>Why don't you provide your email address</strong> so your Gravatar can be looked up and used in the Chat Widget</p>
+            </p>
+          </div>
+          <div class="span5" id="pusher_chat_widget">
+          </div>
 
         </div>
-    </div>
-</section>
 
-<script id="chat_message_template" type="text/template">
-    <div class="message">
-        <div class="avatar">
-            <img src="">
-        </div>
-        <div class="text-display">
-            <div class="message-data">
-                <span class="author"></span>
-                <span class="timestamp"></span>
-                <span class="seen"></span>
-            </div>
-            <p class="message-body"></p>
-        </div>
-    </div>
-</script>
+      </section>
 
-<script>
-    function init() {
-        // send button click handling
-        $('.send-message').click(sendMessage);
-        $('.input-message').keypress(checkSend);
-    }
+      <footer>
+        <p></p>
+      </footer>
 
-    // Send on enter/return key
-    function checkSend(e) {
-        if (e.keyCode === 13) {
-            return sendMessage();
-        }
-    }
+    </div> <!-- /container -->
 
-    // Handle the send button being clicked
-    function sendMessage() {
-        var messageText = $('.input-message').val();
-        if(messageText.length < 3) {
-            return false;
-        }
+    <a href="https://github.com/pusher/pusher-realtime-chat-widget"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 10000;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
-        // Build POST data and make AJAX request
-        var data = {chat_text: messageText};
-        $.post('/chat/message', data).success(sendMessageSuccess);
-
-        // Ensure the normal browser event doesn't take place
-        return false;
-    }
-
-    // Handle the success callback
-    function sendMessageSuccess() {
-        $('.input-message').val('')
-        console.log('message sent successfully');
-    }
-
-    // Build the UI for a new message and add to the DOM
-    function addMessage(data) {
-        // Create element from template and set values
-        var el = createMessageEl();
-        el.find('.message-body').html(data.text);
-        el.find('.author').text(data.username);
-        el.find('.avatar img').attr('src', data.avatar)
-
-        // Utility to build nicely formatted time
-        el.find('.timestamp').text(strftime('%H:%M:%S %P', new Date(data.timestamp)));
-
-        var messages = $('#messages');
-        messages.append(el)
-
-        // Make sure the incoming message is shown
-        messages.scrollTop(messages[0].scrollHeight);
-    }
-
-    // Creates an activity element from the template
-    function createMessageEl() {
-        var text = $('#chat_message_template').text();
-        var el = $(text);
-        return el;
-    }
-
-    $(init);
-
-    /***********************************************/
-
-    var pusher = new Pusher('bb16a7f59cce954fea75', {
-      cluster: 'eu',
-      encrypted: true,
-      authEndpoint: '/pusher/auth',
-      auth: {
-        headers: {
-          'X-CSRF-Token': "{{csrf_token()}}"
-        }
-      }
-    });
-
-    var channel = pusher.subscribe('{{$chatChannel}}');
-    channel.bind('new-message', addMessage);
-
-</script>
-
-</body>
+  </body>
 </html>

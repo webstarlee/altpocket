@@ -20,8 +20,11 @@ use App\PoloInvestment;
 use App\BittrexInvestment;
 use App\ManualInvestment;
 use App\Status;
+use App\StatusComment;
+use App\StatusCommentReply;
 use App\Balance;
 use App\Tracking;
+use App\Mining;
 use Auth;
 use File;
 use Redirect;
@@ -34,6 +37,8 @@ use GuzzleHttp\Exception\ClientException;
 use Yajra\Datatables\Datatables;
 use App\Jobs\UpdateProfit;
 use App\DiscordKey;
+use App\IoGroup;
+use App\IoGroupUser;
 
 
 
@@ -162,49 +167,43 @@ class HomeController extends Controller
         }
     }
 
-        public function isDiscordAuth($serverid)
-        {
-          $server = DiscordKey::where('serverid', $serverid)->first();
+    public function isDiscordAuth($serverid){
+      $server = DiscordKey::where('serverid', $serverid)->first();
 
-          if(!$server)
-          {
-            return "Failed";
-          }
+      if(!$server)
+      {
+        return "Failed";
+      }
+    }
+
+
+    public function discordAuth($key, $serverid, $servername) {
+      $key = DiscordKey::where('key', $key)->first();
+      $server = DiscordKey::where('serverid', $serverid)->first();
+
+      if($server)
+      {
+        return "Complete";
+      }
+
+
+      if($key)
+      {
+        if($key->used == 0)
+        {
+          $key->used = 1;
+          $key->serverid = $serverid;
+          $key->servername = $servername;
+          $key->save();
+          return "Valid";
+        } else {
+          return "Used";
         }
 
-
-        public function discordAuth($key, $serverid, $servername)
-        {
-          $key = DiscordKey::where('key', $key)->first();
-          $server = DiscordKey::where('serverid', $serverid)->first();
-
-          if($server)
-          {
-            return "Complete";
-          }
-
-
-          if($key)
-          {
-            if($key->used == 0)
-            {
-              $key->used = 1;
-              $key->serverid = $serverid;
-              $key->servername = $servername;
-              $key->save();
-              return "Valid";
-            } else {
-              return "Used";
-            }
-
-          } else {
-            return "Invalid";
-          }
-        }
-
-
-
-
+      } else {
+        return "Invalid";
+      }
+    }
 
     public function viewHighscores(){
         return view('highscores', ['users' => User::where([['public', '=', 'on']], ['hasVerified', '=', 'Yes'])->get(), 'btc' => HomeController::btcUsd()]);
@@ -234,6 +233,7 @@ class HomeController extends Controller
           return "Failed";
         }
     }
+
     public function getWorth($username, $serverid){
       if($this->isDiscordAuth($serverid) != "Failed")
       {
@@ -279,6 +279,7 @@ class HomeController extends Controller
         return "Failed";
       }
     }
+
     public function getInvested($username, $serverid){
       if($this->isDiscordAuth($serverid) != "Failed")
       {
@@ -301,36 +302,34 @@ class HomeController extends Controller
       }
     }
 
-    public function getProfile($username, $serverid)
-    {
+    public function getProfile($username, $serverid) {
       if($this->isDiscordAuth($serverid) != "Failed")
       {
-      $user = User::where('username', $username)->first();
-      if($user)
-        {
-        if($user->public != "off")
-        {
-          $multiplier = DB::table('cryptos')->where('symbol', 'BTC')->first()->price_usd;
-          $invested = $user->getInvested('USD');
-          $worth = (($user->getNetWorthNew('coinmarketcap') * $multiplier));
-          $profit = $worth - $invested;
-          $followers = count($user->followers()->get());
-          $impressions = $user->impressed;
+          $user = User::where('username', $username)->first();
+          if($user)
+            {
+            if($user->public != "off")
+            {
+              $multiplier = DB::table('cryptos')->where('symbol', 'BTC')->first()->price_usd;
+              $invested = $user->getInvested('USD');
+              $worth = (($user->getNetWorthNew('coinmarketcap') * $multiplier));
+              $profit = $worth - $invested;
+              $followers = count($user->followers()->get());
+              $impressions = $user->impressed;
 
-          $response = ['profit' => number_format($profit, 2), 'invested' => number_format($invested, 2),'worth' =>  number_format($worth, 2),'followers' =>  $followers,'impressions' =>  $impressions, 'bio' => $user->bio, 'avatar' => $user->avatar, 'id' => $user->id];
+              $response = ['profit' => number_format($profit, 2), 'invested' => number_format($invested, 2),'worth' =>  number_format($worth, 2),'followers' =>  $followers,'impressions' =>  $impressions, 'bio' => $user->bio, 'avatar' => $user->avatar, 'id' => $user->id];
 
-          return $response;
+              return $response;
+            } else {
+              return "private";
+            }
+          } else {
+            return "none";
+          }
         } else {
-          return "private";
+          return "Failed";
         }
-      } else {
-        return "none";
-      }
-    } else {
-      return "Failed";
     }
-    }
-
 
     public function getProfit2($username){
         $user = User::where('username', $username)->first();
@@ -348,9 +347,6 @@ class HomeController extends Controller
         $investments = Investment::where('userid', $user->id)->get();
         $json = json_encode($investments);
         return $json;
-
-
-
     }
 
 
@@ -416,8 +412,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
 
       $shoutboxItems = Cache::remember('shoutbox_messages', 60, function()
       {
@@ -433,68 +428,207 @@ class HomeController extends Controller
         }
     }
 
-    public function index2(Request $request)
-    {
+    public function index2(Request $request) {
 
-      $summed = Cache::remember('investments'.Auth::user()->id, 60, function()
-      {
-        $poloniex = PoloInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Poloniex" as exchange, comment as note');
-        $bittrex = BittrexInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Bittrex" as exchange, comment as note');
-        return ManualInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Manual" as exchange, comment as note')->union($poloniex)->union($bittrex)->get();
-      });
+        $summed = Cache::remember('investments'.Auth::user()->id, 60, function() {
+            $poloniex = PoloInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Poloniex" as exchange, comment as note');
+            $bittrex = BittrexInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Bittrex" as exchange, comment as note');
+            return ManualInvestment::where([['userid', '=', Auth::user()->id]])->SelectRaw('*, "Manual" as exchange, comment as note')->union($poloniex)->union($bittrex)->get();
+        });
 
-      $balances = Cache::remember('balances'.Auth::user()->id, 30, function()
-      {
-        return Balance::where('userid', Auth::user()->id)->get();
-      });
-
+        $balances = Cache::remember('balances'.Auth::user()->id, 30, function(){
+            return Balance::where('userid', Auth::user()->id)->get();
+        });
 
         $statuses = Status::orderBy('sticky', 'desc')->orderBy('created_at', 'desc')->where('moderate', 'no')->paginate(10);
 
         if ($request->ajax()) {
-          if(!$request->get('type'))
-          {
-      		    $view = view('module.posts',compact('statuses'))->render();
-              return response()->json(['html'=>$view]);
-          } else {
-            if($request->get('type') == "me")
-            {
-              $statuses = Status::orderBy('sticky', 'desc')->orderBy('created_at', 'desc')->where('userid', Auth::user()->id)->paginate(10);
-              $view = view('module.posts',compact('statuses'))->render();
-              return response()->json(['html'=>$view]);
-            } elseif($request->get('type') == "following")
-            {
-              $followers = Auth::user()->first()->followings()->select('id')->get();
-              $array = array();
-              foreach($followers as $follower)
-              {
-                array_push($array, $follower->id);
-              }
-              $statuses = Status::orderBy('sticky', 'desc')->orderBy('created_at', 'desc')->whereIn('userid', $array)->paginate(10);
-              $view = view('module.posts',compact('statuses'))->render();
-              return response()->json(['html'=>$view]);
+            if(!$request->get('type')){
+                $view = view('module.posts',compact('statuses'))->render();
+                return response()->json(['html'=>$view]);
+            } else {
+                $followers = Auth::user()->followings()->select('id')->get();
+                $array = array();
+                foreach($followers as $follower){
+                    array_push($array, $follower->id);
+                }
+
+                $groups = IoGroupUser::where('user_id', Auth::user()->id)->select('group_id')->get();
+                $own_groups = IoGroup::where('user_id', Auth::user()->id)->select('id')->get();
+                $group_users = array();
+                foreach ($groups as $group) {
+                    $users = IoGroupUser::where('group_id', $group->group_id)->select('user_id')->get();
+                    foreach ($users as $user) {
+                        if (!in_array($user->user_id, $group_users) && $user->user_id != Auth::user()->id) {
+                            array_push($group_users, $user->user_id);
+                        }
+                    }
+
+                    $group_admin = IoGroup::find($group->group_id);
+                    if (!in_array($group_admin->user_id, $group_users)) {
+                        array_push($group_users, $group_admin->user_id);
+                    }
+                }
+
+                foreach ($own_groups as $own_group) {
+                    $users = IoGroupUser::where('group_id', $own_group->id)->select('user_id')->get();
+                    foreach ($users as $user) {
+                        if (!in_array($user->user_id, $group_users)) {
+                            array_push($group_users, $user->user_id);
+                        }
+                    }
+                }
+
+                foreach ($group_users as $group_user) {
+                    if (!in_array($group_user, $array)) {
+                        array_push($array, $group_user);
+                    }
+                }
+
+                array_push($array, Auth::user()->id);
+
+                // return response()->json($array);
+                $statuses = Status::orderBy('sticky', 'desc')->orderBy('created_at', 'desc')->whereIn('userid', $array)->paginate(10);
+                $view = view('module.posts',compact('statuses'))->render();
+                return response()->json(['html'=>$view]);
             }
-          }
-          }
+        }
 
         if(Auth::user()){
+            if($request->get('status') == "" && $request->get('tag') == ""){
+                $balance = Cache::remember('balances-summed2'.Auth::user()->id, 60, function(){
+                    return Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
 
-        if($request->get('status') == "" && $request->get('tag') == ""){
-        return view('home2', ['statuses' => $statuses, 'btc' => HomeController::btcUsd(), 'balances2' => Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get(), 'trackings' => Tracking::where('userid', Auth::user()->id)->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
-      } elseif($request->get('status') != "") {
-        return view('home2', ['statuses' => Status::where('id', $request->get('status'))->where('moderate', 'no')->get(), 'btc' => HomeController::btcUsd(), 'balances2' => Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get(), 'trackings' => Tracking::where('userid', Auth::user()->id)->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
-      } elseif($request->get('tag') != "")
-      {
-        return view('home2', ['statuses' => Status::where('status', 'like', $request->get('tag')."%")->where('moderate', 'no')->get(), 'btc' => HomeController::btcUsd(), 'balances2' => Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get(), 'trackings' => Tracking::where('userid', Auth::user()->id)->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
-      }
+                $minings = Cache::remember('minings'.Auth::user()->id, 60, function(){
+                    return Mining::where([['userid', '=', Auth::user()->id], ['amount', '>', 0]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
 
+                return view('home2', ['minings' => $minings, 'statuses' => $statuses, 'btc' => HomeController::btcUsd(), 'balances2' => $balance, 'trackings' => Tracking::where('userid', Auth::user()->id)->select('id', 'coin')->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
+            } elseif ($request->get('status') != "") {
+                $balance = Cache::remember('balances-summed2'.Auth::user()->id, 60, function(){
+                    return Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
+
+                $minings = Cache::remember('minings'.Auth::user()->id, 60, function(){
+                    return Mining::where([['userid', '=', Auth::user()->id], ['amount', '>', 0]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
+
+                return view('home2', ['minings' => $minings, 'statuses' => Status::where('id', $request->get('status'))->where('moderate', 'no')->get(), 'btc' => HomeController::btcUsd(), 'balances2' => $balance, 'trackings' => Tracking::where('userid', Auth::user()->id)->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
+            } elseif ($request->get('tag') != ""){
+                $balance = Cache::remember('balances-summed2'.Auth::user()->id, 60, function(){
+                    return Balance::where([['userid', '=', Auth::user()->id], ['amount', '>', 0.0001]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
+
+                $minings = Cache::remember('minings'.Auth::user()->id, 60, function(){
+                    return Mining::where([['userid', '=', Auth::user()->id], ['amount', '>', 0]])->selectRaw('SUM(amount) as amount, currency, color')->groupBy('currency', 'color')->get();
+                });
+
+                return view('home2', ['minings' => $minings, 'statuses' => Status::where('status', 'like', "%#".$request->get('tag')."%")->where('moderate', 'no')->get(), 'btc' => HomeController::btcUsd(), 'balances2' => $balance, 'trackings' => Tracking::where('userid', Auth::user()->id)->get(), 'unions' => $summed->where('sold_at', null)->take(5)]);
+            }
         } else {
             return view('auth.login');
         }
     }
 
-    public function testA()
-    {
+    public function get_just_status($status_id) {
+
+        $status = Status::find($status_id);
+        if ($status) {
+
+            $followers = Auth::user()->followings()->select('id')->get();
+            $array = array();
+            foreach($followers as $follower){
+                array_push($array, $follower->id);
+            }
+
+            $groups = IoGroupUser::where('user_id', Auth::user()->id)->select('group_id')->get();
+            $own_groups = IoGroup::where('user_id', Auth::user()->id)->select('id')->get();
+            $group_users = array();
+            foreach ($groups as $group) {
+                $users = IoGroupUser::where('group_id', $group->group_id)->select('user_id')->get();
+                foreach ($users as $user) {
+                    if (!in_array($user->user_id, $group_users) && $user->user_id != Auth::user()->id) {
+                        array_push($group_users, $user->user_id);
+                    }
+                }
+
+                $group_admin = IoGroup::find($group->group_id);
+                if (!in_array($group_admin->user_id, $group_users)) {
+                    array_push($group_users, $group_admin->user_id);
+                }
+            }
+
+            foreach ($own_groups as $own_group) {
+                $users = IoGroupUser::where('group_id', $own_group->id)->select('user_id')->get();
+                foreach ($users as $user) {
+                    if (!in_array($user->user_id, $group_users)) {
+                        array_push($group_users, $user->user_id);
+                    }
+                }
+            }
+
+            foreach ($group_users as $group_user) {
+                if (!in_array($group_user, $array)) {
+                    array_push($array, $group_user);
+                }
+            }
+
+            $ischeck_following = 0;
+
+            if (in_array($status->userid,$array)) {
+                $ischeck_following = 1;
+            }
+
+            $view = view('module.single_post',compact('status'))->render();
+            return response()->json(['html'=>$view, 'ischeck'=>$ischeck_following]);
+        }
+    }
+
+    public function get_edited_status($status_id) {
+
+        $status = Status::find($status_id);
+        if ($status) {
+            $view = view('module.single_post_edit',compact('status'))->render();
+            return response()->json(['html'=>$view]);
+        }
+    }
+
+    public function get_just_comment($comment_id) {
+        $comment = StatusComment::find($comment_id);
+        if ($comment) {
+            $view = view('module.single_comment',compact('comment'))->render();
+            return response()->json(['html'=>$view]);
+        }
+    }
+
+    public function get_edited_comment($comment_id) {
+        $comment = StatusComment::find($comment_id);
+        if ($comment) {
+            $view = view('module.single_comment_edit',compact('comment'))->render();
+            return response()->json(['html'=>$view]);
+        }
+    }
+
+    public function get_just_reply($reply_id) {
+        $reply = StatusCommentReply::join('users', 'users.id', '=', 'status_comment_replies.userid')
+        ->select('status_comment_replies.*', 'users.username', 'users.avatar')->find($reply_id);
+        if ($reply) {
+            $view = view('module.single_comment_reply',compact('reply'))->render();
+            return response()->json(['html'=>$view]);
+        }
+    }
+
+    public function get_edited_reply($reply_id) {
+        $reply = StatusCommentReply::join('users', 'users.id', '=', 'status_comment_replies.userid')
+        ->select('status_comment_replies.*', 'users.username', 'users.avatar')->find($reply_id);
+        if ($reply) {
+            $view = view('module.single_comment_reply_edit',compact('reply'))->render();
+            return response()->json(['html'=>$view]);
+        }
+    }
+
+    public function testA() {
       $followers = User::where('id', 6759)->first()->followings()->get();
       $array = array();
       foreach($followers as $follower)
@@ -516,8 +650,7 @@ class HomeController extends Controller
       }
     }
 
-        public function viewProfile($username)
-    {
+    public function viewProfile($username) {
         $user = User::where('username', $username)->first();
         if($user != null){
             if(User::where('username', $username)->first()->public == "on"){
@@ -571,12 +704,7 @@ class HomeController extends Controller
         }
     }
 
-
-
-
-
-        public function coins()
-    {
+    public function coins() {
         return view('mycoins', ['networth' => HomeController::netWorth(Auth::user()->id), 'btc' => HomeController::btcUsd(), 'investments' => Investment::where([['userid', '=', Auth::user()->id], ['type', '=', 'investment']])->get(), 'minings' => Investment::where([['userid', '=', Auth::user()->id], ['type', '=', 'mining']])->get()]);
     }
 
@@ -741,7 +869,6 @@ class HomeController extends Controller
 
     }
 
-
     public function addMining(Request $request){
 
         $symbol = Crypto::where('name', $request->get('coin'))->first();
@@ -837,9 +964,6 @@ class HomeController extends Controller
 
     }
 
-
-
-
     public function getCoin($id){
         $investment = Investment::where('id', $id)->first();
 
@@ -851,7 +975,6 @@ class HomeController extends Controller
 
         return $comment;
     }
-
 
     public function editCoin($id, Request $request){
         $investment = Investment::where('id', $id)->first();
@@ -1036,9 +1159,10 @@ class HomeController extends Controller
         }
     }
 
-
     public function impressed($username){
         $user = User::where('username', $username)->first();
+        if($user)
+        {
         if(!Impressed::where([['ip', '=', $_SERVER["HTTP_CF_CONNECTING_IP"]], ['username', '=', $username]])->first()) {
         $impressed = new Impressed;
         $impressed->username = $username;
@@ -1053,27 +1177,30 @@ class HomeController extends Controller
         Alert::warning('You have already been impressed by this user!', 'You were already impressed!');
         return redirect('/user/'.$username);
         }
+      } else {
+        Alert::error('No user was found.', 'Oops..');
+        return redirect('/');
+      }
     }
 
     public function updateInfo($username, Request $request){
         $user = Auth::user();
-
-        $validator = Validator::make($request->all(), [
-            'username' => 'required|string|max:12|unique:users|alpha_dash'
-        ]);
-        $errors = $validator->errors();
-
-
-        if ($validator->fails()) {
-            if($errors->first('username')){
-              Alert::error($errors->first('username'), 'Settings failed');
-              return Redirect::back();
-            }
-        }
-
-
-
+        Cache::forget('userData:'.Auth::user()->id);
         if($request->get('username') != $user->username){
+
+          $validator = Validator::make($request->all(), [
+              'username' => 'required|string|max:12|unique:users|alpha_dash'
+          ]);
+          $errors = $validator->errors();
+
+
+          if ($validator->fails()) {
+              if($errors->first('username')){
+                Alert::error($errors->first('username'), 'Settings failed');
+                return Redirect::back();
+              }
+          }
+
           if(User::where('username', $request->get('username'))->first()){
             if(User::where('username', $request->get('username'))->first() == $user){
               $user->username = $request->get('username');
@@ -1128,6 +1255,7 @@ class HomeController extends Controller
 
     public function avatar(Request $request){
 
+        Cache::forget('userData:'.Auth::user()->id);
         // Ifall det redan finns en profilbild, ta bort den.
          if (Auth::user()->avatar != "default.jpg") {
              $path = 'uploads/avatars/'.Auth::user()->id."/";
@@ -1219,7 +1347,6 @@ class HomeController extends Controller
 
     }
 
-
     public function uploadLogo(Request $request){
         $user = Auth::user();
 
@@ -1300,7 +1427,6 @@ class HomeController extends Controller
         }
 
     }
-
 
     public function header(Request $request){
 
@@ -1463,136 +1589,119 @@ class HomeController extends Controller
 
     }
 
-
     public function sellMultiple(Request $request){
         $amount = $request->get('amount');
         $date = $request->get('date');
 
         $seconddate = date('Y-m-d', strtotime($date. ' + 1 days'));
         if($date != date('Y-m-d')){
-        $client = new \GuzzleHttp\Client();
-        try{
-            $res = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricehistorical?fsym=BTC&tsyms=USD&ts='.strtotime($date).'&extraParams=Altpocket');
-            $response = $res->getBody();
-            $prices = json_decode($response, true);
-            $value = 0;
-            foreach($prices['BTC'] as $key => $price){
-                $value = $price;
-            }
-        }  catch (\GuzzleHttp\Exception\ClientException $e) {
-            $value = Crypto::where('symbol', 'btc')->first()->price_usd;
+            $client = new \GuzzleHttp\Client();
+            try{
+                $res = $client->request('GET', 'https://min-api.cryptocompare.com/data/pricehistorical?fsym=BTC&tsyms=USD&ts='.strtotime($date).'&extraParams=Altpocket');
+                $response = $res->getBody();
+                $prices = json_decode($response, true);
+                $value = 0;
+                foreach($prices['BTC'] as $key => $price){
+                    $value = $price;
+                }
+            } catch (\GuzzleHttp\Exception\ClientException $e) {
+                $value = Crypto::where('symbol', 'btc')->first()->price_usd;
             }
         } else {
             $value = Crypto::where('symbol', 'btc')->first()->price_usd;
 
         }
-
-
 
         if(Crypto::where('name', $request->get('coin'))->first()){
-        $symbol = Crypto::where('name', $request->get('coin'))->first();
-        $investments = Investment::where([['userid', '=', Auth::user()->id], ['crypto', '=', $symbol->symbol], ['sold_at', '=', null], ['bittrex_id', '=', null]])->orderBy('date')->get();
-        $sold = str_replace(',', '.', $request->get('sold_at'));
-        $sold_usd = str_replace(',', '.', $request->get('sold_at_usd'));
+            $symbol = Crypto::where('name', $request->get('coin'))->first();
+            $investments = Investment::where([['userid', '=', Auth::user()->id], ['crypto', '=', $symbol->symbol], ['sold_at', '=', null], ['bittrex_id', '=', null]])->orderBy('date')->get();
+            $sold = str_replace(',', '.', $request->get('sold_at'));
+            $sold_usd = str_replace(',', '.', $request->get('sold_at_usd'));
 
-        if(!$request->get('sold_at') && !$request->get('sold_at_usd')){
-            Alert::error('You must enter a price per coin.', 'Sell failed');
-            return Redirect::back();
-        }
+            if(!$request->get('sold_at') && !$request->get('sold_at_usd')){
+                Alert::error('You must enter a price per coin.', 'Sell failed');
+                return Redirect::back();
+            }
 
-        if($request->get('sold_at_usd') && !is_numeric($sold_usd)){
+            if($request->get('sold_at_usd') && !is_numeric($sold_usd)){
                 Alert::error('You must enter a numeric value in the sold at usd field.', 'Sell failed');
                 return Redirect::back();
-        }
-        if($request->get('sold_at') && !is_numeric($sold)){
+            }
+
+            if($request->get('sold_at') && !is_numeric($sold)){
                 Alert::error('You must enter a numeric value in the sold at field.', 'Sell failed');
                 return Redirect::back();
-        }
-
-
-
-
-
-
-
-
-        $paid = 0;
-        $paideach = 0;
-        $counter = 0;
-        $datebought = "";
-        $btcprice = 0;
-        if($investments) {
-        foreach($investments as $investment){
-            if($amount > 0){
-                if($investment->amount <= $amount){
-                    $amount -= $investment->amount;
-                    $paid += $investment->usd_total;
-                    $paideach += $investment->bought_at;
-                    $btcprice = $investment->btc_price_bought;
-                    $counter += 1;
-                    $investment->delete();
-
-                } elseif($investment->amount >= $amount){
-
-                    $paid += ($investment->usd_total / $investment->amount) * $amount;
-                    $paideach += $investment->bought_at;
-                    $investment->usd_total = ($investment->usd_total / $investment->amount) * ($investment->amount - $amount);
-                    $investment->amount -= $amount;
-                    $investment->save();
-
-                    $counter += 1;
-
-                    $amount = 0;
-
-                    $datebought = $investment->date_bought;
-                    $btcprice = $investment->btc_price_bought;
-                }
             }
-        }
-        if($counter != 0){
-        $investment = new Investment;
-        $investment->userid = Auth::user()->id;
-        $investment->crypto = $symbol->symbol;
-        $investment->date_bought = date('Y-m-d', strtotime($datebought));
-        $investment->bought_at = ($paideach / $counter);
-        if($request->get('sold_at_usd')){
-        $sold_price = str_replace(',', '.', $request->get('sold_at_usd'));
-        $investment->sold_at = $sold_price / $value;
+
+            $paid = 0;
+            $paideach = 0;
+            $counter = 0;
+            $datebought = "";
+            $btcprice = 0;
+            if($investments) {
+                foreach($investments as $investment){
+                    if($amount > 0){
+                        if($investment->amount <= $amount){
+                            $amount -= $investment->amount;
+                            $paid += $investment->usd_total;
+                            $paideach += $investment->bought_at;
+                            $btcprice = $investment->btc_price_bought;
+                            $counter += 1;
+                            $investment->delete();
+
+                        } elseif($investment->amount >= $amount){
+
+                            $paid += ($investment->usd_total / $investment->amount) * $amount;
+                            $paideach += $investment->bought_at;
+                            $investment->usd_total = ($investment->usd_total / $investment->amount) * ($investment->amount - $amount);
+                            $investment->amount -= $amount;
+                            $investment->save();
+
+                            $counter += 1;
+
+                            $amount = 0;
+
+                            $datebought = $investment->date_bought;
+                            $btcprice = $investment->btc_price_bought;
+                        }
+                    }
+                }
+                if($counter != 0){
+                    $investment = new Investment;
+                    $investment->userid = Auth::user()->id;
+                    $investment->crypto = $symbol->symbol;
+                    $investment->date_bought = date('Y-m-d', strtotime($datebought));
+                    $investment->bought_at = ($paideach / $counter);
+                    if($request->get('sold_at_usd')){
+                        $sold_price = str_replace(',', '.', $request->get('sold_at_usd'));
+                        $investment->sold_at = $sold_price / $value;
+                    } else {
+                        $investment->sold_at = str_replace(',', '.', $request->get('sold_at'));
+                    }
+                    $investment->amount = $request->get('amount') - $amount;
+                    $investment->date_sold = $request->get('date');
+                    $investment->sold_for = ($request->get('amount') * $investment->sold_at) * $value;
+                    $investment->usd_total = $paid;
+                    $investment->market = "manual";
+                    $investment->sale_id = time() + Auth::user()->id;
+                    $investment->btc_price_bought =  $btcprice;
+                    $investment->save();
+                } else {
+                    Alert::error('You had no investments to sell.', 'Sell failed');
+                    return redirect('/coins');
+                }
+
+                HomeController::calcInvested();
+                Alert::success('Your investments was successfully marked as sold.', 'Investments sold');
+                return redirect('/coins');
+            } else {
+                Alert::error('You had no investments to sell.', 'Sell failed');
+                return redirect('/coins');
+            }
+
         } else {
-        $investment->sold_at = str_replace(',', '.', $request->get('sold_at'));
-        }
-        $investment->amount = $request->get('amount') - $amount;
-        $investment->date_sold = $request->get('date');
-        $investment->sold_for = ($request->get('amount') * $investment->sold_at) * $value;
-        $investment->usd_total = $paid;
-        $investment->market = "manual";
-        $investment->sale_id = time() + Auth::user()->id;
-        $investment->btc_price_bought =  $btcprice;
-        $investment->save();
-        } else {
-        Alert::error('You had no investments to sell.', 'Sell failed');
-        return redirect('/coins');
-        }
-
-        HomeController::calcInvested();
-        Alert::success('Your investments was successfully marked as sold.', 'Investments sold');
-        return redirect('/coins');
-        } else {
-        Alert::error('You had no investments to sell.', 'Sell failed');
-        return redirect('/coins');
-        }
-
-
-
-
-
-    } else {
-        Alert::error('You must select an coin from the list.', 'Sell failed');
-        return redirect('/coins');
+            Alert::error('You must select an coin from the list.', 'Sell failed');
+            return redirect('/coins');
         }
     }
-
-
-
-
 }

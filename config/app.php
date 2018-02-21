@@ -189,6 +189,17 @@ return [
         Askedio\Laravel5ProfanityFilter\Providers\ProfanityFilterServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Alaouy\Youtube\YoutubeServiceProvider::class,
+        Hootlex\Friendships\FriendshipsServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Spatie\Analytics\AnalyticsServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        'Hocza\Sendy\SendyServiceProvider',
+        \Torann\GeoIP\GeoIPServiceProvider::class,
+        Lab404\Impersonate\ImpersonateServiceProvider::class,
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        Romeroqe\Giphy\GiphyServiceProvider::class,
+	    Romeroqe\Giphy\StickersServiceProvider::class,
     ],
 
     /*
@@ -245,7 +256,13 @@ return [
         'UrlSigner' => Spatie\UrlSigner\Laravel\UrlSignerFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
-
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Analytics' => Spatie\Analytics\AnalyticsFacade::class,
+        'Sendy' => 'Hocza\Sendy\Facades\Sendy',
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'Giphy' => Romeroqe\Giphy\GiphyFacade::class,
+	    'Stickers' => Romeroqe\Giphy\StickersFacade::class,
     ],
 
 ];

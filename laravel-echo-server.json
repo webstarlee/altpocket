@@ -1,0 +1,27 @@
+{
+	"appKey": "base64:3G5RJ0OYWYu1Bd47FlXgX1kZgzHJl6wkEswK2CWKfd4=",
+	"authHost": "https://altpocket.io",
+	"authEndpoint": "/broadcasting/auth",
+	"clients": [
+		{
+			"appId": "4b42a4ac276318dc",
+			"key": "ddd5816d7fe7ad10c6d9f78dcbacd136"
+		}
+	],
+	"database": "redis",
+	"databaseConfig": {
+		"redis": {
+			"port": "6379",
+			"host": "localhost"
+		},
+		"sqlite": {
+			"databasePath": "/database/laravel-echo-server.sqlite"
+		}
+	},
+	"devMode": true,
+	"port": "6001",
+	"protocol": "https",
+	"socketio": {},
+	"sslCertPath": "/etc/nginx/ssl/Altpocket.io/203319/server.crt",
+	"sslKeyPath": "/etc/nginx/ssl/Altpocket.io/203319/server.key"
+}

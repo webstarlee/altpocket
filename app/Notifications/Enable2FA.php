@@ -49,11 +49,9 @@ class Enable2FA extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->subject('Altpocket - Enable 2FA Request')
-                    ->line('You have requested to enable 2FA on your Altpocket.io account, please click the button below to enable it.')
-                    ->action('Enable 2FA', url($this->generateUrl()))
-                    ->line('Thank you for using Altpocket!');
+        return (new MailMessage)->view(
+            'emails.auth.enable2fa', ['url' => $this->generateUrl()]
+        )->subject('Enable 2FA on Altpocket');
     }
 
     /**

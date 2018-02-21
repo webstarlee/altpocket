@@ -31,29 +31,29 @@
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
-                    @endif          
+                    @endif
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
              {{ csrf_field() }}
-                        
-                        
-                        
+
+
+
           <div class="form-group label-floating is-empty">
             <label class="control-label">Email</label>
             <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required>
           </div>
-                        
+
           <div class="form-group label-floating is-empty">
             <label class="control-label">Password</label>
             <input id="password" type="password" class="form-control" name="password" required>
-          </div>                        
-                        
+          </div>
+
           <div class="form-group label-floating is-empty">
             <label class="control-label">Confirm Password</label>
             <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required>
-          </div>        
-                        
-                        
-                        
+          </div>
+
+
+
           <button type="submit" class="btn btn-info btn-block m-t-40">Change Password</button>
         </form>
       </div>

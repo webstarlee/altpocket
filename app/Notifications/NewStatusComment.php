@@ -29,10 +29,14 @@ class NewStatusComment extends Notification
    * @param  mixed  $notifiable
    * @return array
    */
-  public function via($notifiable)
-  {
-    return ['database', 'broadcast'];
-  }
+   public function via($notifiable)
+   {
+     if($notifiable->email_notifications == "on"){
+     return ['mail', 'database', 'broadcast'];
+     } else {
+     return ['database', 'broadcast'];
+     }
+   }
 
   public function toBroadcast($notifiable)
   {
@@ -51,11 +55,9 @@ class NewStatusComment extends Notification
    */
    public function toMail($notifiable)
    {
-       return (new MailMessage)
-                   ->subject('New comment on Altpocket')
-                   ->line('There has been a new comment on your')
-                   ->action('Go to question', url('/question').'/'.$this->notification['question'])
-                   ->line('Thank you for using Altpocket.');
+     return (new MailMessage)->view(
+         'emails.socials.newstatuscomment', ['notification' => $this->notification]
+     )->subject('New Comment on Altpocket');
    }
 
   /**

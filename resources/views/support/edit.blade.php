@@ -25,7 +25,7 @@
         <p>Here you can edit your question.</p>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-right:0px;">
     <div class="col-md-4 col-md-offset-4">
       <div class="contact-form">
         <form action="/question/{{$question->id}}/edit" role="form" method="post">
@@ -42,6 +42,33 @@
               <option value="Bug" @if($question->title == "Bug") selected @endif>Bug</option>
             </select>
           </div>
+
+          <div class="form-group">
+            <label for="sel2">Priority *</label>
+            <select class="form-control" id="sel2" name="priority" required="">
+              <option value="low" @if($question->priority == "low") selected @endif>Low</option>
+              <option value="normal" @if($question->priority == "normal") selected @endif>Normal</option>
+              <option value="critical" @if($question->priority == "critical") selected @endif>Critical</option>
+            </select>
+          </div>
+
+          @if(Auth::user()->hasRights())
+            <div class="form-group">
+              <label for="sel2">Assign Staff</label>
+              @php
+                $staff = App\Http\Controllers\AdminController::getStaff();
+              @endphp
+              <select class="form-control" id="sel3" name="staff" required="">
+                <option value="" selected></option>
+                @foreach($staff as $s)
+                  @php
+                    $username = DB::table('users')->where('id', $s->user_id)->select('username')->first()->username;
+                  @endphp
+                  <option @if($question->staff == $s->user_id)selected @endif value="{{$s->user_id}}">{{$username}}</option>
+                @endforeach
+              </select>
+            </div>
+          @endif
 
           <div class="form-group">
             <label for="sel1">Description *</label>

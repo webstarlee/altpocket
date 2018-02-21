@@ -42,15 +42,6 @@ $agent = new Agent();
                           </button>
                           <ul class="nav-sub">
                             <li data-toggle="tooltip" data-placement="left" title="New Investment"> <a data-toggle="modal" data-target="#add_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="zmdi zmdi-plus"></i></a></li>
-                            <li data-toggle="tooltip" data-placement="left" title="Add Mining"> <a data-toggle="modal" data-target="#mining_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm">M</a></li>
-                            <li data-toggle="tooltip" data-placement="left" title="Sell Amount"> <a data-toggle="modal" data-target="#sell_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="fa fa-money"></i></a></li>
-                            @if(DB::table('keys')->where([['userid', '=', Auth::user()->id], ['exchange', '=', 'Poloniex']])->exists())
-                            <li> <a id="import_polo" href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="Import orders from Poloniex" class="btn btn-fab btn-green btn-fab-sm">P</a></li>
-                              @endif
-                            @if(DB::table('keys')->where([['userid', '=', Auth::user()->id], ['exchange', '=', 'Bittrex']])->exists())
-                            <li data-toggle="tooltip" data-placement="left" title="Import orders from Bittrex"> <a id="import_bittrex" href="javascript:void(0)" class="btn btn-info btn-fab btn-fab-sm">B</a></li>
-                              @endif
-                            <li data-toggle="tooltip" data-placement="left" title="Reset Data"> <a data-toggle="modal" data-target="#reset_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="zmdi zmdi-delete"></i></a></li>
                           </ul>
                         </nav>
                     </header>
@@ -60,6 +51,11 @@ $agent = new Agent();
     </div>
         <div id="content" class="container-fluid">
             <div class="content-body">
+              @if(env('IMPORT_SYSTEM') != "on")
+							<div class="alert alert-danger" role="alert">
+                <strong>Announcement:</strong> The import system is currently down for maintenance and should be up very soon.
+              </div>
+							@endif
                 <div class="row">
                 </div>
                 <div class="row">
@@ -242,10 +238,11 @@ $agent = new Agent();
                                   <div class="row">
                                     @foreach($investments as $investment)
                                       @if($investment->date_sold == null)
+                                        @if($investment->market == "BTC")
                                       <?php
                                         if(Auth::user())
                                         {
-                                          $price = Auth::user()->getPrice($investment->currency, 'Manual', 'Manual');
+                                          $price = Auth::user()->getPrice($investment->currency, $investment->market, 'Manual');
                                           $multiplier = Auth::user()->getMultiplier();
                                           $previous = 0;
                                           $decimal1 = 2;
@@ -336,6 +333,107 @@ $agent = new Agent();
                                            </div>
                                          </div>
                                        </figure>
+                                     @else
+                                       <?php
+                                         $price = Auth::user()->getPrice($investment->currency, $investment->market, 'Manual');
+                                         $multiplier = Auth::user()->getEthMultiplier();
+                                         $previous = 0;
+                                         $decimal1 = 2;
+                                         $decimal2 = 5;
+
+                                         if(Auth::user()->getCurrency() == "USD")
+                                         {
+                                           $previous = $investment->btc_price_bought_usd;
+                                           $prevmultiplier = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                         } elseif(Auth::user()->getCurrency() == "BTC")
+                                         {
+                                           $previous = 1;
+                                           $decimal1 = 5;
+                                           $decimal2 = 9;
+                                           $prevmultiplier = 1 / $investment->btc_price_bought_eth;
+                                         } else {
+                                           $previous = $investment->btc_price_bought_eur;
+                                           $prevmultiplier = ($investment->btc_price_bought_usd / $investment->btc_price_bought_eth) * $fiat;
+                                         }
+                                        ?>
+                                        <figure class="col-xs-12 col-sm-4 col-md-4">
+                                          <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
+                                              <header class="card-heading">
+                                                <ul class="card-actions icons left-top" style="margin-top:-3px;margin-left:20px;">
+                                                    <li><span style="font-size:11px" class="text-muted">{{date('Y-m-d', strtotime($investment->date_bought))}}</span></li>
+                                                </ul>
+                                                <ul class="card-actions icons right-top">
+                                                  <li class="dropdown">
+                                                    <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                      <i class="zmdi zmdi-more-vert"></i>
+                                                    </a>
+                                                    <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                                      <li class="dropdown">
+                                                        <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                          <i class="zmdi zmdi-more-vert"></i>
+                                                        </a>
+                                                        <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                                          <li>
+                                                          <a href="javascript:void(0)" class="edit-coin" id="{{$investment->id}}" data-toggle="modal" data-target="#edit_modal" >Edit</a>
+                                                        </li>
+                                                        <li>
+                                                          <a href="javascript:void(0)" class="sell-coin" id="{{$investment->id}}" data-toggle="modal" data-target="#sold_modal">Mark as Sold</a>
+                                                        </li>
+                                                          <li>
+                                                            <a href="/investments/remove/{{$investment->id}}">Remove</a>
+                                                          </li>
+                                                        </ul>
+                                                      </li>
+                                                    </ul>
+                                                  </li>
+                                                  <li>
+                                                    <a href="#"><img style="color:#f76d5e;cursor:pointer;margin-top:-5px!important;" src="https://png.icons8.com/ethereum/color/24" width="24" height="24" data-toggle="tooltip" title="This investment was done with ETH."></a>
+                                                    </li>
+                                                  </ul>
+
+                                              </header>
+                                            <div class="card-image" style="box-shadow:none!important;margin-top:5px!important;height:45px;">
+                                                <img style="max-height:45px;display:block;margin:0 auto;width:inherit!important;border-radius:0px;" src="/assets/logos/{{$investment->currency}}.png" itemprop="thumbnail" alt="Image description">
+                                            </div>
+                                            <div class="card-body">
+                                              <h4 class="card-title text-center" style="cursor:pointer" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->amount * $price),5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->amount * $price * $multiplier),$decimal1)}}{!! $symbol2 !!}</h4>
+                                              <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->currency}}) @if($investment->edited == 1)<i class="fa fa-cogs" data-toggle="tooltip" style="cursor:pointer" title="This investment has been modified by a sell or withdraw."></i>@endif @if($investment->withdrew == 1)<i class="fa fa-exclamation-circle" data-toggle="tooltip" style="cursor:pointer" title="This investment has been fully or partially withdrawn."></i>@endif</p>
+
+                                               @if(((($investment->amount * $price) * $multiplier)) > (($investment->amount * $investment->bought_at) * $prevmultiplier))
+                                                <span class="text-center label label-success" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'>
+                                                  {{number_format((($investment->amount * $price)) - (($investment->amount * $investment->bought_at)), 5)}}" data-html="true">
+                                                  {!! $symbol !!}{{number_format((($investment->amount * $price) * $multiplier) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}
+                                                  </span>
+
+                                                <span class="text-center label label-success" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                  {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $price) * $multiplier)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                                </span>
+
+                                              @else
+                                              <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'>
+                                                 {{number_format((($investment->amount * $price)) - (($investment->amount * $investment->bought_at)), 5)}}" data-html="true">
+                                                 {!! $symbol !!}{{number_format((($investment->amount * $price) * $multiplier) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}
+                                                 </span>
+                                                <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                  {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $price) * $multiplier)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                                </span>
+                                              @endif
+                                                <hr style="margin-top:40px;">
+                                                <div class="usd">
+                                                <span style="float:left;">Before</span>
+                                                <span style="float:right;">After</span>
+                                                <br>
+                                                <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->amount * $investment->bought_at), 5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->amount * $investment->bought_at) * $prevmultiplier, $decimal1)}}{!! $symbol2 !!}</span>
+                                                <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->amount * $price), 5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->amount * $price) * $multiplier, $decimal1)}}{!! $symbol2 !!}</span>
+                                                <br>
+                                                <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format($investment->bought_at * $prevmultiplier,$decimal2)}}{!! $symbol2 !!}</span>
+                                                <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($price), 8)}}" data-html="true">{!! $symbol !!}{{number_format($price * $multiplier ,$decimal2)}}{!! $symbol2 !!}</span>
+                                                <br>
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </figure>
+                                     @endif
                                      @endif
                                     @endforeach
                                     @foreach($p_investments as $investment)
@@ -742,7 +840,7 @@ $agent = new Agent();
                                             <header class="card-heading">
                                               <ul class="card-actions icons left-top">
                                                 <li>
-                                                  <i class="material-icons" style="color:#5ecbf7;cursor:pointer;" data-toggle="tooltip" title="Verified investment from Poloniex.">verified_user</i>
+                                                  <i class="material-icons" style="color:#5ecbf7;cursor:pointer;" data-toggle="tooltip" title="Verified investment from Bittrex.">verified_user</i>
                                                   </li>
                                                 </ul>
                                               <ul class="card-actions icons left-top" style="margin-top:-3px;margin-left:20px;">
@@ -909,6 +1007,7 @@ $agent = new Agent();
                                 <div class="row">
                                   @foreach($investments as $investment)
                                     @if($investment->date_sold != null)
+                                      @if($investment->sold_market == "BTC" && $investment->market == "BTC")
                                     <?php
                                       $multiplier = Auth::user()->getMultiplier();
                                       $previous = 0;
@@ -990,6 +1089,282 @@ $agent = new Agent();
                                          </div>
                                        </div>
                                      </figure>
+                                  @elseif($investment->sold_market == "BTC" && $investment->market == "ETH")
+                                    <?php
+                                      $multiplier = Auth::user()->getMultiplier();
+                                      $previous = 0;
+                                      $decimal1 = 2;
+                                      $decimal2 = 5;
+
+                                      if(Auth::user()->getCurrency() == "USD")
+                                      {
+                                        $previous = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                        $previousmultiplier = $investment->btc_price_bought_usd;
+                                        $prevmultiplier = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                        $prevsold = $investment->btc_price_sold_usd;
+                                      } elseif(Auth::user()->getCurrency() == "BTC")
+                                      {
+                                        $previous = $investment->btc_price_bought_eth;
+                                        $decimal1 = 5;
+                                        $decimal2 = 9;
+                                        $previousmultiplier = 1;
+                                        $prevsold = ($investment->btc_price_sold_usd / $investment->btc_price_sold_eth) * $fiat;
+                                        $prevmultiplier = 1 / $investment->btc_price_bought_eth;
+                                      } else {
+                                        $previous = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                        $previousmultiplier = $investment->btc_price_bought_usd * $fiat;
+                                        $prevmultiplier = ($investment->btc_price_bought_usd / $investment->btc_price_bought_eth) * $fiat;
+                                        $prevsold = ($investment->btc_price_sold_usd / $investment->btc_price_sold_eth) * $fiat;
+                                      }
+                                     ?>
+                                     <figure class="col-xs-12 col-sm-4 col-md-4">
+                                       <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
+                                           <header class="card-heading">
+                                             <ul class="card-actions icons left-top" style="margin-top:-3px;margin-left:20px;">
+                                                 <li><span style="font-size:11px" class="text-muted">{{date('Y-m-d', strtotime($investment->date_sold))}}</span></li>
+                                             </ul>
+                                             <ul class="card-actions icons right-top">
+                                               <li class="dropdown">
+                                                 <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                   <i class="zmdi zmdi-more-vert"></i>
+                                                 </a>
+                                                 <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                                   <li>
+                                                     <a href="/investments/remove/{{$investment->id}}">Remove</a>
+                                                   </li>
+                                                 </ul>
+                                               </li>
+                                               <li>
+                                               <img src="https://png.icons8.com/bitcoin/color/24" style="cursor:pointer;margin-top:-5px!important;" data-toggle="tooltip" title="This investment was bought with ETH and sold to BTC." width="24" height="24">
+                                                 </li>
+                                               </ul>
+                                           </header>
+                                         <div class="card-image" style="box-shadow:none!important;margin-top:5px!important;height:45px;">
+                                             <img style="max-height:45px;display:block;margin:0 auto;width:inherit!important;border-radius:0px;" src="/assets/logos/{{$investment->currency}}.png" itemprop="thumbnail" alt="Image description">
+                                         </div>
+                                         <div class="card-body">
+                                           <h4 class="card-title text-center" style="cursor:pointer" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->amount * $investment->sold_at),5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for * $prevsold),$decimal1)}}{!! $symbol2 !!}</h4>
+                                           <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->currency}}) @if($investment->edited == 1)<i class="fa fa-cogs" data-toggle="tooltip" style="cursor:pointer" title="This investment has been modified by a sell or withdraw."></i>@endif</p>
+
+                                            @if(((($investment->amount * $investment->sold_at) * $prevsold)) > (($investment->amount * $investment->bought_at) * $prevmultiplier))
+                                             <span class="text-center label label-success" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                             {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+                                            {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                             <span class="text-center label label-success" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                               {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                             </span>
+
+                                           @else
+                                           <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                             {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+
+                                             {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                             <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                               {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                             </span>
+                                           @endif
+                                             <hr style="margin-top:40px;">
+                                             <div class="usd">
+                                             <span style="float:left;">Before</span>
+                                             <span style="float:right;">After</span>
+                                             <br>
+                                             <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format((($investment->amount * $investment->bought_at)) * $prevmultiplier, $decimal1)}}{!! $symbol2 !!}</span>
+                                             <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for) * $prevsold, $decimal1)}}{!! $symbol2 !!}</span>
+                                             <br>
+                                             <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->bought_at) * $previous,$decimal2)}}{!! $symbol2 !!}</span>
+                                             <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format($investment->sold_at * $prevsold ,$decimal2)}}{!! $symbol2 !!}</span>
+                                             <br>
+                                             </div>
+                                         </div>
+                                       </div>
+                                     </figure>
+                                   @elseif($investment->sold_market == "ETH" && $investment->market == "ETH")
+                                     <?php
+                                       $multiplier = Auth::user()->getMultiplier();
+                                       $previous = 0;
+                                       $decimal1 = 2;
+                                       $decimal2 = 5;
+
+                                       if(Auth::user()->getCurrency() == "USD")
+                                       {
+                                         $previous = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                         $previousmultiplier = $investment->btc_price_bought_usd;
+                                         $prevmultiplier = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                         $prevsold = $investment->btc_price_sold_usd / $investment->btc_price_bought_eth;
+                                       } elseif(Auth::user()->getCurrency() == "BTC")
+                                       {
+                                         $previous = 1 / $investment->btc_price_bought_eth;
+                                         $decimal1 = 5;
+                                         $decimal2 = 9;
+                                         $previousmultiplier = 1 / $investment->btc_price_bought_eth;
+                                         $prevsold = 1 / $investment->btc_price_sold_eth;
+                                         $prevmultiplier = 1 / $investment->btc_price_bought_eth;
+                                       } else {
+                                         $previous = $investment->btc_price_bought_usd / $investment->btc_price_bought_eth;
+                                         $previousmultiplier = $investment->btc_price_bought_usd * $fiat;
+                                         $prevmultiplier = ($investment->btc_price_bought_usd / $investment->btc_price_bought_eth) * $fiat;
+                                         $prevsold = ($investment->btc_price_sold_usd / $investment->btc_price_sold_eth) * $fiat;
+                                       }
+                                      ?>
+                                      <figure class="col-xs-12 col-sm-4 col-md-4">
+                                        <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
+                                            <header class="card-heading">
+
+                                              <ul class="card-actions icons left-top" style="margin-top:-3px;margin-left:20px;">
+                                                  <li><span style="font-size:11px" class="text-muted">{{date('Y-m-d', strtotime($investment->date_sold))}}</span></li>
+                                              </ul>
+                                              <ul class="card-actions icons right-top">
+                                                <li class="dropdown">
+                                                  <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                    <i class="zmdi zmdi-more-vert"></i>
+                                                  </a>
+                                                  <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                                    <li>
+                                                      <a href="/investments/remove/{{$investment->id}}">Remove</a>
+                                                    </li>
+                                                  </ul>
+                                                </li>
+                                                <li>
+                                                <img src="https://png.icons8.com/ethereum/color/24" style="cursor:pointer;margin-top:-5px!important;" data-toggle="tooltip" title="This investment was bought with ETH and sold to BTC." width="24" height="24">
+                                                  </li>
+                                                </ul>
+                                            </header>
+                                          <div class="card-image" style="box-shadow:none!important;margin-top:5px!important;height:45px;">
+                                              <img style="max-height:45px;display:block;margin:0 auto;width:inherit!important;border-radius:0px;" src="/assets/logos/{{$investment->currency}}.png" itemprop="thumbnail" alt="Image description">
+                                          </div>
+                                          <div class="card-body">
+                                            <h4 class="card-title text-center" style="cursor:pointer" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->amount * $investment->sold_at),5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for * $prevsold),$decimal1)}}{!! $symbol2 !!}</h4>
+                                            <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->currency}}) @if($investment->edited == 1)<i class="fa fa-cogs" data-toggle="tooltip" style="cursor:pointer" title="This investment has been modified by a sell or withdraw."></i>@endif</p>
+
+                                             @if(((($investment->amount * $investment->sold_at) * $prevsold)) > (($investment->amount * $investment->bought_at) * $prevmultiplier))
+                                              <span class="text-center label label-success" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                              {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+                                             {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                              <span class="text-center label label-success" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                              </span>
+
+                                            @else
+                                            <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                              {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+
+                                              {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                              <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                              </span>
+                                            @endif
+                                              <hr style="margin-top:40px;">
+                                              <div class="usd">
+                                              <span style="float:left;">Before</span>
+                                              <span style="float:right;">After</span>
+                                              <br>
+                                              <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format((($investment->amount * $investment->bought_at)) * $prevmultiplier, $decimal1)}}{!! $symbol2 !!}</span>
+                                              <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for) * $prevsold, $decimal1)}}{!! $symbol2 !!}</span>
+                                              <br>
+                                              <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->bought_at) * $previous,$decimal2)}}{!! $symbol2 !!}</span>
+                                              <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format($investment->sold_at * $prevsold ,$decimal2)}}{!! $symbol2 !!}</span>
+                                              <br>
+                                              </div>
+                                          </div>
+                                        </div>
+                                      </figure>
+                                    @elseif($investment->sold_market == "ETH" && $investment->market == "BTC")
+                                      <?php
+                                        $multiplier = Auth::user()->getMultiplier();
+                                        $previous = 0;
+                                        $decimal1 = 2;
+                                        $decimal2 = 5;
+
+                                        if(Auth::user()->getCurrency() == "USD")
+                                        {
+                                          $previous = $investment->btc_price_bought_usd;
+                                          $previousmultiplier = $investment->btc_price_bought_usd;
+                                          $prevmultiplier = $investment->btc_price_bought_usd;
+                                          $prevsold = $investment->btc_price_sold_usd / $investment->btc_price_sold_eth;
+                                        } elseif(Auth::user()->getCurrency() == "BTC")
+                                        {
+                                          $previous = 1 / $investment->btc_price_bought_eth;
+                                          $decimal1 = 5;
+                                          $decimal2 = 9;
+                                          $previousmultiplier = 1;
+                                          $prevsold = 1 / $investment->btc_price_bought_eth;
+                                          $prevmultiplier = 1;
+                                        } else {
+                                          $previous = $investment->btc_price_bought_usd;
+                                          $previousmultiplier = $investment->btc_price_bought_usd * $fiat;
+                                          $prevmultiplier = ($investment->btc_price_bought_usd) * $fiat;
+                                          $prevsold = ($investment->btc_price_sold_usd / $investment->btc_price_sold_eth) * $fiat;
+                                        }
+                                       ?>
+                                       <figure class="col-xs-12 col-sm-4 col-md-4">
+                                         <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
+                                             <header class="card-heading">
+
+                                               <ul class="card-actions icons left-top" style="margin-top:-3px;margin-left:20px;">
+                                                   <li><span style="font-size:11px" class="text-muted">{{date('Y-m-d', strtotime($investment->date_sold))}}</span></li>
+                                               </ul>
+                                               <ul class="card-actions icons right-top">
+                                                 <li class="dropdown">
+                                                   <a href="#" data-toggle="dropdown" aria-expanded="false">
+                                                     <i class="zmdi zmdi-more-vert"></i>
+                                                   </a>
+                                                   <ul class="dropdown-menu btn-primary dropdown-menu-right">
+                                                     <li>
+                                                       <a href="/investments/remove/{{$investment->id}}">Remove</a>
+                                                     </li>
+                                                   </ul>
+                                                 </li>
+                                                 <li>
+                                                 <img src="https://png.icons8.com/bitcoin/color/24" style="cursor:pointer;margin-top:-5px!important;" data-toggle="tooltip" title="This investment was bought with ETH and sold to BTC." width="24" height="24">
+                                                   </li>
+                                                 </ul>
+                                             </header>
+                                           <div class="card-image" style="box-shadow:none!important;margin-top:5px!important;height:45px;">
+                                               <img style="max-height:45px;display:block;margin:0 auto;width:inherit!important;border-radius:0px;" src="/assets/logos/{{$investment->currency}}.png" itemprop="thumbnail" alt="Image description">
+                                           </div>
+                                           <div class="card-body">
+                                             <h4 class="card-title text-center" style="cursor:pointer" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->amount * $investment->sold_at),5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for * $prevsold),$decimal1)}}{!! $symbol2 !!}</h4>
+                                             <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->currency}}) @if($investment->edited == 1)<i class="fa fa-cogs" data-toggle="tooltip" style="cursor:pointer" title="This investment has been modified by a sell or withdraw."></i>@endif</p>
+
+                                              @if(((($investment->amount * $investment->sold_at) * $prevsold)) > (($investment->amount * $investment->bought_at) * $prevmultiplier))
+                                               <span class="text-center label label-success" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                               {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+                                              {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                               <span class="text-center label label-success" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                 {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                               </span>
+
+                                             @else
+                                             <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:left;font-size:12px;color:white;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i>
+                                               {{number_format((($investment->amount * $investment->sold_at)) - (($investment->amount * $investment->bought_at) / $investment->btc_price_bought_eth), 5)}}" data-html="true">
+
+                                               {!! $symbol !!}{{number_format((($investment->amount * $investment->sold_at) * $prevsold) - (($investment->amount * $investment->bought_at) * $prevmultiplier), $decimal1)}}{!! $symbol2 !!}</span>
+
+                                               <span class="text-center label label-danger" style="display:block;margin: 0 auto;float:right;font-size:12px;color:white;">
+                                                 {{number_format((100/((($investment->amount * $investment->bought_at) * $prevmultiplier))) * (((($investment->amount * $investment->sold_at) * $prevsold)) - ((($investment->amount * $investment->bought_at) * $prevmultiplier))), 2)}}%
+                                               </span>
+                                             @endif
+                                               <hr style="margin-top:40px;">
+                                               <div class="usd">
+                                               <span style="float:left;">Before</span>
+                                               <span style="float:right;">After</span>
+                                               <br>
+                                               <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format((($investment->amount * $investment->bought_at)) * $prevmultiplier, $decimal1)}}{!! $symbol2 !!}</span>
+                                               <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_for), 5)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->sold_for) * $prevsold, $decimal1)}}{!! $symbol2 !!}</span>
+                                               <br>
+                                               <span style="float:left;cursor:pointer;" data-toggle="tooltip" title="<img src='https://png.icons8.com/ethereum/color/24' width='24' height='24'> {{number_format(($investment->bought_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format(($investment->bought_at) * $previous,$decimal2)}}{!! $symbol2 !!}</span>
+                                               <span style="float:right;cursor:pointer;" data-toggle="tooltip" title="<i class='fa fa-btc'></i> {{number_format(($investment->sold_at), 8)}}" data-html="true">{!! $symbol !!}{{number_format($investment->sold_at * $prevsold ,$decimal2)}}{!! $symbol2 !!}</span>
+                                               <br>
+                                               </div>
+                                           </div>
+                                         </div>
+                                       </figure>
+                                   @endif
                                    @endif
                                   @endforeach
 
@@ -2257,76 +2632,7 @@ $agent = new Agent();
            </ul>
          </div>
          <div class="modal-body">
-                 <form id="form-horizontal" role="form" method="post" action="/investments/add">
-                           {{ csrf_field() }}
-                         <div class="form-group is-empty">
-                         <label for="" class="control-label">Coin/Currency</label>
-                         <input type="text" class="form-control typeahead" id="autocomplete_coins" autocomplete="off" placeholder="Enter a coin" id="coin" name="coin" required/>
-                 </div>
-
-                 <div class="form-group">
-                     <label for="" class="control-label">Price Input</label>
-                     <select class="select form-control" id="priceinputedit" name="priceinput">
-                       <option value="">Select an Option</option>
-                       <option value="btcper">BTC paid per coin</option>
-                       <option value="usdper">USD paid per coin</option>
-                       <option value="eurper">EUR paid per coin</option>
-                       <option value="audper">AUD paid per coin</option>
-                       <option value="total">Total BTC paid</option>
-                       <option value="usdtotal">Total USD paid</option>
-                       <option value="eurtotal">Total EUR paid</option>
-                       <option value="audtotal">Total AUD paid</option>
-                     </select>
-               </div>
-
-
-                 <div class="form-group" style="display:none" id="btc_peredit">
-                   <label class="control-label">BTC paid per coin</label>
-                   <input type="text" class="form-control" name="bought_at_btc" id="bought_at_btc">
-                 </div>
-                 <div class="form-group" style="display:none" id="usd_peredit">
-                   <label class="control-label">USD paid per coin</label>
-                   <input type="text" class="form-control" name="bought_at_usd" id="bought_at_usd">
-                 </div>
-                 <div class="form-group" style="display:none" id="eur_peredit">
-                   <label class="control-label">EUR paid per coin</label>
-                   <input type="text" class="form-control" name="bought_at_eur" id="bought_at_eur">
-                 </div>
-                <div class="form-group" style="display:none" id="aud_peredit">
-                  <label class="control-label">AUD paid per coin</label>
-                  <input type="text" class="form-control" name="bought_at_aud" id="bought_at_aud">
-                </div>
-                <div class="form-group" style="display:none" id="totaledit">
-                  <label class="control-label">Total paid for investment in BTC</label>
-                  <input type="text" class="form-control" name="total" id="total">
-                </div>
-                <div class="form-group" style="display:none" id="usdtotaledit">
-                  <label class="control-label">Total paid for investment in USD</label>
-                  <input type="text" class="form-control" name="usdtotal" id="usdtotal">
-                </div>
-                <div class="form-group" style="display:none" id="eurtotaledit">
-                  <label class="control-label">Total paid for investment in EUR</label>
-                  <input type="text" class="form-control" name="eurtotal" id="eurtotal">
-                </div>
-                <div class="form-group" style="display:none" id="audtotaledit">
-                  <label class="control-label">Total paid for investment in AUD</label>
-                  <input type="text" class="form-control" name="audtotal" id="audtotal">
-                </div>
-
-
-                 <div class="form-group">
-                   <label class="control-label">Number of coins bought</label>
-                   <input type="text" class="form-control" name="amount" id="amount" required>
-                 </div>
-                   <div class="form-group is-empty">
-                       <label class="control-label">Date when bought</label>
-                     <div class="input-group">
-                       <span class="input-group-addon"><i class="zmdi zmdi-calendar"></i></span>
-                       <input type="text" class="form-control datepicker" id="md_input_date2" type="date" placeholder="Date when bought" name="date" required>
-                     </div>
-                   </div>
-                           <button type="submit" class="btn btn-primary">Add coin</button>
-                       </form>
+           <p>The page you are using is old and deprecated, to manage your portfolio you will need to use the regular Investments page.</p>
            </div>
          </div>
          <!-- modal-content -->
@@ -2514,7 +2820,7 @@ $agent = new Agent();
                             {{ csrf_field() }}
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Coin/Currency</label>
-                                    <input type="text" class="form-control typeahead" id="autocomplete_states3" autocomplete="off" placeholder="Enter a coin" id="coin" name="coin" required/>
+                                    <input type="text" class="form-control typeahead" id="autocomplete_coins_mining" autocomplete="off" placeholder="Enter a coin" id="coin" name="coin" required/>
                               </div>
                       <div class="form-group">
                         <label class="control-label">Number of coins mined</label>
@@ -2558,7 +2864,7 @@ $agent = new Agent();
                             {{ csrf_field() }}
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Coin/Currency</label>
-                                    <input type="text" class="form-control typeahead" id="autocomplete_states2" autocomplete="off" placeholder="Enter a coin" id="coin" name="coin" required/>
+                                    <input type="text" class="form-control typeahead" id="autocomplete_coins2" autocomplete="off" placeholder="Enter a coin" id="coin" name="coin" required/>
                               </div>
                               <div class="form-group">
                                   <label for="" class="control-label">Price Input</label>

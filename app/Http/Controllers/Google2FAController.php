@@ -102,7 +102,7 @@ class Google2FAController extends Controller
       $user = Auth::user();
       $secret = $request->get('secret');
       $totp = $request->get('totp');
-      if($secret)
+      if($secret && $totp)
       {
         $google2fa = new Google2FA();
         if($google2fa->verifyKey($secret, $totp))
@@ -116,7 +116,7 @@ class Google2FAController extends Controller
           return Redirect::back();
         }
       } else {
-        Alert::error('Something went wrong, please report to staff.', 'Failed');
+        Alert::error('You have to enter the code given from your authentication app.', 'Failed');
         return Redirect::back();
       }
     }
@@ -126,7 +126,7 @@ class Google2FAController extends Controller
       $user = Auth::user();
       $secret = $request->get('secret');
       $totp = $request->get('totp');
-      if($secret)
+      if($secret && $totp)
       {
         $google2fa = new Google2FA();
         if($google2fa->verifyKey($secret, $totp))
@@ -140,7 +140,7 @@ class Google2FAController extends Controller
           return Redirect::back();
         }
       } else {
-        Alert::error('Something went wrong, please report to staff.', 'Failed');
+        Alert::error('You have to enter the code given from your authentication app.', 'Failed');
         return Redirect::back();
       }
 

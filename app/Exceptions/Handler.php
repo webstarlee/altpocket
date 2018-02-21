@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Redirect;
 
 class Handler extends ExceptionHandler
 {
@@ -44,7 +45,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+      if ($exception instanceof \Spatie\Permission\Exceptions\UnauthorizedException) {
+        return response()->view("errors.404");
+      }
+      return parent::render($request, $exception);
     }
 
     /**
@@ -62,4 +66,13 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest(route('login'));
     }
+
+    protected function prepareResponse($request, Exception $e)
+{
+    if ($this->isHttpException($e)) {
+        return $this->toIlluminateResponse($this->renderHttpException($e), $e);
+    } else {
+        return response()->view("errors.500", ['exception' => $e]); //By overriding this function, I make Laravel display my custom 500 error page instead of the 'Whoops, looks like something went wrong.' message in Symfony\Component\Debug\ExceptionHandler
+    }
+}
 }

@@ -22,7 +22,7 @@
                   <div class="blog-section">
                       <article class="blog-items single-post">
                           <a href="#" class="blog-img">
-                              <img  class="img-responsive" src="/uploads/blog/{{$post->id}}/{{$post->image}}" alt="">
+                              <img  class="img-responsive" src="/uploads/blog/{{$post->id}}/{{$post->image}}" alt="" style="margin:0 auto;">
                           </a>
                           <div class="blog-content">
                               <a href="#"><h2>{{$post->title}} </h2></a>

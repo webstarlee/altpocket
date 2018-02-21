@@ -48,11 +48,16 @@ class NewQuestion extends Notification
      */
      public function toMail($notifiable)
      {
-         return (new MailMessage)
-                     ->subject('New Question on Altpocket')
-                     ->line('There is a new question on Altpocket´s help desk!')
-                     ->action('Go to question', url('/question').'/'.$this->notification['question'])
-                     ->line('Thank you for using Altpocket.');
+         /*return (new MailMessage)
+                     ->subject('New Question: "'.$this->notification['question_title'])
+                     ->line('There is a new question on the help desk.')
+                     ->line('The priority level is: '.$this->notification['priority'])
+                     ->line('"'.$this->notification['question_description'].'"')
+                     ->action('Go to question', url('/question').'/'.$this->notification['question']);*/
+
+     return (new MailMessage)->view(
+         'emails.newquestion', ['notification' => $this->notification]
+     )->subject('New Question: "'.$this->notification['question_title'].'"');
      }
 
     /**

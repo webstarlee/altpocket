@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Altpocket - Login/Register</title>
+	<title>Altpocket - Reset Password</title>
 
 	<!-- Required meta tags always come first -->
 	<meta charset="utf-8">
@@ -139,9 +139,9 @@
              {{ csrf_field() }}
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty" style="margin-bottom:25px;">
 										<label class="control-label">Email</label>
-										<input class="form-control" placeholder="" type="email" name="email" value="{{ old('email') }}" required>
+										<input class="form-control2" placeholder="" type="email" name="email" value="{{ old('email') }}" required>
 									</div>
 									<button type="submit" class="btn btn-lg full-width" style="background-color:#3a94ff;color:white!important;">Reset Password</button>
 

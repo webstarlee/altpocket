@@ -39,7 +39,8 @@ class NewComment extends Notification
     public function toBroadcast($notifiable)
     {
         return new BroadcastMessage([
-            'value' => 'There is a new comment on your profile.'
+            'value' => 'There is a new comment on your profile.',
+            'category' => 'success'
         ]);
       }
 

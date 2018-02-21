@@ -23,7 +23,7 @@
   <div class="col-md-12">
     <div class="themeix-section-title text-center">
         <h2>Ask a question</h2>
-        <p>Here you can post a question which can be answered by the community or the Altpocket team.</p>
+        <p>Here you can post a question which can be answered by the community or the Altpocket team.<br>Before you make a new question, please read the FAQ below and search the help desk to see if your question has been answered before.</p>
     </div>
   </div>
   <div class="row">
@@ -41,6 +41,15 @@
               <option value="General">General</option>
               <option value="Technical">Technical</option>
               <option value="Bug">Bug</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sel2">Priority *</label>
+            <select class="form-control" id="sel2" name="priority" required="">
+              <option value="low">Low</option>
+              <option value="normal" selected>Normal</option>
+              <option value="critical">Critical</option>
             </select>
           </div>
 

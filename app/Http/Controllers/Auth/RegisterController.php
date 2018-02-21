@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Cookie;
+use Cache;
 use Illuminate\Http\Request;
+use App\Notifications\Welcome;
 
 class RegisterController extends Controller
 {
@@ -66,15 +68,21 @@ class RegisterController extends Controller
     {
 
         $referred_by = Cookie::get('referral');
+        Cache::forget($referred_by);
+        Cache::forget('userCount');
+        Cache::forget('userCountToday');
 
-        return User::create([
+        $user = User::create([
             'username' => $data['username'],
             'name' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'affiliate_id' => str_random(10),
             'referred_by'   => $referred_by,
-            'reg_ip' => '127.0.0.1'
+            'reg_ip' => geoip()->getClientIP()
         ]);
+
+        $user->notify(new Welcome($user));
+        return $user;
     }
 }

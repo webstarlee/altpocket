@@ -2,6 +2,40 @@
 
 @section('title', 'All questions')
 
+@section('css')
+
+  <style>
+    .mdl-button {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 30px;
+    color: #2196F3!important;
+    text-align: center;
+    border: 1px solid #2196F3!important;
+    margin-right: 10px;
+    -webkit-transition: all .4s linear 0s;
+    transition: all .4s linear 0s;
+    background-color: white!important;
+    }
+
+    .mdl-button--raised {
+      border-color: #b5b5b5!important;
+      color: #b5b5b5!important;
+      pointer-events: none!important;
+    }
+    .previous {
+      width:100px!important;
+    }
+    .next {
+      width:100px!important;
+    }
+    .disabled {
+      display:none!important;
+    }
+  </style>
+
+@endsection
 
 @section('content')
   <!-- Start Page Banner Area -->
@@ -81,7 +115,7 @@
                                           <span class="dwqa-answers-count"><strong>{{$question->answers}}</strong>answers</span>
                                           <span class="dwqa-votes-count"><strong>{{$question->votes}}</strong>votes</span>
                                           @if(Auth::user() && Auth::user()->isStaff() || Auth::user() && Auth::user()->isFounder())
-                                          <a href="/question/{{$question->id}}/sticky"><span class="dwqa-votes-count"><strong>Mark as</strong>Sticky</span></>
+                                          <a href="/question/{{$question->id}}/sticky"><span class="dwqa-votes-count"><strong>Mark as</strong>Sticky</span></a>
                                           @endif
                                       </div>
                                   </div>
@@ -94,7 +128,8 @@
                                    ?>
                                   <div class="sortable-q dwqa-question-item @if($question->sticky == "yes") dwqa-sticky @endif" data-sort-views="{{$question->views}}" data-sort-answers="{{$question->answers}}" data-sort-votes="{{$question->votes}}" data-sort-date="{{strtotime($question->created_at)}}">
                                       <header class="dwqa-question-title">
-                                          <a href="/question/{{$question->id}}">{{$question->title}}</a>
+
+                                          <a @if(Auth::user() && $question->staff == Auth::user()->id) style="color:#1a3cbd"@endif href="/question/{{$question->id}}">{{$question->title}}</a>
                                       </header>
                                       <div class="dwqa-question-meta">
                                           <span class="dwqa-status dwqa-status-{{strtolower($question->tag)}}" title="{{$question->tag}}">{{$question->tag}}</span>
@@ -108,15 +143,21 @@
                                              ?>
                                             <span><a href="/user/{{$answ->username}}">{{$answ->username}}</a> answered <?php echo \Carbon\Carbon::parse($a->created_at)->diffForHumans(); ?></span>
                                           @endif
-                                          <span class="dwqa-question-category"> • <a href="#" rel="tag">{{$question->category}}</a></span>
+                                          <span class="dwqa-question-category"> • <a href="#" rel="tag">{{$question->category}}</a> @if(Auth::user() && $question->staff == Auth::user()->id)• <a href="#" rel="tag" style="font-weight:800">Assigned to you</a>@endif</span>
                                       </div>
                                       <div class="dwqa-question-stats">
                                           <span class="dwqa-views-count"><strong>{{$question->views}}</strong>views</span>
                                           <span class="dwqa-answers-count"><strong>{{$question->answers}}</strong>answers</span>
                                           <span class="dwqa-votes-count"><strong>{{$question->votes}}</strong>votes</span>
                                           @if(Auth::user() && Auth::user()->isStaff() || Auth::user() && Auth::user()->isFounder())
-                                          <a href="/question/{{$question->id}}/sticky"><span class="dwqa-votes-count"><strong>Mark as</strong>Sticky</span></>
-                                          <a href="/question/{{$question->id}}/delete"><span class="dwqa-answers-count"><strong>Delete</strong>Question</span></>
+                                          <a href="/question/{{$question->id}}/delete"><span class="dwqa-answers-count"><strong>Delete</strong>Question</span></a>
+                                          @if($question->priority == "normal")
+                                            <a href="#"><span class="dwqa-answers-count" style="background-color:#d6d644"><strong>Priority:</strong>Normal</span></a>
+                                          @elseif($question->priority == "low")
+                                            <a href="#"><span class="dwqa-answers-count" style="background-color:#33c32f"><strong>Priority:</strong>Low</span></a>
+                                          @elseif($question->priority == "critical")
+                                            <a href="#"><span class="dwqa-answers-count" style="background-color:#c32f2f"><strong>Priority:</strong>Critical</span></a>
+                                          @endif
                                           @endif
                                       </div>
                                   </div>
@@ -124,7 +165,7 @@
                               </div>
                               </div>
                               <div class="dwqa-questions-footer">
-                                  <div class="dwqa-pagination"><span class="dwqa-page-numbers dwqa-current">1</span></div>
+                                  {{$questions->links()}}
                               </div>
                           </div>
                       </div>
@@ -207,6 +248,20 @@ function sortbyDate(){
   });
   $("#sort-divs").html(apOrder);
 }
+});
+
+$(".mdl-button").click(function(){
+
+  var urlParams = new URLSearchParams(window.location.search);
+
+  if(!urlParams.has('page')){
+    var more = window.location.search.replace('?', '');
+    window.location.href = "?page=" + $(this).attr('id') + "&" + more;
+  } else {
+    var removepage = "?page=" + urlParams.get('page');
+    var more = window.location.search.replace(removepage, '');
+    window.location.href = "?page=" + $(this).attr('id') + more;
+  }
 });
 
 

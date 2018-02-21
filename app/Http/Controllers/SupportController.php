@@ -15,7 +15,10 @@ use Auth;
 use Alert;
 use Redirect;
 use App\Notifications\NewAnswer;
+use App\Notifications\NewResponse;
 use App\Notifications\NewQuestion;
+use App\Notifications\NewAssignment;
+use App\Notifications\NewReply;
 use DB;
 
 
@@ -46,15 +49,15 @@ class SupportController extends Controller
     if($request->get('q') == ""){
       if($request->get('filter') == "")
       {
-      return view('support.questions', ['questions' => Question::where('sticky', 'no')->orderby('created_at', 'desc')->get(), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
+      return view('support.questions', ['questions' => Question::where('sticky', 'no')->orderby('created_at', 'desc')->paginate(15), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
       }
       else
       {
-        return view('support.questions', ['questions' => Question::where([['sticky', 'no'], ['tag', '=', $request->get('filter')]])->orderby('created_at', 'desc')->get(), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
+        return view('support.questions', ['questions' => Question::where([['sticky', 'no'], ['tag', '=', $request->get('filter')]])->orderby('created_at', 'desc')->paginate(15), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
       }
     } else
     {
-        return view('support.questions', ['questions' => Question::where([['sticky', 'no'], ['title', 'LIKE', "%".$request->get('q')."%"]])->orderby('created_at', 'desc')->get(), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
+        return view('support.questions', ['questions' => Question::where([['sticky', 'no'], ['title', 'LIKE', "%".$request->get('q')."%"]])->orderby('created_at', 'desc')->paginate(15), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
     }
   }
 
@@ -62,10 +65,10 @@ class SupportController extends Controller
   {
     if($request->get('filter') == "")
     {
-      return view('support.my', ['questions' => Question::orderby('created_at', 'desc')->get()]);
+      return view('support.my', ['questions' => Question::where('userid', Auth::user()->id)->orderby('created_at', 'desc')->get()]);
     } else
     {
-      return view('support.my', ['questions' => Question::where('tag', $request->get('filter'))->orderby('created_at', 'desc')->get()]);
+      return view('support.my', ['questions' => Question::where([['tag', '=', $request->get('filter')], ['userid', '=', Auth::user()->id]])->orderby('created_at', 'desc')->get()]);
     }
   }
 
@@ -77,7 +80,7 @@ class SupportController extends Controller
     $question->save();
     return view('support.question', ['question' => Question::where('id', $id)->first(), 'answers' => Answer::where([['questionid', '=', $id], ['tag', '=', 0]])->get(), 'answer' => Answer::where([['questionid', '=', $id], ['tag', '=', 1]])->first()]);
   } else {
-    return view('support.questions', ['questions' => Question::where('sticky', 'no')->orderby('created_at', 'desc')->get(), 'stickys' => Question::where('sticky', 'yes')->orderby('created_at', 'desc')->get()]);
+    return redirect('/questions');
   }
   }
 
@@ -95,6 +98,7 @@ class SupportController extends Controller
       $question->answers = 0;
       $question->votes = 0;
       $question->tag = "Unanswered";
+      $question->priority = $request->get('priority');
       $question->sticky = "no";
       $question->save();
 
@@ -111,7 +115,11 @@ class SupportController extends Controller
             'title' => 'New Question',
             'data' => 'There is a new question on the help desk.',
             'type' => 'question',
-            'question' => $question->id
+            'question' => $question->id,
+            'priority' => $question->priority,
+            'user' => $question->userid,
+            'question_title' => $question->title,
+            'question_description' => $question->question
         ];
 
         $notifiable->notify(new NewQuestion($notification));
@@ -151,7 +159,7 @@ class SupportController extends Controller
       $question->save();
 
 
-      // Get notify guy
+      // New Answer on your question
       $notifiable = User::where('id', $question->userid)->first();
 
       //Notification array
@@ -160,10 +168,38 @@ class SupportController extends Controller
           'title' => 'New Answer',
           'data' => 'You have a new answer on your question.',
           'type' => 'question',
-          'question' => $question->id
+          'question' => $question->id,
+          'answer_username' => Auth::user()->username,
+          'answer_description' => $answer->description,
+          'question_title' => $question->title
       ];
 
       $notifiable->notify(new NewAnswer($notification));
+
+      $answers = Answer::where('questionid', $id)->get();
+
+      foreach($answers as $answer)
+      {
+        $user = User::where('id', $answer->userid)->first();
+
+        // Make sure that we don't send the response to self.
+        if($user->id != Auth::user()->id && $user->id != $question->userid)
+        {
+          //Notification array
+          $notification = [
+              'icon' => 'fa fa-reply',
+              'title' => 'New Answer',
+              'data' => 'There is a new response on a question you answered!',
+              'type' => 'question',
+              'question' => $question->id,
+              'answer_username' => Auth::user()->username,
+              'answer_description' => $answer->description,
+              'question_title' => $question->title
+          ];
+
+          $user->notify(new NewResponse($notification));
+      }
+      }
 
 
       Alert::success('Your answer has been posted!', 'Post successful');
@@ -188,6 +224,24 @@ class SupportController extends Controller
 
       $answer = Answer::where('id', $id)->first();
       $question = Question::where('id', $answer->questionid)->first();
+
+      $notifiable = User::where('id', $answer->userid)->first();
+
+      //Notification array
+      $notification = [
+          'icon' => 'fa fa-question-circle',
+          'title' => 'New Reply',
+          'data' => 'There is a new reply to your answer.',
+          'type' => 'question',
+          'question' => $question->id,
+          'priority' => $question->priority,
+          'question_title' => $question->title,
+          'question_description' => $question->question,
+          'replier' => Auth::user()->username
+      ];
+
+      $notifiable->notify(new NewReply($notification));
+
 
       Alert::success('Your reply has been posted!', 'Reply successful');
       return redirect('/question/'.$question->id);
@@ -313,7 +367,7 @@ class SupportController extends Controller
     {
       $question = Question::where('id', $id)->first();
 
-      if(Auth::user()->id == $question->userid)
+      if(Auth::user()->id == $question->userid || Auth::user()->isStaff() || Auth::user()->isFounder() || Auth::user()->isAdmin())
       {
         return view('support.edit', ['question' => $question]);
       } else
@@ -334,7 +388,7 @@ class SupportController extends Controller
     {
       $answer = Answer::where('id', $id)->first();
 
-      if(Auth::user()->id == $answer->userid)
+      if(Auth::user()->id == $answer->userid || Auth::user()->hasRights())
       {
         return view('support.edit_a', ['answer' => $answer]);
       } else
@@ -356,7 +410,7 @@ class SupportController extends Controller
       $reply = Reply::where('id', $id)->first();
       $answer = Answer::where('id', $reply->answerid)->first();
 
-      if(Auth::user()->id == $reply->userid)
+      if(Auth::user()->id == $reply->userid || Auth::user()->hasRights())
       {
         return view('support.edit_r', ['reply' => $reply, 'answer' => $answer]);
       } else
@@ -378,12 +432,41 @@ class SupportController extends Controller
       $question = Question::where('id', $id)->first();
       if($question)
       {
-        if(Auth::user()->id == $question->userid)
+        if(Auth::user()->id == $question->userid || Auth::user()->isStaff() || Auth::user()->isFounder() || Auth::user()->isAdmin())
         {
           $question->title = $request->get('title');
           $question->category = $request->get('category');
+          $question->priority = $request->get('priority');
           $question->question = app('profanityFilter')->filter($request->get('message'));
+
+          // If we assign it to a staff
+          if($request->get('staff'))
+          {
+            $question->staff = $request->get('staff');
+          }
+
           $question->save();
+
+
+          if($request->get('staff'))
+          {
+            $user = User::where('id', $request->get('staff'))->first(); // Notify this user
+
+            //Notification array
+            $notification = [
+                'icon' => 'fa fa-question-circle',
+                'title' => 'New Assignment',
+                'data' => 'You have been assigned a new question.',
+                'type' => 'question',
+                'question' => $question->id,
+                'priority' => $question->priority,
+                'username' => Auth::user()->username,
+                'question_title' => $question->title,
+                'question_description' => $question->question
+            ];
+
+            $user->notify(new NewAssignment($notification));
+          }
 
           Alert::success('Your question was edited.', 'Edit Successful');
           return redirect('/question/'.$id);
@@ -407,7 +490,7 @@ class SupportController extends Controller
       $answer = Answer::where('id', $id)->first();
       if($answer)
       {
-        if(Auth::user()->id == $answer->userid)
+        if(Auth::user()->id == $answer->userid || Auth::user()->hasRights())
         {
           $answer->description = app('profanityFilter')->filter($request->get('message'));
           $answer->save();
@@ -436,7 +519,7 @@ class SupportController extends Controller
       $question = Question::where('id', $answer->questionid)->first();
       if($reply)
       {
-        if(Auth::user()->id == $reply->userid)
+        if(Auth::user()->id == $reply->userid || Auth::user()->hasRights())
         {
           $reply->reply = app('profanityFilter')->filter($request->get('message'));
           $reply->save();

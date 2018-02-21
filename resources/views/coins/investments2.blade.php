@@ -63,12 +63,6 @@ $agent = new Agent();
                             <li data-toggle="tooltip" data-placement="left" title="New Investment"> <a data-toggle="modal" data-target="#add_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="zmdi zmdi-plus"></i></a></li>
                             <li data-toggle="tooltip" data-placement="left" title="Add Mining"> <a data-toggle="modal" data-target="#mining_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm">M</a></li>
                             <li data-toggle="tooltip" data-placement="left" title="Sell Amount"> <a data-toggle="modal" data-target="#sell_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="fa fa-money"></i></a></li>
-                            @if(DB::table('keys')->where([['userid', '=', Auth::user()->id], ['exchange', '=', 'Poloniex']])->exists())
-                            <li> <a id="import_polo" href="javascript:void(0)" data-toggle="tooltip" data-placement="left" title="Import orders from Poloniex" class="btn btn-fab btn-green btn-fab-sm">P</a></li>
-                              @endif
-                            @if(DB::table('keys')->where([['userid', '=', Auth::user()->id], ['exchange', '=', 'Bittrex']])->exists())
-                            <li data-toggle="tooltip" data-placement="left" title="Import orders from Bittrex"> <a id="import_bittrex" href="javascript:void(0)" class="btn btn-info btn-fab btn-fab-sm">B</a></li>
-                              @endif
                             <li data-toggle="tooltip" data-placement="left" title="Reset Data"> <a data-toggle="modal" data-target="#reset_modal" href="javascript:void(0)" class="btn btn-danger btn-fab btn-fab-sm"><i class="zmdi zmdi-delete"></i></a></li>
                           </ul>
                         </nav>

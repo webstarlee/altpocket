@@ -10,16 +10,16 @@
         <meta name="author" content="Edwin">
         <meta name="og:image" content="/share.png?v=1.1" />
         <meta name="og:url" content="https://altpocket.io" />
-        <meta name="og:title" content="Altpocket - The social altcoin portfolio" />
-        <meta name="og:description" content="Altpocket is the best portfolio available for showcasing altcoin and cryptocurrency investments. Register now for free! Import orders from Bittrex and Poloniex." />
+        <meta name="og:title" content="Altpocket - The social altcoin portfolio tracker" />
+        <meta name="og:description" content="Altpocket is the best portfolio tracker available for showcasing altcoin and cryptocurrency investments. Register now for free! Import orders from Bittrex and Poloniex." />
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content="@altpocket" />
         <meta name="twitter:title" content="Altpocket- The social portfolio" />
-        <meta name="twitter:description" content="Altpocket is the best portfolio available for showcasing altcoin and cryptocurrency investments. Register now for free! Import orders from Bittrex and Poloniex." />
+        <meta name="twitter:description" content="Altpocket is the best portfolio tracker available for showcasing altcoin and cryptocurrency investments. Register now for free! Import orders from Bittrex and Poloniex." />
         <meta name="twitter:image" content="https://altpocket.io/share.png?v=1.1" />
-        <meta name="twitter:image:alt" content="Altpocket - The social portfolio" />
+        <meta name="twitter:image:alt" content="Altpocket - The social portfolio tracker" />
 
-        <title>Altpocket - The social altcoin portfolio</title>
+        <title>Altpocket - The social altcoin portfolio tracker</title>
         <!--    favicon-->
         <link rel="icon" href="assets/logo.png" alt="Altpocket.io Logo">
 
@@ -98,7 +98,7 @@
                 <div class="container">
                     <!--========== Brand and toggle get grouped for better mobile display ==========-->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html"><img src="https://altpocket.io/assets/logo_white_text.png" style="width:200px;" alt=""><img src="https://altpocket.io/assets/logo.gif" alt="" style="width:60px;"></a>
+                        <a class="navbar-brand" href="#"><img src="https://altpocket.io/assets/logo_white_text.png" style="width:200px;" alt=""><img src="https://altpocket.io/assets/logo_blue_text.png" alt="" style="width:200px;"></a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar cross"></span>
@@ -146,7 +146,7 @@
             <div class="container">
                 <div class="lrg-text">
                     <div class="content">
-                        <h2>Altpocket - The altcoin portfolio</h2>
+                        <h2>Altpocket - The altcoin portfolio tracker</h2>
                         <p>The only tool you need for showcasing, tracking and sharing your cryptocurrency investments.</p>
                         <a href="/register" class="btn reg-btn" style="margin-top:20px;margin-bottom:100px;">Register Today</a>
                     </div>
@@ -203,7 +203,7 @@
                         <div class="features-content f-pading">
                             <h2>Powerful &amp; Elegant Design Layout</h2>
                             <p>Something we are really proud of is our easy to use and understandable UI. By putting alot of focusing on the user experience we came up with something that we believe you would enjoy.</p>
-                            <a href="/login" class="btn thm-btn">Register Today</a>
+                            <a href="/register" class="btn thm-btn">Register Today</a>
                         </div>
                     </div>
                 </div>
@@ -215,7 +215,7 @@
             <div class="container">
                 <div class="section-title">
                     <h2>How it looks</h2>
-                    <p>Take a look why over 5000 people choose Altpocket.</p>
+                    <p>Take a look why over 30000 people choose Altpocket.</p>
                 </div>
                 <div class="products-slider owl-carousel">
                     <div class="item wow fadeIn">
@@ -354,7 +354,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="fact-item wow fadeInUp" data-wow-delay="0.2s">
-                            <h2><span class="counter">120000</span></h2>
+                            <h2><span class="counter">800000</span></h2>
                             <h4>Investments tracked on Altpocket</h4>
                         </div>
                     </div>
@@ -418,7 +418,7 @@
                     <div class="col-md-4 col-sm-6">
 
                     </div>
-                    @foreach(DB::table('posts')->get() as $post)
+                    @foreach(DB::table('posts')->orderBy('created_at', 'desc')->get()->take(1) as $post)
                     <div class="col-md-4 col-sm-6">
                         <div class="blog-item wow fadeIn" data-wow-delay="0.1s">
                             <a href="/post/{{$post->id}}" class="img">

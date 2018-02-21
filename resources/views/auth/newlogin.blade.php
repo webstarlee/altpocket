@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-	<title>Altpocket - Login/Register</title>
+	<title>Altpocket - Reset Password</title>
 
 	<!-- Required meta tags always come first -->
 	<meta charset="utf-8">
@@ -46,6 +46,12 @@
     ga('send', 'pageview');
 
   </script>
+	<style>
+		.form-group2 {
+			margin-bottom:10px!important;
+		}
+
+	</style>
 </head>
 
 <body class="landing-page">
@@ -138,9 +144,9 @@
              {{ csrf_field() }}
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Email</label>
-										<input class="form-control" placeholder="" type="email" name="email" value="{{ old('email') }}" required>
+										<input class="form-control2" placeholder="" type="email" name="email" value="{{ old('email') }}" required>
 									</div>
 									<button type="submit" class="btn btn-lg full-width" style="background-color:#3a94ff;color:white!important;">Reset Password</button>
 
@@ -185,7 +191,37 @@
 <script src="/version2/js/mediaelement-and-player.min.js"></script>
 <script src="/version2/js/mediaelement-playlist-plugin.min.js"></script>
 
+<script>
 
+$('a').click(function(){
+
+ if($(this).hasClass('btn')){
+	 ga('send', {
+		hitType: 'event',
+		eventCategory: 'Click',
+		eventAction: 'A',
+		eventLabel: $(this).parent(0).attr('data-original-title')
+	});
+} else {
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'A',
+	 eventLabel: $(this).text()
+ });
+}
+});
+
+$('button').click(function(){
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'Button',
+	 eventLabel: $(this).text()
+ });
+});
+
+</script>
 
 
 </body>

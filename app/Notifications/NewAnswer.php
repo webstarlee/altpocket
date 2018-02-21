@@ -53,11 +53,14 @@ class NewAnswer extends Notification
      */
      public function toMail($notifiable)
      {
-         return (new MailMessage)
+        /* return (new MailMessage)
                      ->subject('New answer on Altpocket')
                      ->line('There has been a new answer on your question!')
                      ->action('Go to question', url('/question').'/'.$this->notification['question'])
-                     ->line('Thank you for using Altpocket.');
+                     ->line('Thank you for using Altpocket.');*/
+       return (new MailMessage)->view(
+           'emails.newanswer', ['notification' => $this->notification]
+       )->subject('New Answer on: "'.$this->notification['question_title'].'"');
      }
 
     /**

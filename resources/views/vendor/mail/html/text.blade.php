@@ -1,0 +1,1 @@
+<p class="lead">{{ $text }}</p>

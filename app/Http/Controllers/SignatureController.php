@@ -15,12 +15,14 @@ class SignatureController extends Controller
     public function generateSignature($username)
     {
       $user = User::where('username', $username)->first();
+      if($user->public == "on")
+      {
       $path2 = public_path('signature/asd.png');
 
       $img = Image::make($path2);
       $toplayer = Image::make($path2);
 
-      if($user->avatar != "default.jpg")
+      if($user->avatar != "default.jpg" && $user->avatar != "")
       {
         $path3 = public_path('uploads/avatars/'.$user->id.'/'.$user->avatar);
         $test = Image::make($path3)->resize(42,42);
@@ -85,11 +87,88 @@ class SignatureController extends Controller
       });
 
 
-      $path = public_path('uploads/signatures/'.$user->id.'/'.$user->username.'.png');
-      $name = $user->username.'.png';
-      $img->save(public_path('uploads/signatures/'.$name));
+      return $img->response('png');
+
+    } else {
+      if(Auth::user())
+      {
+        if(Auth::user() == $user)
+        {
+          $path2 = public_path('signature/asd.png');
+
+          $img = Image::make($path2);
+          $toplayer = Image::make($path2);
+
+          if($user->avatar != "default.jpg" && $user->avatar != "")
+          {
+            $path3 = public_path('uploads/avatars/'.$user->id.'/'.$user->avatar);
+            $test = Image::make($path3)->resize(42,42);
+            $img->insert($test, 'top-left', 49, 16)->height(50);
+            $img->insert($toplayer, 'top-left', 0, 0);
+          } else
+          {
+            $defaultpath = public_path('assets/img/default.png');
+            $test = Image::make($defaultpath)->resize(42,42);
+            $img->insert($test, 'top-left', 49, 16)->height(50);
+            $img->insert($toplayer, 'top-left', 0, 0);
+          }
+
+          $multiplier = DB::table('cryptos')->where('symbol', 'BTC')->first()->price_usd;
 
 
+
+
+          $img->text($user->username, 165, 30, function($font) {
+              $path4 = public_path('signature/arial.ttf');
+              $font->file($path4);
+              $font->size(14);
+              $font->color('#000000');
+              $font->align('center');
+              $font->valign('top');
+          });
+
+          $img->text('$'.number_format($user->getInvested('USD'), 2), 100, 102, function($font) {
+            $path5 = public_path('signature/bold.ttf');
+              $font->file($path5);
+              $font->size(14);
+              $font->color('#73c04d');
+              $font->align('center');
+              $font->valign('top');
+          });
+
+          $img->text('$'.number_format((($user->getNetWorthNew('coinmarketcap') * $multiplier) - $user->getInvested('USD')), 2), 200, 102, function($font) {
+              $path5 = public_path('signature/bold.ttf');
+              $font->file($path5);
+              $font->size(14);
+              $font->color('#73c04d');
+              $font->align('center');
+              $font->valign('top');
+          });
+
+          $img->text('$'.number_format($user->getNetWorthNew('coinmarketcap') * $multiplier, 2), 455, 102, function($font) {
+              $path5 = public_path('signature/bold.ttf');
+              $font->file($path5);
+              $font->size(14);
+              $font->color('#73c04d');
+              $font->align('center');
+              $font->valign('top');
+          });
+
+          $img->text($user->impressed, 555, 102, function($font) {
+              $path5 = public_path('signature/bold.ttf');
+              $font->file($path5);
+              $font->size(14);
+              $font->color('#73c04d');
+              $font->align('center');
+              $font->valign('top');
+          });
+
+
+          return $img->response('png');
+
+        }
+      }
+    }
     }
     public function toggleWidget()
     {

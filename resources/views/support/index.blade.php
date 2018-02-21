@@ -32,7 +32,7 @@
                   <div class="col-sm-4">
                       <div class="single-box">
                           <div class="box-inner">
-                              <img src="images/icon1.png" alt="box img">
+                              <img src="/images/icon1.png" alt="box img">
                               <h3>QA Section</h3>
                               <p>{{count(DB::table('questions')->get())}} Questions / {{count(DB::table('answers')->get())}} Answer</p>
                               <a href="/questions" class="themeix-btn danger-bg">See All Questions</a>
@@ -49,16 +49,16 @@
                   <div class="col-sm-4">
                       <div class="single-box">
                           <div class="box-inner">
-                              <img src="images/icon2.png" alt="box img">
+                              <img src="/images/icon2.png" alt="box img">
                               <h3>Our Blog</h3>
                               <p>0 Posts / 0 Comments</p>
-                              <a href="blog.html" class="themeix-btn hover-bg">Visit the Blog</a>
+                              <a href="/blog" class="themeix-btn hover-bg">Visit the Blog</a>
                           </div>
                           <div class="box-flip">
                             <div class="flip-box-innner">
                               <h3>Our Blog</h3>
                               <p>On our blog you can read up on what we are currently doing, whats new and how we do it. Also some general tips and tricks on Altpocket.</p>
-                              <a href="blog.html" class="themeix-btn danger-bg">Visit Blog</a>
+                              <a href="/blog" class="themeix-btn danger-bg">Visit Blog</a>
                             </div>
                           </div>
                       </div>
@@ -66,7 +66,7 @@
                   <div class="col-sm-4">
                       <div class="single-box">
                           <div class="box-inner">
-                              <img src="images/icon3.png" alt="box img">
+                              <img src="/images/icon3.png" alt="box img">
                               <h3>Latest Updates</h3>
                               <p>{{count(DB::table('updates')->get())}} Updates / {{count(DB::table('changes')->get())}} Changes</p>
                               <a href="/updates" class="themeix-btn primary-bg">See All Updates</a>
@@ -86,13 +86,13 @@
   </section>
   <!-- End Document Source Area -->
   <!-- Start Topics Section Area -->
-  <section>
+<!--  <section>
       <div class="topics-section-area themeix-ptb">
           <div class="container">
               <div class="row">
-                  <div class="col-sm-12 col-md-12">
+                  <div class="col-sm-12 col-md-12">-->
                       <!-- Start Topics Link Area -->
-                      <div class="topics-links">
+                    <!--  <div class="topics-links">
                           <div class="themeix-section-title">
                               <h2>Explore Topics</h2>
                               <p>Here you can find information regarding Altpocket written by the team, if there is anything missing please let us know.</p>
@@ -128,13 +128,13 @@
                                   </div>
                               </div>
                           </div>
-                      </div>
+                      </div>-->
                       <!-- End Topics Link Area -->
-                  </div>
+                <!--  </div>
               </div>
           </div>
       </div>
-  </section>
+  </section>-->
   <!-- End Topics Section Area -->
   <!-- Start FAQ Section -->
   <section class="faq-section themeix-ptb">

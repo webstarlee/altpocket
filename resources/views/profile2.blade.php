@@ -88,7 +88,7 @@ $agent = new Agent();
 																	</li>
 																	<li>
 																		<a href="javascript:void(0)" data-toggle="modal" data-target="#change_password">Change Password</a>
-																	</li>         
+																	</li>
 																	<li>
 																		<a href="javascript:void(0)" data-toggle="modal" data-target="#edit_avatar">Change Avatar</a>
 																	</li>
@@ -114,17 +114,17 @@ $agent = new Agent();
 <div  data-toggle="tooltip" data-placement="top" title="Share profile on facebook."  data-href="https://altpocket.io/user/{{$user->username}}" data-layout="button_count" data-size="small" data-mobile-iframe="true" title="Share profile on facebook."><a style="color:#3b5998;" class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faltpocket.io%2Fuser2%2F{{$user->username}}%23&amp;src=sdkpreparse"><i class="zmdi zmdi-facebook"></i></a><div class="ripple-container"></div></div>
                                                             </li>
                                                         </ul>
-                                                        
-                                                        
+
+
 													</header>
 													<div class="card-body">
 														<h3 class="name" style="color:{{$user->groupColor()}};{{$user->groupStyle()}}"   >{{$user->username}}
-                                                            
-                                                            
-                                                            
-                                                            
+
+
+
+
                                                             @if($user->hasVerified)<i class="material-icons" style="color:#5ecbf7;cursor:pointer;font-size:15px;" data-toggle="tooltip" title="User has verified investments.">verified_user</i>
-                                                        @endif    
+                                                        @endif
                                                         </h3>
 														<span class="title">{{$user->bio}}</span>
 														<a href="/user/{{$user->username}}/impressed" type="button" class="btn btn-primary btn-round">Impressed</a>
@@ -132,7 +132,7 @@ $agent = new Agent();
 													<footer class="card-footer border-top">
 														<div class="row row p-t-10 p-b-10">
 															<div class="col-xs-4"><span class="count">
-                                                                
+
                                                                 @if($user->invested > 999 && 100000 > $user->invested)
                                                                 ${{number_format($user->invested)}}
                                                                 @elseif($user->invested > 99999)
@@ -140,12 +140,12 @@ $agent = new Agent();
                                                                 @else
                                                                 ${{number_format($user->invested, 2)}}
                                                                 @endif
-                                            
+
                                                             </span><span>Invested</span></div>
 															<div class="col-xs-4"><span class="count">{{$user->impressed}}</span><span>Impressed</span></div>
                                                             @if((($networth * $btc) - $user->invested) > 0)
 															<div class="col-xs-4"><span class="count" style="color:#73c04d">
-                                                                
+
                                                                 @php
                                                                 $profit = (($networth * $btc) - $user->invested);
                                                                 @endphp
@@ -156,8 +156,8 @@ $agent = new Agent();
                                                                 @else
                                                                 ${{number_format(($networth * $btc) - $user->invested, 2)}}
                                                                 @endif
-                                                                
-                                                                
+
+
                                                                 </span><span>Profit</span></div>
                                                             @else
 															<div class="col-xs-4"><span class="count" style="color:#de6b6b">
@@ -169,7 +169,7 @@ $agent = new Agent();
                                                                 @else
                                                                 ${{number_format(($networth * $btc) - $user->invested, 2)}}
                                                                 @endif
-                                                                
+
                                                                 </span><span>Profit</span></div>
                                                             @endif
 														</div>
@@ -187,8 +187,8 @@ $agent = new Agent();
 
                                                                     </span><span>Total Invested</span></div>
                                                                     <div class="col-xs-4">
-                                                                            
-                                                                        
+
+
                                                                         @if($user->groupName())
                                                                         <span class="label" style="width:100%;display:block;margin:0 auto;text-transform:none;background:{{$user->groupColor()}}">{{$user->groupName()}}</span>
                                                                         @else
@@ -226,7 +226,7 @@ $agent = new Agent();
                                                                         </span><span>Total Profit</span></div>
                                                                     </div>
                                                                     @endif
-    
+
 													</footer>
 												</div>
 											</div>
@@ -248,36 +248,36 @@ $agent = new Agent();
                                                                 @if($user->commentsOn())
                                                                 <div class="tab-pane fadeIn" id="profile-comments">
                                                                     @if(count($comments) > 0)
-                                                                        @include('module.comment')  
+                                                                        @include('module.comment')
                                                                     @else
                                                                     <p style="text-align:center">There area no comments on {{$user->username}}s profile yet.</p>
                                                                     @endif
-                                                                </div>    
+                                                                </div>
                                                                 @endif
-                                                                
+
 																<div class="tab-pane fadeIn active" id="profile-timeline">
                                                                     <div class="row">
                                                                                         @foreach($investments as $investment)
                                                                                             @if($investment->sold_at == null)
                                                                                                 <?php
 
-                                                                                                        if(Auth::user()){                                                    
+                                                                                                        if(Auth::user()){
                                                                                                             if(Auth::user()->api == "coinmarketcap"){
                                                                                                                 if(DB::table('cryptos')->where('symbol', $investment->crypto)->first()){
                                                                                                                     $coinbtc = DB::table('cryptos')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                    $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();  
+                                                                                                                    $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();
                                                                                                                     } elseif(DB::table('polos')->where('symbol', $investment->crypto)->first()) {
                                                                                                                          $coinbtc = DB::table('polos')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                        $coin = DB::table('polos')->where('symbol', $investment->crypto)->first();  
+                                                                                                                        $coin = DB::table('polos')->where('symbol', $investment->crypto)->first();
                                                                                                                     } else {
                                                                                                                          $coinbtc = DB::table('bittrexes')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                        $coin = DB::table('bittrexes')->where('symbol', $investment->crypto)->first();  
+                                                                                                                        $coin = DB::table('bittrexes')->where('symbol', $investment->crypto)->first();
                                                                                                                 }
-                                                                                                            } 
+                                                                                                            }
                                                                                                             elseif(Auth::user()->api == "bittrex") {
                                                                                                                 if(DB::table('bittrexes')->where('symbol', $investment->crypto)->first()){
                                                                                                                     $coinbtc = DB::table('bittrexes')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                    $coin = DB::table('bittrexes')->where('symbol', $investment->crypto)->first();   
+                                                                                                                    $coin = DB::table('bittrexes')->where('symbol', $investment->crypto)->first();
                                                                                                                 } else {
                                                                                                                     $coinbtc = DB::table('cryptos')->where('symbol', $investment->crypto)->first()->price_btc;
                                                                                                                     $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();
@@ -286,10 +286,10 @@ $agent = new Agent();
                                                                                                             else {
                                                                                                                 if(DB::table('polos')->where('symbol', $investment->crypto)->first()){
                                                                                                                     $coinbtc = DB::table('polos')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                    $coin = DB::table('polos')->where('symbol', $investment->crypto)->first();   
+                                                                                                                    $coin = DB::table('polos')->where('symbol', $investment->crypto)->first();
                                                                                                                 } else {
                                                                                                                     $coinbtc = DB::table('cryptos')->where('symbol', $investment->crypto)->first()->price_btc;
-                                                                                                                    $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();   
+                                                                                                                    $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();
                                                                                                                 }
                                                                                                             }
                                                                                                         } else {
@@ -297,9 +297,9 @@ $agent = new Agent();
                                                                                                                 $coinbtc = DB::table('cryptos')->where('symbol', $investment->crypto)->first()->price_btc;
                                                                                                                 $coin = DB::table('cryptos')->where('symbol', $investment->crypto)->first();
                                                                                                             } else {
-                                                                                                                $coinbtc = DB::table('polos')->where('symbol', $investment->crypto)->first()->price_btc; 
+                                                                                                                $coinbtc = DB::table('polos')->where('symbol', $investment->crypto)->first()->price_btc;
                                                                                                                 $coin = DB::table('polos')->where('symbol', $investment->crypto)->first();
-                                                                                                                
+
                                                                                                             }
                                                                                                             }
 
@@ -308,7 +308,7 @@ $agent = new Agent();
                                                                                           <figure class="col-xs-12 col-sm-4 col-md-4">
                                                                                             <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
                                                                                                 <header class="card-heading">
-                                                                                                    @if($investment->bittrex_id != "")    
+                                                                                                    @if($investment->bittrex_id != "")
                                                                                                       <ul class="card-actions icons left-top">
                                                                                                         <li>
                                                                                                           <i class="material-icons" style="color:#5ecbf7;cursor:pointer;" data-toggle="tooltip" title="Verified Investment">verified_user</i>
@@ -347,14 +347,14 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                                         $date = $investment->date_bought;
                                                                                                         if($date != date('Y-m-d')){
                                                                                                         $client = new \GuzzleHttp\Client();
-                                                                                                        try{                                                                                                                
+                                                                                                        try{
                                                                                                         $res = $client->request('GET', 'http://api.coindesk.com/v1/bpi/historical/close.json?start='.$date.'&end='.$date);
                                                                                                         $response = $res->getBody();
                                                                                                         $prices = json_decode($response, true);
                                                                                                         $prevbtc = 0;
                                                                                                         foreach($prices['bpi'] as $price){
                                                                                                             $prevbtc = $price;
-                                                                                                        }                                                                                                        
+                                                                                                        }
                                                                                                         } catch(GuzzleHttp\Exception\ClientException $e){
                                                                                                                 $prevbtc = $btc;
                                                                                                             }
@@ -368,7 +368,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                                     @php
                                                                                                     $cointotal = $investment->amount * $coinbtc * $btc;
                                                                                                     @endphp
-                                                                                                    
+
                                                                                                     @if($cointotal > 999 && $cointotal < 999999)
                                                                                                     ${{number_format(($investment->amount * $coinbtc * $btc))}}
                                                                                                     @elseif($cointotal > 999999)
@@ -376,27 +376,27 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                                     @else
                                                                                                    ${{number_format(($investment->amount * $coinbtc * $btc),2)}}
                                                                                                     @endif
-                                                                                                  
-                                                                                                  
-                                                                                                  
+
+
+
                                                                                                   </h4>
                                                                 <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->crypto}})</p>
                                                                                                 @if((($investment->amount * $coinbtc) * $btc) > $investment->usd_total)
                                                                                                 <span class="text-center label label-success" style="color:white;display:block;margin: 0 auto;float:left;font-size:12px;">
                                                                                                     @php
                                                                                                     $profit = (($investment->amount * $coinbtc) * $btc) - $investment->usd_total;
-                                                                                                    
+
                                                                                                     @endphp
-                                                                                                    
+
                                                                                                     @if($profit > 999 && $profit < 100000)
                                                                                                     ${{number_format($profit)}}
-                                                                                                    @elseif($profit > 100000)                             ${{floor($profit / 1000)}}K         
+                                                                                                    @elseif($profit > 100000)                             ${{floor($profit / 1000)}}K
                                                                                                     @else
                                                                                                     ${{number_format((($investment->amount * $coinbtc) * $btc) - $investment->usd_total, 2)}}
                                                                                                     @endif
-                                                                                                    
-                                                                                                    
-                                                                                                    
+
+
+
                                                                                                     </span>
                                                                                                   <span class="text-center label label-success" style="color:white;display:block;margin: 0 auto;float:right;font-size:12px;">
                                                                                                   {{number_format((100/$investment->usd_total) * ((($investment->amount * $coinbtc) * $btc) - $investment->usd_total), 2)}}%
@@ -419,7 +419,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                                       @else
                                                                                                       ${{number_format($investment->usd_total, 2)}}
                                                                                                       @endif
-                                                                                                    
+
                                                                                                     </span>
                                                                                                   <span style="float:right">
                                                                                                       @php
@@ -434,16 +434,16 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                                       @endif
                                                                                                       </span>
                                                                                                   <br>
-                                                                                                  @if(($investment->bought_at * $prevbtc) < 999)      
+                                                                                                  @if(($investment->bought_at * $prevbtc) < 999)
                                                                                                   <span style="float:left">${{number_format($investment->bought_at * $prevbtc,5)}}</span>
                                                                                                   @else
                                                                                                   <span style="float:left">${{number_format($investment->bought_at * $prevbtc)}}</span>
-                                                                                                  @endif      
-                                                                                                  @if(($coinbtc * $btc) < 999)      
+                                                                                                  @endif
+                                                                                                  @if(($coinbtc * $btc) < 999)
                                                                                                   <span style="float:right">${{number_format($coinbtc * $btc,5)}}</span>
                                                                                                   @else
-                                                                                                  <span style="float:right">${{number_format($coinbtc * $btc)}}</span>      
-                                                                                                  @endif      
+                                                                                                  <span style="float:right">${{number_format($coinbtc * $btc)}}</span>
+                                                                                                  @endif
                                                                                                   <br>
 
 
@@ -453,9 +453,9 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                                                                           </figure>
                                                                         @endif
                                                                         @endforeach
-                                                                    
-                                                                    
-                                                                    </div>                
+
+
+                                                                    </div>
 																		</div>
 																		<div class="tab-pane fadeIn" id="profile-about">
                                                                     <div class="row">
@@ -464,7 +464,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                   <figure class="col-xs-12 col-sm-4 col-md-4">
                     <div class="card image-over-card m-t-30" style="box-shadow:0 1px 20px 6px rgba(0,0,0,.1)!important;">
                         <header class="card-heading">
-                                                                                                    @if($investment->bittrex_id != "")    
+                                                                                                    @if($investment->bittrex_id != "")
                                                                                                       <ul class="card-actions icons left-top">
                                                                                                         <li>
                                                                                                           <i class="material-icons" style="color:#5ecbf7;cursor:pointer;" data-toggle="tooltip" title="Verified Investment">verified_user</i>
@@ -513,24 +513,24 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                 } else {
                                     $prevbtc = $btc;
                                 }
-                        
+
                             $btcsold = $investment->sold_for;
-                          
+
                           ?>
                       <div class="card-body">
                         <h4 class="card-title text-center">{{number_format($btcsold,2)}}$</h4>
                                                                 <p class="text-center" style="font-size:11px;">({{$investment->amount}} {{$investment->crypto}})</p>
-                          
+
                         @if($btcsold > (($investment->amount * $investment->bought_at) * $prevbtc))
                         <span class="text-center label label-success" style="color:white;display:block;margin: 0 auto;float:left;font-size:12px;">{{number_format($btcsold - (($investment->amount * $investment->bought_at) * $prevbtc), 2)}}$</span>
-                          
-                          
+
+
                           <span class="text-center label label-success" style="color:white;display:block;margin: 0 auto;float:right;font-size:12px;">
                           {{number_format((100/(($investment->amount * $investment->bought_at) * $prevbtc)) * ($investment->sold_for - (($investment->amount * $investment->bought_at)) * $prevbtc), 2)}}%
                           </span>
                         @else
-                          
-                          
+
+
                         <span class="text-center label label-danger" style="color:white;display:block;margin: 0 auto;float:left;font-size:12px;">{{number_format($btcsold - (($investment->amount * $investment->bought_at) * $prevbtc), 2)}}$</span>
                           <span class="text-center label label-danger" style="color:white;display:block;margin: 0 auto;float:right;font-size:12px;">
                           {{number_format((100/(($investment->amount * $investment->bought_at) * $prevbtc)) * (($btcsold) - (($investment->amount * $investment->bought_at)) * $prevbtc), 2)}}%
@@ -546,17 +546,17 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                           <span style="float:left">{{number_format($investment->bought_at * $prevbtc,5)}}$</span>
                           <span style="float:right">{{number_format($btcsold/$investment->amount,5)}}$</span>
                           <br>
-                          
-                          
-                          
+
+
+
                       </div>
                     </div>
                   </figure>
                                                                         @endif
                                                                         @endforeach
-                                                                    
-                                                                    
-                                                                    </div> 
+
+
+                                                                    </div>
 																		</div>
 																		<div class="tab-pane fadeIn" id="profile-contacts">
 																			<div class="card card-transparent m-b-0">
@@ -623,7 +623,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 																			<textarea class="form-control" rows="5" id="edit-comment-field" name="comment" placeholder="Write a comment here.."></textarea>
 																		</div>
 																	</div>
-																
+
 															</div>
 															<div class="modal-footer p-t-0 bg-white">
 																<ul class="card-actions icons left-bottom m-b-15">
@@ -637,8 +637,8 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 													</div>
 													<!-- modal-dialog -->
 												</div>
-                                    
-                                    
+
+
 												<div class="modal fade" id="comment_modal" tabindex="-1" role="dialog" aria-labelledby="comment_modal">
 													<div class="modal-dialog" role="document">
 														<div class="modal-content">
@@ -664,7 +664,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 																			<textarea class="form-control" rows="5" name="comment" placeholder="Write a comment here.."></textarea>
 																		</div>
 																	</div>
-																
+
 															</div>
 															<div class="modal-footer p-t-0 bg-white">
 																<ul class="card-actions icons left-bottom m-b-15">
@@ -677,19 +677,19 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 														<!-- modal-content -->
 													</div>
 													<!-- modal-dialog -->
-												</div>                                    
-									@endif			                                    
-                                    
-                                    
+												</div>
+									@endif
+
+
                     @if(Auth::user()->username == $user->username)
         			<div class="modal fade" id="edit_profile" tabindex="-1" role="dialog" aria-labelledby="edit_profile">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Edit Profile Information</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -701,8 +701,8 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                            {{ csrf_field() }}
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Biography</label>
-                                    <input type="text" class="form-control" id="bio" autocomplete="off" value="{{Auth::user()->bio}}" name="bio"/> 
-                              </div>  
+                                    <input type="text" class="form-control" id="bio" autocomplete="off" value="{{Auth::user()->bio}}" name="bio"/>
+                              </div>
                           <div class="form-group">
                             <label class="control-label">About</label>
                             <textarea id="about" name="about" class="form-control">{{$user->about}}</textarea>
@@ -725,7 +725,7 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                                     <input type="checkbox" class="toggle-info" id="comments" name="comments" @if(Auth::user()->comments == "on") checked @endif> Profile Comments
                                   </label>
                                 </div>
-                            </div>  
+                            </div>
                              </div>
                             <button type="submit" class="btn btn-primary">Save Information</button>
                         </form>
@@ -735,15 +735,15 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 				</div>
 				<!-- modal-dialog -->
 			</div>
-                    
+
         			<div class="modal fade" id="edit_avatar" tabindex="-1" role="dialog" aria-labelledby="edit_avatar">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Change Avatar</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -769,10 +769,10 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Change header</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -792,16 +792,16 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 					<!-- modal-content -->
 				</div>
 				<!-- modal-dialog -->
-			</div>                    
-                    
+			</div>
+
         			<div class="modal fade" id="settings" tabindex="-1" role="dialog" aria-labelledby="settings">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Settings</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -833,16 +833,16 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 				</div>
 				<!-- modal-dialog -->
 			</div>
-                                    
-                                    
+
+
         			<div class="modal fade" id="change_password" tabindex="-1" role="dialog" aria-labelledby="change_password">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Change Password</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -854,19 +854,19 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                            {{ csrf_field() }}
                               <div class="form-group is-empty">
                                 <label for="" class="control-label">Current Password</label>
-                                    <input type="password" class="form-control" id="currentpwd" name="currentpwd"/> 
+                                    <input type="password" class="form-control" id="currentpwd" name="currentpwd"/>
                               </div>
                               <div class="form-group is-empty">
                                 <label for="" class="control-label">New Password</label>
-                                    <input type="password" class="form-control" id="newpwd" name="newpwd"/> 
-                              </div> 
+                                    <input type="password" class="form-control" id="newpwd" name="newpwd"/>
+                              </div>
                               <div class="form-group is-empty">
                                 <label for="" class="control-label">Confirm New Password</label>
-                                    <input type="password" class="form-control" id="cnewpwd" name="cnewpwd"/> 
-                              </div> 
-                            
-                            
-                            
+                                    <input type="password" class="form-control" id="cnewpwd" name="cnewpwd"/>
+                              </div>
+
+
+
                             <button type="submit" class="btn btn-primary">Change Password</button>
                         </form>
 						</div>
@@ -874,16 +874,16 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 					<!-- modal-content -->
 				</div>
 				<!-- modal-dialog -->
-			</div>                                    
-                    
+			</div>
+
         			<div class="modal fade" id="import" tabindex="-1" role="dialog" aria-labelledby="import">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
-							
+
 							<h4 class="modal-title" id="myModalLabel-2">Import Investments</h4>
 							<ul class="card-actions icons right-top">
-							<li>	
+							<li>
 								<a href="javascript:void(0)" data-dismiss="modal" class="text-white" aria-label="Close">
 									<i class="zmdi zmdi-close"></i>
 								</a>
@@ -900,20 +900,20 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
                            {{ csrf_field() }}
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Bittrex Public API key</label>
-                                    <input type="text" class="form-control" id="publickey" autocomplete="off" value="{{Auth::user()->api_key}}" name="publickey"/> 
-                              </div>  
+                                    <input type="text" class="form-control" id="publickey" autocomplete="off" value="{{Auth::user()->api_key}}" name="publickey"/>
+                              </div>
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Bittrex Private API Key</label>
-                                    <input type="password" class="form-control" id="privatekey" autocomplete="off" value="{{Auth::user()->api_secret}}" name="privatekey"/> 
-                              </div>  
+                                    <input type="password" class="form-control" id="privatekey" autocomplete="off" value="{{Auth::user()->api_secret}}" name="privatekey"/>
+                              </div>
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Poloniex Public API key</label>
-                                    <input type="text" class="form-control" id="publickey" autocomplete="off" value="{{Auth::user()->polo_api_key}}" name="polo_publickey"/> 
-                              </div>  
+                                    <input type="text" class="form-control" id="publickey" autocomplete="off" value="{{Auth::user()->polo_api_key}}" name="polo_publickey"/>
+                              </div>
                               <div class="form-group is-empty">
                           <label for="" class="control-label">Poloniex Private API Key</label>
-                                    <input type="password" class="form-control" id="privatekey" autocomplete="off" value="{{Auth::user()->polo_api_secret}}" name="polo_privatekey"/> 
-                              </div>                              
+                                    <input type="password" class="form-control" id="privatekey" autocomplete="off" value="{{Auth::user()->polo_api_secret}}" name="polo_privatekey"/>
+                              </div>
                             <button type="submit" class="btn btn-primary">Save API keys</button>
                         </form>
 						</div>
@@ -921,15 +921,15 @@ padding:5px;line-height:0.8em;color:letter-spacing:1px;color:darkcyan;">{{$coin-
 					<!-- modal-content -->
 				</div>
 				<!-- modal-dialog -->
-			</div>    
+			</div>
                     @endif
                     @endif
 
 @endsection
-                    
+
 @section('js')
-    <script src="/js/slim.kickstart.min.js" type="text/javascript"></script>      
-                                    
+    <script src="/js/slim.kickstart.min.js" type="text/javascript"></script>
+
     <script>
 $(".edit-comment").click(function(){
     $.ajax({
@@ -941,31 +941,31 @@ $(".edit-comment").click(function(){
     }
     });
 
-});                                    
+});
 </script>
-                                    
+
 <script type="text/javascript">
 
 $(function() {
     $('body').on('click', '.pagination button', function(e) {
         e.preventDefault();
         $page = $(this).attr('id');
-        var url = $(this).attr('href') + "?page=" + $page; 
+        var url = $(this).attr('href') + "?page=" + $page;
         getComments(url);
     });
 
     function getComments(url) {
         $.ajax({
-            url : url  
+            url : url
         }).done(function (data) {
-            $('#profile-comments').html(data);  
+            $('#profile-comments').html(data);
         }).fail(function () {
             alert('Comments could not be loaded.');
         });
     }
 });
 
-</script>        
-                                    
-                                    
-@endsection                    
+</script>
+
+
+@endsection

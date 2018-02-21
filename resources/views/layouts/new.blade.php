@@ -21,7 +21,7 @@
 
       <title>Altpocket - @yield('title')</title>
       <!--    favicon-->
-      <link rel="icon" href="/img/logo.gif" alt="Altpocket.io Logo">
+      <link rel="icon" href="/assets/logo.png" alt="Altpocket.io Logo">
 
       <!-- Bootstrap -->
       <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -104,7 +104,7 @@
                 <div class="container">
                     <!--========== Brand and toggle get grouped for better mobile display ==========-->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/"><img src="https://altpocket.io/assets/logo.gif" style="width:60px;" alt=""><img src="https://altpocket.io/assets/logo.gif" alt="" style="width:60px;"></a>
+                        <a class="navbar-brand" href="/"><img src="https://altpocket.io/assets/logo_white_text.png" style="width:200px;" alt=""><img src="https://altpocket.io/assets/logo_blue_text.png" alt="" style="width:200px;" ></a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar cross"></span>

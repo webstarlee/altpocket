@@ -11,9 +11,25 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('private-App.User.{id}', function ($user) {
+    return true;
 });
-Broadcast::channel('private-App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+Broadcast::channel('App.User.*', function ($user) {
+    return 1; // (int) $user->id === (int) $userId
+});
+
+Broadcast::channel('presence-test-channel', function () {
+    return 1;
+});
+
+Broadcast::channel('price-channel', function () {
+    return true;
+});
+
+Broadcast::channel('presence-price-channel', function () {
+    return true;
+});
+
+Broadcast::channel('chat', function ($user) {
+    return ['id' => $user->id, 'username' => $user->username];
 });

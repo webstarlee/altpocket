@@ -421,3 +421,70 @@ hr {
 #new-post {
   color: #c1c1c1;
 }
+.group-left-sidebar-container .group-title>a {
+    color: #c1c1c1!important;
+}
+.group-sidebar-menu-container .group-sidemenu-item>a {
+    color: #c1c1c1!important;
+}
+.group-sidebar-menu-container .group-sidemenu-item>a:hover,
+.group-sidebar-menu-container .group-sidemenu-item.active>a {
+    background-color: rgb(45, 45, 45)!important;
+    border: 1px solid #404040!important;
+}
+.btn-more.load-more-group-post {
+    background-color: #2d2d2d!important;
+    border: 1px solid #1d1d1d!important;
+    color: #c2c5d9!important;
+}
+.btn-more.load-more-group-post:hover {
+    background-color: #577ef5!important;
+    color: #fff;
+}
+.group-more-dropdown-btn::before {
+    color: #282828!important;
+}
+.view-all-group-members-container {
+    border-top: 1px solid #1d1d1d!important;
+}
+.group-member-contents>ul>li>a {
+    border: 1px solid #2d2d2d!important;
+}
+.about-group-member-contents>ul>li>a {
+    border: 1px solid #2d2d2d!important;
+}
+.notification-list .selectize-dropdown-content>:hover,
+.notification-list li:hover {
+    background-color: #212627!important;
+}
+.group-member-view-type-title-container>p {
+    border-bottom: 1px solid #1d1d1d!important;
+}
+.select2-container--bootstrap .select2-selection {
+    background-color: #191919!important;
+}
+.select2-dropdown {
+    background-color: #191919!important;
+}
+.select2-result-repository__title {
+    color: #7e839c!important;
+}
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+    background-color: #191919!important;
+    color: #787d94!important;
+}
+.select2-results__option--highlighted .select2-result-repository__title {
+    color: #fff!important;
+}
+.youtube.youtube-single {
+    box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.65)!important;
+}
+.title-description-container p.title {
+    color: #c1c1c1!important;
+}
+.title-description-container p.description {
+    color: #c1c1c1!important;
+}
+.title-description-container p.youtube-com {
+    color: #c1c1c1!important;
+}

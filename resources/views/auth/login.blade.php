@@ -46,6 +46,13 @@
     ga('send', 'pageview');
 
   </script>
+
+	<style>
+		.form-group2 {
+			margin-bottom:10px!important;
+		}
+
+	</style>
 </head>
 
 <body class="landing-page">
@@ -98,7 +105,7 @@
 				<p>We are the only tool you need for tracking, showcasing and manging your cryptocurrency investments.
           Now with a touch of socialization and Gamification.
 				</p>
-				<a href="#" class="btn btn-md btn-border c-white" style="background-color:white;">Register Now!</a>
+				<a href="#home" class="btn btn-md btn-border c-white" style="background-color:white;" role="tab" aria-expanded="false" data-toggle="tab">Register Now!</a>
 			</div>
 		</div>
 
@@ -124,40 +131,40 @@
 						<div class="title h6">Register to Altpocket</div>
 						<form class="content" role="form" method="POST" action="{{ route('register') }}" id="createaccountt">
 							<div class="row">
-                @if (count($errors))
-                        @foreach($errors->all() as $error)
-                <div class="col-xl-12 col-lg-12 col-md-12">
-                  <div class="alert alert-danger" role="alert">
-                    <strong>Oh snap!</strong>
-                  </div>
-                </div>
-                        @endforeach
-                @endif
+								@if (count($errors))
+	                      @foreach($errors->all() as $error)
+	              <div class="col-xl-12 col-lg-12 col-md-12">
+	                <div class="alert alert-danger" role="alert">
+	                  <strong>Oh snap!</strong> {{$error}}
+	                </div>
+	              </div>
+	                      @endforeach
+	              @endif
                 {{ csrf_field() }}
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Username</label>
-										<input class="form-control" placeholder="" type="text" name="username">
+										<input class="form-control2" placeholder="" type="text" name="username">
 									</div>
 								</div>
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Email</label>
-										<input class="form-control" placeholder="" type="email" name="email">
+										<input class="form-control2" placeholder="" type="email" name="email">
 									</div>
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Password</label>
-										<input class="form-control" placeholder="" type="password" name="password">
+										<input class="form-control2" placeholder="" type="password" name="password">
 									</div>
-                  <div class="form-group label-floating is-empty">
+                  <div class="form-group2 label-floating is-empty">
 										<label class="control-label">Confirm Password</label>
-										<input class="form-control" placeholder="" type="password" name="password_confirmation">
+										<input class="form-control2" placeholder="" type="password" name="password_confirmation">
 									</div>
 									<div class="remember">
 										<div class="checkbox">
 											<label>
 												<input name="optionsCheckboxes" type="checkbox">
-												I accept the <a href="#">Terms and Conditions</a> of the website
+												I accept the <a href="https://docs.google.com/document/d/1kmPggYBodjUzAllo-T-mZR4UTxSQ-Bq9dTSioOvo3rY/edit?usp=sharing">Terms and Conditions</a> of the website
 											</label>
 										</div>
 									</div>
@@ -184,13 +191,13 @@
              {{ csrf_field() }}
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Username or Email</label>
-										<input class="form-control" placeholder="" type="text" name="username">
+										<input class="form-control2" placeholder="" type="text" name="username">
 									</div>
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">Password</label>
-										<input class="form-control" placeholder="" type="password" name="password">
+										<input class="form-control2" placeholder="" type="password" name="password">
 									</div>
 
 									<div class="remember">
@@ -246,7 +253,37 @@
 <script src="/version2/js/mediaelement-and-player.min.js"></script>
 <script src="/version2/js/mediaelement-playlist-plugin.min.js"></script>
 
+<script>
 
+$('a').click(function(){
+
+ if($(this).hasClass('btn')){
+	 ga('send', {
+		hitType: 'event',
+		eventCategory: 'Click',
+		eventAction: 'A',
+		eventLabel: $(this).parent(0).attr('data-original-title')
+	});
+} else {
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'A',
+	 eventLabel: $(this).text()
+ });
+}
+});
+
+$('button').click(function(){
+	ga('send', {
+	 hitType: 'event',
+	 eventCategory: 'Click',
+	 eventAction: 'Button',
+	 eventLabel: $(this).text()
+ });
+});
+
+</script>
 
 
 </body>

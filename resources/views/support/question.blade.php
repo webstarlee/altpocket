@@ -17,7 +17,7 @@
               <div class="col-md-12">
                   <div class="page-title">
                       <h2>{{$question->title}}</h2>
-                      <span class="sub-title"><a href="/support">Home </a> / Question</span>
+                      <span class="sub-title"><a href="/support">Home </a> / <a href="/questions">Questions </a> / {{$question->title}}</span>
                   </div>
               </div>
           </div>
@@ -98,9 +98,9 @@
                                       <div class="dwqa-answer-meta" style="width:100%;">
                                           <span><a style="color:#2196F3;" href="/user/{{$u->username}}">
                                             @if($u->avatar != "default.jpg")
-                                            <img alt="authors" style="width:54px;" src="/uploads/avatars/{{$u->id}}/{{$u->avatar }}"/>
+                                            <img alt="authors" style="width:54px;border-radius:100%" src="/uploads/avatars/{{$u->id}}/{{$u->avatar }}"/>
                                             @else
-                                            <img alt="authors" style="width:54px;" src="/assets/img/default.png"/>
+                                            <img alt="authors" style="width:54px;border-radius:100%" src="/assets/img/default.png"/>
                                             @endif
                                             @if(\App\User::where('id', $u->id)->first()->isStaff() || \App\User::where('id', $u->id)->first()->isFounder())
                                               <span class="label label-success">Staff</span>
@@ -178,9 +178,9 @@
                                       <div class="dwqa-answer-meta" style="width:100%;">
                                           <span><a style="color:#2196F3;" href="/user/{{$u->username}}">
                                             @if($u->avatar != "default.jpg")
-                                            <img alt="authors" style="width:54px;" src="/uploads/avatars/{{$u->id}}/{{$u->avatar }}"/>
+                                            <img alt="authors" style="width:54px;border-radius:100%" src="/uploads/avatars/{{$u->id}}/{{$u->avatar }}"/>
                                             @else
-                                            <img alt="authors" style="width:54px;" src="/assets/img/default.png"/>
+                                            <img alt="authors" style="width:54px;border-radius:100%" src="/assets/img/default.png"/>
                                             @endif
                                             @if(\App\User::where('id', $u->id)->first()->isStaff() || \App\User::where('id', $u->id)->first()->isFounder())
                                               <span class="label label-success">Staff</span>

@@ -10,7 +10,7 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 	<!-- Main Font -->
-	<script src="js/webfontloader.min.js"></script>
+	<script src="/version2/js/webfontloader.min.js"></script>
 	<script>
 		WebFont.load({
 			google: {
@@ -35,6 +35,7 @@
 	<link rel="stylesheet" type="text/css" href="/version2/css/jquery.mCustomScrollbar.min.css">
 	<link rel="stylesheet" type="text/css" href="/version2/css/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="/version2/css/bootstrap-select.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
 
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -46,6 +47,12 @@
     ga('send', 'pageview');
 
   </script>
+	<style>
+		.form-group2 {
+			margin-bottom:10px!important;
+		}
+
+	</style>
 </head>
 
 <body class="landing-page">
@@ -97,7 +104,7 @@
 
 		</div>
 
-		<div class="col-xl-5 col-lg-6 col-md-12 col-sm-12 col-xs-12" style="margin-top:150px;">
+		<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" style="margin-top:150px;">
 			<div class="registration-login-form" style="padding-left:0px!important;min-height:0;">
 
 				<!-- Tab panes -->
@@ -111,9 +118,9 @@
               <input type="text" style="display:none" name="secret" value="{{$secret}}">
 							<div class="row">
 								<div class="col-xl-12 col-lg-12 col-md-12">
-									<div class="form-group label-floating is-empty">
+									<div class="form-group2 label-floating is-empty">
 										<label class="control-label">2FA Code</label>
-										<input class="form-control" placeholder="" type="text" name="totp">
+										<input class="form-control2" placeholder="" type="text" name="totp" required>
 									</div>
 
 									<button type="submit" class="btn btn-lg full-width" style="background-color:#3a94ff;color:white!important;">Disable</button>
@@ -154,6 +161,8 @@
 
 <script src="/version2/js/mediaelement-and-player.min.js"></script>
 <script src="/version2/js/mediaelement-playlist-plugin.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
+@include('sweet::alert')
 
 
 

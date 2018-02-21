@@ -13,5 +13,11 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         'donate/*',
+        'broadcasting/auth',
+        'broadcasting/auth/',
+        'socket.io/*',
+        'auth/*',
+        'auth',
+        'auth/'
     ];
 }

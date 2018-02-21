@@ -50,11 +50,9 @@ class Disable2FA extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->subject('Altpocket - Disable 2FA Request')
-                    ->line('You have requested to disable 2FA on your Altpocket.io account, please click the button below to disable it.')
-                    ->action('Disable 2FA', url($this->generateUrl()))
-                    ->line('Thank you for using Altpocket!');
+      return (new MailMessage)->view(
+          'emails.auth.disable2fa', ['url' => $this->generateUrl()]
+      )->subject('Disable 2FA on Altpocket');
     }
 
     /**

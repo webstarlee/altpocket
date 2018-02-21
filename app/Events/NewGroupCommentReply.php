@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Events;
+
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Broadcasting\PrivateChannel;
+use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+
+class NewGroupCommentReply implements ShouldBroadcast
+{
+    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
+    protected $groupCommentid;
+    protected $groupReplyid;
+    protected $userid;
+
+    public function __construct($groupCommentid, $groupReplyid, $userid)
+    {
+        $this->groupCommentid = $groupCommentid;
+        $this->groupReplyid = $groupReplyid;
+        $this->userid = $userid;
+    }
+
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return Channel|array
+     */
+    public function broadcastOn()
+    {
+        return new Channel('newGroupCommentReplyEvent');
+    }
+
+    public function broadcastWith()
+    {
+        return [
+            'commentId' => $this->groupCommentid,
+            'replyId' => $this->groupReplyid,
+            'userId' => $this->userid
+        ];
+    }
+
+    public function broadcastAs()
+    {
+        return 'newGroupCommentReplyListner';
+    }
+}

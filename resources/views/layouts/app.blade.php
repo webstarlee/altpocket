@@ -152,7 +152,6 @@ if(Auth::user())
                         <img src="/assets/img/logo.png" alt="" class="img-circle max-w-35">
                     @endif
 
-                    <i class="badge mini success status"></i>
                   </span>
                   <span class="name">{{Auth::user()->username}}</span>
                   <span class="caret"></span>
@@ -631,7 +630,7 @@ if(Auth::user())
                     <li class="nav-dropdown"><a href="#"><i class="zmdi zmdi-help"></i>Support</a>
         							<ul class="nav-sub">
                         <li><a href="/support">Support Center</a></li>
-                        <li><a href="https://discord.gg/wJXwRrU">Support Discord</a></li>
+                        <li><a href="https://discord.gg/YzdgGjG">Support Discord</a></li>
                       </ul>
                     </li>
 
@@ -657,7 +656,7 @@ if(Auth::user())
                     <li class="nav-dropdown"><a href="#"><i class="zmdi zmdi-help"></i>Support</a>
         							<ul class="nav-sub">
                         <li><a href="/support">Support Center</a></li>
-                        <li><a href="https://discord.gg/wJXwRrU">Support Discord</a></li>
+                        <li><a href="https://discord.gg/YzdgGjG">Support Discord</a></li>
                       </ul>
                     </li>
                     <li><a href="/importing-orders"><i class="fa fa-download"></i>Importing Orders</a></li>
@@ -923,7 +922,7 @@ All costs are currently being payed by Edwin and Svensson's own pockets as of to
 @yield('earlyjs')
 
 <script src="/assets/js/vendor.bundle.js"></script>
-<script src="/assets/js/app.bundle.js?v=2.3"></script>
+<script src="/assets/js/app.bundle.js?v=2.5"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.min.js"></script>
 <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -936,6 +935,14 @@ All costs are currently being payed by Edwin and Svensson's own pockets as of to
 
 @yield('js')
 <script>
+$('textarea').on('keydown', event => {
+    if (event.keyCode == 37 || event.keyCode == 39)
+      event.stopImmediatePropagation();
+  });
+  $('input').on('keydown', event => {
+      if (event.keyCode == 37 || event.keyCode == 39)
+        event.stopImmediatePropagation();
+    });
 @if(Auth::user())
 // Enable pusher logging - don't include this in production
 

@@ -5,6 +5,7 @@ use App\Key;
 use App\Balance;
 use Auth;
 use Illuminate\Http\Request;
+use App\Events\PushEvent;
 
 // Simple Coinbase Wrapper
 class CoinBase {

@@ -27,21 +27,21 @@
                   <div class="single-community">
                       <div class="icons"><i class="fa fa-plug"></i></div>
                       <h3>Successful Pivot</h3>
-                      <p>The founders of Altpocket was previously working on a E-Learning platform, however in May 2017 they decided to move onto Altpocket due to the demand of its service.</p>
+                      <p>The founders of Altpocket were previously working on a e-Learning platform, however, in May, 2017, they decided to move onto Altpocket due to the demand of its services.</p>
                   </div>
               </div>
               <div class="col-sm-4">
                   <div class="single-community">
                       <div class="icons"><i class="fa fa-random"></i></div>
                       <h3>Constantly Evolving</h3>
-                      <p>Altpocket was initially a side project that was released in May 2017 as a portfolio, however since then it has evolved to be more than just a portfolio.</p>
+                      <p>Altpocket was initially a side project that was released in May, 2017, as a portfolio, however since then it has evolved to be more than just a portfolio.</p>
                   </div>
               </div>
               <div class="col-sm-4">
                   <div class="single-community">
                       <div class="icons"><i class="fa fa-rocket"></i></div>
                       <h3>To The Moon</h3>
-                      <p>Altpocket is aiming for the moon, our goals is to become more than just a portfolio, we want to be the only platform you need for managing cryptocurrency investments.</p>
+                      <p>Altpocket is aiming for the moon, our goal is to become more than just a portfolio, we want to be the only platform you need for managing cryptocurrency investments.</p>
                   </div>
               </div>
           </div>
@@ -73,7 +73,7 @@
                               <h4>The Story Began</h4>
                           </div>
                           <div class="timeline-body">
-                              <p>Early September in 2016 we started development of our first project, company and platform. Learnimore which was going to become a E-Learning platform later.</p>
+                              <p>In early September, 2016 we started development of our first project, company and platform - Learnimore, which was going to become a E-Learning platform later.</p>
                           </div>
                       </div>
                   </div>
@@ -89,7 +89,7 @@
                               <h4>Learnimore Officially Launched</h4>
                           </div>
                           <div class="timeline-body">
-                              <p>Early March 2017 Learnimores platform was complete and launched to the public.</p>
+                              <p>In early March, 2017, Learnimore's platform was complete and launched to the public.</p>
                           </div>
                       </div>
                   </div>
@@ -105,7 +105,7 @@
                               <h4>Learnimore Shutdown, Altpocket Began</h4>
                           </div>
                           <div class="timeline-body">
-                              <p>Learnimore was not as much as a success as we hoped, on this day we not only Launched Altpocket which had been a sideproject from the Developer but decided that this is what we want to do.</p>
+                              <p>Learnimore was not as much of a success as we hoped, on this day we not only launched Altpocket which had been a sideproject of the developer, but we decided that this is what we want to do.</p>
                           </div>
                       </div>
                   </div>
@@ -121,7 +121,7 @@
                               <h4>Altpocket today</h4>
                           </div>
                           <div class="timeline-body">
-                              <p>Barely 2 months has gone and we have over 5000 registered users and we track over 120K+ investments. The future is bright for Altpocket.</p>
+                              <p>Barely 2 months has gone and we have over 5000 registered users and we track over 120 thousand investments. The future is bright for Altpocket.</p>
                           </div>
                       </div>
                   </div>
@@ -136,7 +136,7 @@
           <div class="row">
               <div class="col-md-12">
                   <div class="about-us-info">
-                      <h2>Altpocket is here to stay, register today and track your cryptocurrency investment among thousands of users.</h2>
+                      <h2>Altpocket is here to stay, register today and track your cryptocurrency investments among thousands of users.</h2>
                       <a class="themeix-btn primary-bg" href="/login">Register Today</a>
                   </div>
               </div>
@@ -157,7 +157,7 @@
           <div class="team-member-wrapper owl-carousel">
               <div class="single-team wow zoomIn animated">
                   <div class="team-member-img">
-                      <a href="#"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAiQAAAAJDk5MmU2YzM5LWJiMGMtNDYxMi05OGQ1LThmN2NhMDU0YTRjMA.jpg" alt="member"></a>
+                      <a href="#"><img src="https://altpocket.io/uploads/avatars/1/NlrnqID.png" alt="member"></a>
                       <div class="social-profile">
                           <ul>
                               <li><a href="https://twitter.com/altpocket"><i class="fa fa-twitter"></i></a></li>
@@ -170,7 +170,7 @@
               </div>
               <div class="single-team wow zoomIn animated">
                   <div class="team-member-img">
-                      <a href="#"><img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAg5AAAAJDA3ZjAyM2U3LTNiMDEtNDZhYi05YzllLTIyNjlkMDUwMWM2Nw.jpg" alt=""></a>
+                      <a href="#"><img src="https://altpocket.io/uploads/avatars/359/jonathan-altpocket-test.png" alt=""></a>
                       <div class="social-profile">
                           <ul>
                               <li><a href="https://twitter.com/altpocket"><i class="fa fa-twitter"></i></a></li>
@@ -205,28 +205,14 @@
                       </div>
                   </div>
                   <h5><a href="#">Mr. Erik Ervik</a></h5>
-                  <h6>Senior Support</h6>
+                  <h6>Administrator</h6>
               </div>
               <div class="single-team wow zoomIn animated">
                   <div class="team-member-img">
-                      <a href="#"> <img src="https://altpocket.io/uploads/avatars/462/profile%20pic%20no%20gif.png" alt="member"></a>
+                      <a href="#"> <img src="https://altpocket.io/uploads/avatars/462/IMG_0498_Cropped.jpg" alt="member"></a>
                   </div>
-                  <h5><a href="#">Mr. BZRK</a></h5>
-                  <h6>Support</h6>
-              </div>
-              <div class="single-team wow zoomIn animated">
-                  <div class="team-member-img">
-                      <a href="#"><img src="https://altpocket.io/uploads/avatars/1233/Design_02.jpg" alt=""></a>
-                  </div>
-                  <h5><a href="#">Mr. Heinekens</a></h5>
-                  <h6>Support</h6>
-              </div>
-              <div class="single-team wow zoomIn animated">
-                  <div class="team-member-img">
-                      <a href="#"><img src="https://altpocket.io/uploads/avatars/108/Fruuukt.png" alt=""></a>
-                  </div>
-                  <h5><a href="#">Mr. Frukt</a></h5>
-                  <h6>Support</h6>
+                  <h5><a href="#">Mr. Lewis</a></h5>
+                  <h6>Administrator</h6>
               </div>
           </div>
       </div>

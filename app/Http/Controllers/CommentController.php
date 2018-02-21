@@ -34,48 +34,6 @@ class CommentController extends HomeController
         $this->comments = $comments;
     }
 
-    public function profile($username, Request $request){
-
-        $comments = $this->comments->latest('created_at')->paginate(5);
-        $user = User::where('username', $username)->first();
-
-
-        if($request->ajax()){
-            return view('module.comment', ['comments' => $comments])->render();
-        }
-
-
-        if($user != null)
-        {
-            if($user->public == "on")
-            {
-                return view('profile2', ['user' => $user, 'networth' => HomeController::netWorth($user->id), 'btc' => HomeController::btcUsd(), 'investments' => Investment::where('userid', $user->id)->get(), 'spent' => HomeController::allTimeSpent($user->id), 'alltimesold' => HomeController::allTimeSold($user->id), 'comments' => $comments]);
-
-            } else
-            {
-                if(Auth::user())
-                {
-                    if(Auth::user()->username = $user->username)
-                    {
-                return view('profile2', ['user' => $user, 'networth' => HomeController::netWorth($user->id), 'btc' => HomeController::btcUsd(), 'investments' => Investment::where('userid', $user->id)->get(), 'spent' => HomeController::allTimeSpent($user->id), 'alltimesold' => HomeController::allTimeSold($user->id), 'comments' => Comment::where('userid', $user->id)->paginate(5)]);
-                    } else
-                    {
-                        return view('private');
-                    }
-                } else
-                {
-                    return view('private');
-                }
-
-            }
-        } else
-        {
-            return view('404');
-
-        }
-
-    }
-
 
   public function showProfile($username, Request $request)
     {
@@ -111,31 +69,41 @@ class CommentController extends HomeController
         }
 
 
-        if($user){
-            $comments = $this->comments->where([['userid', '=', $user->id]])->orderBy('created_at', 'desc')->paginate(5);
-            $p_investments = PoloInvestment::where([['userid', '=', $user->id]])->get();
-            $b_investments = BittrexInvestment::where([['userid', '=', $user->id]])->get();
+        if($user != null){
+          $p_investments = Cache::remember('p_investments'.$user->id, 60, function() use ($user)
+          {
+            return PoloInvestment::where([['userid', '=', $user->id], ['amount', '>', 0]])->get();
+          });
 
-            $m_investments = ManualInvestment::where([['userid', '=', $user->id]])->get();
-        }
+          $b_investments = Cache::remember('b_investments'.$user->id, 60, function() use ($user)
+          {
+            return BittrexInvestment::where([['userid', '=', $user->id], ['amount', '>', 0]])->get();
+          });
 
-        if($request->ajax()){
-            return view('module.comment', ['comments' => $comments])->render();
+          $m_investments = Cache::remember('m_investments'.$user->id, 60, function() use ($user)
+          {
+            return ManualInvestment::where([['userid', '=', $user->id], ['amount', '>', 0]])->get();
+          });
+
+          $balance = Cache::remember('balances'.$user->id, 60, function() use ($user)
+          {
+            return Balance::where([['userid', '=', $user->id], ['amount', '>', '0.00001']])->get();
+          });
         }
 
         if($user != null){
-            if(User::where('username', $username)->first()->public == "on"){
-                if(Auth::user())
+            if($user->public == "on"){
+                if(Auth::check())
                 {
-                return view('profile', ['user' => User::where('username', $username)->first(), 'networth' => $user->getNetWorthNew(Auth::user()->api), 'btc' => HomeController::btcUsd(), 'comments' => $comments, 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => Balance::where('userid', $user->id)->get(), 'n_minings' => Mining::where('userid', $user->id)->get()]);
+                return view('profile', ['user' => $user, 'networth' => $user->getNetWorthNew(Auth::user()->api), 'btc' => HomeController::btcUsd(), 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => $balance, 'n_minings' => Mining::where('userid', $user->id)->get()]);
               } else {
-                return view('profile', ['user' => User::where('username', $username)->first(), 'networth' => $user->getNetWorthNew('coinmarketcap'), 'btc' => HomeController::btcUsd(),'comments' => $comments, 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => Balance::where('userid', $user->id)->get(), 'n_minings' => Mining::where('userid', $user->id)->get()]);
+                return view('profile', ['user' => $user, 'networth' => $user->getNetWorthNew('coinmarketcap'), 'btc' => HomeController::btcUsd(), 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => $balance, 'n_minings' => Mining::where('userid', $user->id)->get()]);
               }
 
             } else {
                 if(Auth::user()){
                     if($username == Auth::user()->username || Auth::user()->isFounder()){
-                        return view('profile', ['user' => User::where('username', $username)->first(), 'networth' => $user->getNetWorthNew(Auth::user()->api), 'btc' => HomeController::btcUsd(), 'comments' => $comments, 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => Balance::where('userid', $user->id)->get(), 'n_minings' => Mining::where('userid', $user->id)->get()]);
+                        return view('profile', ['user' => User::where('username', $username)->first(), 'networth' => $user->getNetWorthNew(Auth::user()->api), 'btc' => HomeController::btcUsd(), 'p_investments' => $p_investments, 'b_investments' => $b_investments, 'm_investments' => $m_investments, 'balances' => $balance, 'n_minings' => Mining::where('userid', $user->id)->get()]);
                     } else {
                     return view('private');
                     }
@@ -155,7 +123,8 @@ class CommentController extends HomeController
                 'icon' => 'fa fa-download',
                 'title' => 'Importing fixed',
                 'data' => 'Importing has been fixed and improved.',
-                'type' => 'news'
+                'type' => 'news',
+                'category' => 'success'
             ];
 
         foreach($users as $user){
@@ -207,7 +176,8 @@ class CommentController extends HomeController
                 'icon' => 'fa fa-comment',
                 'title' => 'New comment',
                 'data' => 'You have a new comment on your profile.',
-                'type' => 'comment'
+                'type' => 'comment',
+                'category' => 'success'
             ];
 
                 $notifiable->notify(new NewComment($notification));
@@ -286,7 +256,8 @@ class CommentController extends HomeController
                 'icon' => 'fa fa-comment',
                 'title' => 'New comment',
                 'data' => 'You have a new comment on your profile.',
-                'type' => 'comment'
+                'type' => 'comment',
+                'category' => 'success'
             ];
 
             $user->notify(new NewComment($notification));
